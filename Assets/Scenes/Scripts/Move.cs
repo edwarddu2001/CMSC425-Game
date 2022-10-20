@@ -90,6 +90,7 @@ public class Move : MonoBehaviour
             canJump = true;
             canMove = true;
         }
+        
     }
 
     void OnCollisionExit(Collision collisionInfo)
@@ -99,6 +100,7 @@ public class Move : MonoBehaviour
             canJump = false;
             canMove = false;
         }
+        
     }
     
 }

@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Move : MonoBehaviour
+public class Mover : MonoBehaviour
 {
     private Rigidbody rb;
     public float speed = 5.0f;
     public GameObject ground;
     private bool canJump = false;
-    private bool canMove = true;
-    public float jumpSpeed = 30;
+    public float jumpSpeed = 10;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,43 +23,27 @@ public class Move : MonoBehaviour
         
             if (Input.GetKey(KeyCode.A))
             {
-                if (canMove) {
-                    movePressed = true;
-                    vel.x = -speed;
-                }
-                
+                movePressed = true;
+                vel.x = -speed;
             }
             if (Input.GetKey(KeyCode.D))
             {
-                if (canMove) {
-                    movePressed = true;
-                    vel.x = speed;
-                }
-                
+                movePressed = true;
+                vel.x = speed;
             }
             if (Input.GetKey(KeyCode.S))
             {
-                if (canMove){
-                    movePressed = true;
-                    vel.z = -speed;
-                }
-                
+                movePressed = true;
+                vel.z = -speed;
             }
             if (Input.GetKey(KeyCode.W))
             {
-                if(canMove) {
-                    movePressed = true;
-                    vel.z = speed;
-                }
-                
+                movePressed = true;
+                vel.z = speed;
             }
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetKey(KeyCode.E))
             {
-                if (canMove) {
-                    //vel.y += jump();
-                    rb.AddForce(Vector3.up * jump(),ForceMode.Impulse );
-                }
-               
+                vel.y += jump();
             }
         if (movePressed == true){
             vel = Vector3.Normalize(vel - new Vector3(0,vel.y,0)) ;
@@ -74,7 +57,6 @@ public class Move : MonoBehaviour
         if (canJump){
             Debug.Log("jumping");
             canJump = false;
-            canMove = false;
             return jumpSpeed;
 
             
@@ -83,24 +65,20 @@ public class Move : MonoBehaviour
         return 0f;
     }
 
-    void OnCollisionEnter(Collision collisionInfo)
+    void  OnCollisionEnter(Collision collisionInfo)
     {   
-        if (collisionInfo.gameObject.tag == "Ground"){
+        if (collisionInfo.gameObject == ground){
             Debug.Log("bump");
             canJump = true;
-            canMove = true;
         }
-        
     }
 
     void OnCollisionExit(Collision collisionInfo)
     {
-        if (collisionInfo.gameObject.tag == "Ground"){
+        if (collisionInfo.gameObject == ground){
             Debug.Log("pmub");
             canJump = false;
-            canMove = false;
         }
-        
     }
     
 }

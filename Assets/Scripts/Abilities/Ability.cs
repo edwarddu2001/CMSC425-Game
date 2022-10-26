@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Ability : MonoBehaviour{
+    
     void OnEquip(){
         Debug.Log("Ability Equipped");
     }

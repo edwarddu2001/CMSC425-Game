@@ -95,6 +95,8 @@ public class Move : MonoBehaviour
         
     }
 
+
+
     void OnCollisionExit(Collision collisionInfo)
     {
         if (collisionInfo.gameObject.tag == "Ground"){

@@ -10,6 +10,7 @@ public class Move : MonoBehaviour
     private bool canJump = false;
     private bool canMove = true;
     public float jumpSpeed = 30;
+    private int inContactWithGround = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -89,16 +90,22 @@ public class Move : MonoBehaviour
             Debug.Log("bump");
             canJump = true;
             canMove = true;
+            inContactWithGround ++;
         }
         
     }
+
+
 
     void OnCollisionExit(Collision collisionInfo)
     {
         if (collisionInfo.gameObject.tag == "Ground"){
             Debug.Log("pmub");
-            canJump = false;
-            canMove = false;
+            inContactWithGround --;
+            if (inContactWithGround == 0){
+                canJump = false;
+                canMove = false;
+            }
         }
         
     }

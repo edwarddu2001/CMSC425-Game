@@ -6,7 +6,6 @@ public class Move : MonoBehaviour
 {
     private Rigidbody rb;
     public float speed = 5.0f;
-    public GameObject ground;
     private bool canJump = false;
     private bool canMove = true;
     public float jumpSpeed = 30;

@@ -4,22 +4,40 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
+    //This object's rigidbody
     private Rigidbody rb;
+    //Movement speed (is just a factor used in forces, not in units)
     public float speed = 15.0f;
+
+    //tracks if we can jump and are grounded (usually the same, but some ablilities may change that)
     private bool canJump = false;
     private bool grounded = true;
+
+    //A divider on aerial control, higher number = less responsive, 1 = as if on ground 
     public float airMoveFactor = 1.0f;
+
+    //how fast you slow down when not inputting
     public float dragCoeff = 5f;
+
+    //how hard the jump force is
     public float jumpSpeed = 15;
+
+    //when this is 0 we are not able to jump
     private int inContactWithGround = 0;
+
+    //used to see which movement buttons have been pushed since last fixedUpdate
     private bool[] queueWASDJ = {false, false, false, false, false};
-    // Start is called before the first frame update
+    
+
     void Start()
     {
+        //set rb
         rb = GetComponent<Rigidbody>();
     }
 
+    
     void Update (){
+        //queues the inputs for fixed update
         if (Input.GetKey(KeyCode.W)){
             queueWASDJ[0] = true;
         }
@@ -39,6 +57,7 @@ public class Move : MonoBehaviour
 
     void FixedUpdate()
     {
+        //used to see if we should slow down
         bool movePressed = false;
         if (queueWASDJ[1])
         {
@@ -88,13 +107,16 @@ public class Move : MonoBehaviour
             }
                
         }
+        //add drag
         if(!movePressed){
             rb.AddForce(dragXZ(rb.velocity, dragCoeff));
         }
+        //reset the queue
         queueWASDJ = new bool[] {false, false, false, false, false};
 
     }
 
+    //create the drag, don't affect y velocity
     private Vector3 dragXZ (Vector3 v, float drag){
         return new Vector3(-v.x*drag, 0, -v.z*drag);
     }

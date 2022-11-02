@@ -5,76 +5,105 @@ using UnityEngine;
 public class Move : MonoBehaviour
 {
     private Rigidbody rb;
-    public float speed = 5.0f;
+    public float speed = 15.0f;
     private bool canJump = false;
-    private bool canMove = true;
-    public float jumpSpeed = 30;
+    private bool grounded = true;
+    public float airMoveFactor = 1.0f;
+    public float dragCoeff = 5f;
+    public float jumpSpeed = 15;
     private int inContactWithGround = 0;
+    private bool[] queueWASDJ = {false, false, false, false, false};
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void Update (){
+        if (Input.GetKey(KeyCode.W)){
+            queueWASDJ[0] = true;
+        }
+        if (Input.GetKey(KeyCode.A)){
+            queueWASDJ[1] = true;
+        }
+        if (Input.GetKey(KeyCode.S)){
+            queueWASDJ[2] = true;
+        }
+        if (Input.GetKey(KeyCode.D)){
+            queueWASDJ[3] = true;
+        }
+        if (Input.GetKey(KeyCode.Space)){
+            queueWASDJ[4] = true;
+        }
+    }
+
+    void FixedUpdate()
     {
         bool movePressed = false;
-        Vector3 vel = rb.velocity;
-        
-            if (Input.GetKey(KeyCode.A))
-            {
-                if (canMove) {
-                    movePressed = true;
-                    vel.x = -speed;
-                }
-                
+        if (queueWASDJ[1])
+        {
+            if (grounded) {
+                rb.AddForce(new Vector3(-speed,0,0));
+            } else {
+                rb.AddForce(new Vector3(-speed/airMoveFactor,0,0));
             }
-            if (Input.GetKey(KeyCode.D))
-            {
-                if (canMove) {
-                    movePressed = true;
-                    vel.x = speed;
-                }
-                
-            }
-            if (Input.GetKey(KeyCode.S))
-            {
-                if (canMove){
-                    movePressed = true;
-                    vel.z = -speed;
-                }
-                
-            }
-            if (Input.GetKey(KeyCode.W))
-            {
-                if(canMove) {
-                    movePressed = true;
-                    vel.z = speed;
-                }
-                
-            }
-            if (Input.GetButtonDown("Jump"))
-            {
-                if (canMove) {
-                    //vel.y += jump();
-                    rb.AddForce(Vector3.up * jump(),ForceMode.Impulse );
-                }
-               
-            }
-        if (movePressed == true){
-            vel = Vector3.Normalize(vel - new Vector3(0,vel.y,0)) ;
-            vel = vel*speed + new Vector3(0,vel.y,0);
-        }
 
-        rb.velocity = vel;
+            movePressed = true;
+                
+        }
+        if (queueWASDJ[3])
+        {
+            if (grounded) {
+            rb.AddForce(new Vector3(speed,0,0));
+            } else {
+                rb.AddForce(new Vector3(speed/airMoveFactor,0,0));
+            }
+            movePressed = true;
+                
+        }
+        if (queueWASDJ[2])
+        {
+            if (grounded){
+                rb.AddForce(new Vector3(0,0,-speed));
+            } else {
+                rb.AddForce(new Vector3(0,0,-speed/airMoveFactor));
+            }
+            movePressed = true;
+                
+        }
+        if (queueWASDJ[0])
+        { 
+            if(grounded) {
+                rb.AddForce(new Vector3(0,0,speed));
+            } else {
+                rb.AddForce(new Vector3(0,0,speed/airMoveFactor));
+            }
+            movePressed = true;
+                
+        }
+        if (queueWASDJ[4])
+        {
+            if (grounded) {
+                rb.AddForce(Vector3.up * jump(),ForceMode.Impulse );
+            }
+               
+        }
+        if(!movePressed){
+            rb.AddForce(dragXZ(rb.velocity, dragCoeff));
+        }
+        queueWASDJ = new bool[] {false, false, false, false, false};
+
+    }
+
+    private Vector3 dragXZ (Vector3 v, float drag){
+        return new Vector3(-v.x*drag, 0, -v.z*drag);
     }
 
     float jump(){
         if (canJump){
             Debug.Log("jumping");
             canJump = false;
-            canMove = false;
+            grounded = false;
             return jumpSpeed;
 
             
@@ -88,7 +117,7 @@ public class Move : MonoBehaviour
         if (collisionInfo.gameObject.tag == "Ground"){
             Debug.Log("bump");
             canJump = true;
-            canMove = true;
+            grounded = true;
             inContactWithGround ++;
         }
         
@@ -103,7 +132,7 @@ public class Move : MonoBehaviour
             inContactWithGround --;
             if (inContactWithGround == 0){
                 canJump = false;
-                canMove = false;
+                grounded = false;
             }
         }
         

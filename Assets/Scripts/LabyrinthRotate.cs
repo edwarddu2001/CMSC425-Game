@@ -24,6 +24,9 @@ public class LabyrinthRotate : MonoBehaviour
 {
     float rotAboutX, rotAboutZ;
     float rotX, rotY, rotZ;
+    //To change the max amount the map is allowed to rotate in any direction, change this
+    //Moved this here from Update() and made it a float -Zach
+    public float maxAngle = 10;
     Collider collie;
 
     // Start is called before the first frame update
@@ -43,8 +46,7 @@ public class LabyrinthRotate : MonoBehaviour
         rotY = currentOrientation.y;
         rotZ = currentOrientation.z;
 
-        //To change the max amount the map is allowed to rotate in any direction, change this
-        int maxAngle = 10;
+        
         
 
 

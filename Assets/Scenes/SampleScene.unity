@@ -282,7 +282,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5524058078266915550, guid: 90c344a89781fda419bb21550b7c470c, type: 3}
   m_PrefabInstance: {fileID: 5524058077848636751}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &695367570
+--- !u!114 &695367577
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -291,7 +291,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 695367569}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54de8805a3a131b44844d1e7346bc5fb, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a76ba95fe02bc24db6e2459d4d27b54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
@@ -504,6 +504,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  airMoveFactor: 2
+  dragCoeff: 1.5
   jumpSpeed: 10
 --- !u!54 &815492278
 Rigidbody:
@@ -1083,5 +1085,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5524058078266915543, guid: 90c344a89781fda419bb21550b7c470c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 90c344a89781fda419bb21550b7c470c, type: 3}

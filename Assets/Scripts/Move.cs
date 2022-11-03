@@ -59,6 +59,8 @@ public class Move : MonoBehaviour
     {
         //used to see if we should slow down
         bool movePressed = false;
+
+        //if any of the movement keys were queued...
         if (queueWASDJ[1])
         {
             if (grounded) {
@@ -107,7 +109,7 @@ public class Move : MonoBehaviour
             }
                
         }
-        //add drag
+        //add drag if not moving
         if(!movePressed){
             rb.AddForce(dragXZ(rb.velocity, dragCoeff));
         }
@@ -136,6 +138,7 @@ public class Move : MonoBehaviour
 
     void OnCollisionEnter(Collision collisionInfo)
     {   
+        //if we hit the ground, add to the number of ground objects we are hitting
         if (collisionInfo.gameObject.tag == "Ground"){
             Debug.Log("bump");
             canJump = true;
@@ -149,6 +152,7 @@ public class Move : MonoBehaviour
 
     void OnCollisionExit(Collision collisionInfo)
     {
+        //if we leave the ground, subtract from the number of ground objects we are hitting
         if (collisionInfo.gameObject.tag == "Ground"){
             Debug.Log("pmub");
             inContactWithGround --;

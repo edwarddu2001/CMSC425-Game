@@ -9,10 +9,12 @@ public class CameraGrab : MonoBehaviour
     void Start(){
         mainCamera = Camera.main;
     }
+    
     void OnMouseDown()
     {
+        mainCamera.transform.parent = gameObject.transform;
         mainCamera.transform.position = gameObject.transform.position;
-        mainCamera.transform.rotation = gameObject.transform.rotation;
+        mainCamera.transform.rotation = new Quaternion(0,0,0,0);
     }
 
 

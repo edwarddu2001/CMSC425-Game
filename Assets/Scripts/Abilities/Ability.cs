@@ -1,18 +1,13 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class Ability : MonoBehaviour{
+    public event Action<bool> ReportActivate; 
     
-    void OnEquip(){
-        Debug.Log("Ability Equipped");
+    public void ChangeActive(bool active){
+        ReportActivate(active);
     }
 
-    void OnActivate(){
-        Debug.Log("Ability Activated");
-    }
-
-    void OnDeactivate(){
-        Debug.Log("Ability Deactivated");
-    }
 }

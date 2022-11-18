@@ -147,5 +147,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.03
-  jumpHeight: 5
+  jumpHeight: 3
   gravityValue: -30

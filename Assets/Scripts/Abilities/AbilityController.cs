@@ -15,7 +15,7 @@ public class AbilityController : MonoBehaviour{
         //actually changing the state
         if(active != isActive){
             ReportActivate(active);
-            active = isActive;
+            isActive = active;
         }
     }
 }

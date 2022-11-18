@@ -10,7 +10,7 @@ using UnityEngine;
 public class AbilityPickup : MonoBehaviour
 {
     //the controller in the scene that corresponds 
-    //to this coin's ability 
+    //to this object's ability 
     [SerializeField]
     private AbilityController controller;
     

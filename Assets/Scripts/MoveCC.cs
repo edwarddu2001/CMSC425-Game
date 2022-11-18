@@ -53,6 +53,7 @@ public class MoveCC : MonoBehaviour
         move = speed * move;
         
         bool groundedPlayer = controller.isGrounded;
+        
         if (groundedPlayer && playerVelocity.y < 0)
         {
             playerVelocity.y = 0f;

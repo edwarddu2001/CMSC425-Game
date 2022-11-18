@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9208195775171635398}
   - component: {fileID: 9208195775171635399}
   - component: {fileID: 9208195775171635392}
+  - component: {fileID: 5838491044954072583}
   m_Layer: 0
   m_Name: Ability Coin
   m_TagString: Untagged
@@ -112,6 +113,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 150
+--- !u!114 &5838491044954072583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9208195775171635393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 868e9c283cad21d468479d939ed3d2bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9208195775524945679
 GameObject:
   m_ObjectHideFlags: 0

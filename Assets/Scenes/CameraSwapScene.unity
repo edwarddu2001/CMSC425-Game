@@ -1274,7 +1274,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityController: {fileID: 1658951830}
-  ability: {fileID: 0}
+  ability: {fileID: 1496113184}
+--- !u!114 &1496113184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496113172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93f31455c9314a64793db92b0be31319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  litUp: 0
 --- !u!1001 &1629493065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1447,7 +1460,7 @@ PrefabInstance:
     - target: {fileID: -6034877839163868274, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
       propertyPath: lightUpAbility
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1496113184}
     - target: {fileID: 2202350253523090478, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
       propertyPath: m_RootOrder
       value: 2

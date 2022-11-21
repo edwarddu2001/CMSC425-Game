@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightUp : Ability
+public class LightUpAbility : Ability
 {
     public event Action<bool> ReportLit;
     public bool litUp = false;

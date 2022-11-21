@@ -5,7 +5,7 @@ using UnityEngine;
 public class InvisibleObject : MonoBehaviour
 {
     [SerializeField]
-    private LightUp lightUpAbility;
+    private LightUpAbility lightUpAbility;
     private MeshRenderer mesh;
     void Start(){
         mesh = GetComponent<MeshRenderer>();

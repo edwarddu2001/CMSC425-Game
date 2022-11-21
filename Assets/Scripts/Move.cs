@@ -37,6 +37,15 @@ public class Move : MonoBehaviour
 
     
     void Update (){
+
+        // reverse movement with Shift + Down Arrow
+        if (Input.GetKey(KeyCode.LeftShift)) {
+            if (Input.GetKeyDown(KeyCode.DownArrow)){
+                speed = -1.0f * speed;
+            }
+
+        }
+
         //queues the inputs for fixed update
         if (Input.GetKey(KeyCode.W)){
             queueWASDJ[0] = true;

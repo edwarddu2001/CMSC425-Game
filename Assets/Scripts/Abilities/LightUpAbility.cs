@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class LightUpAbility : Ability
 {
+   // public event Action<bool> ReportActivate;
     public event Action<bool> ReportLit;
     public bool litUp = false;
      

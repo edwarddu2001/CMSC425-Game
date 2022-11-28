@@ -8,7 +8,8 @@ public class ShrinkAbility : Ability
 
 	[SerializeField]
 	private GameObject obj;
-	private bool isShrunk = false;
+	[SerializeField]
+	public bool isShrunk = false;
 	public float shrinkProportion = .8f;
 
 

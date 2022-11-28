@@ -18,7 +18,15 @@ public class TranslatingCamera : MonoBehaviour
 
         }
 
-        transform.position = player.transform.position + new Vector3(xOffset, yOffset,zOffset);
+        
+
+        if(player.GetComponent<ShrinkAbility>().isShrunk) { 
+            transform.position = player.transform.position + new Vector3(xOffset, yOffset/2, zOffset/2);
+        }
+        else {
+            transform.position = player.transform.position + new Vector3(xOffset, yOffset,zOffset);
+        
+        }
         transform.LookAt(player.transform.position);
 
         // rotate camera with mouse

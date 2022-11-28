@@ -69,6 +69,6 @@ public class MoveCC : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
-
+        
     }
 }

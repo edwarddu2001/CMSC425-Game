@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 523783896537115341}
   - component: {fileID: 770266515590719391}
   - component: {fileID: 7342388786540214804}
+  - component: {fileID: 3199121871416006678}
+  - component: {fileID: 5850390012350840609}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -133,7 +135,7 @@ CharacterController:
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
-  m_SkinWidth: 0.08
+  m_SkinWidth: 0.01
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &523783896537115341
@@ -181,3 +183,31 @@ MonoBehaviour:
   isShrunk: 0
   shrinkProportion: 0.8
   material: {fileID: 2100000, guid: 557fb5d6a62fe8149b79eaf4b3648ee2, type: 2}
+--- !u!114 &3199121871416006678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5524058078266915550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c77b7781bc224e648af811fdb1447ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityController: {fileID: 0}
+  ability: {fileID: 7342388786540214804}
+--- !u!114 &5850390012350840609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5524058078266915550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c77b7781bc224e648af811fdb1447ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityController: {fileID: 0}
+  ability: {fileID: 770266515590719391}

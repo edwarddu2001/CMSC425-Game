@@ -7,9 +7,9 @@ public class MoveCC : MonoBehaviour
 {
     
     
-    public float speed = 10.0F;
-    public float jumpHeight = 1.0f;
-    public float gravityValue = -9.81f;
+    public float speed = 0.03F;
+    public float jumpHeight = 3.0f;
+    public float gravityValue = 30f;
 
     private CharacterController controller;
     private Vector3 playerVelocity;

@@ -11,6 +11,7 @@ public class ShrinkAbility : Ability
 	[SerializeField]
 	public bool isShrunk = false;
 	public float shrinkProportion = .8f;
+	public Material material;
 
 
 	public override void OnActivate(){
@@ -18,6 +19,7 @@ public class ShrinkAbility : Ability
 			
 				obj.transform.localScale = new Vector3(shrinkProportion,shrinkProportion,shrinkProportion);
 				isShrunk = true;
+				obj.GetComponent<MeshRenderer>().material = material;
 			
 		}
 

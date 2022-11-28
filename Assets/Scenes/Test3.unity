@@ -1549,7 +1549,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 1189619520}
+  isShrunk: 0
   shrinkProportion: 0.8
+  material: {fileID: 2100000, guid: 557fb5d6a62fe8149b79eaf4b3648ee2, type: 2}
 --- !u!114 &1189619529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1607,6 +1609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   litUp: 0
+  material: {fileID: 2100000, guid: 44422009cdbb55f488afd52e2e37e876, type: 2}
 --- !u!1 &1234818891
 GameObject:
   m_ObjectHideFlags: 0

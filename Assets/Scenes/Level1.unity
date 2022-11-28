@@ -392,7 +392,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 557fb5d6a62fe8149b79eaf4b3648ee2, type: 2}
+  - {fileID: 2100000, guid: 9f25ab9b1c25f944d8fb0f88b1de84a3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -453,6 +453,7 @@ MonoBehaviour:
   obj: {fileID: 548816919}
   isShrunk: 0
   shrinkProportion: 0.8
+  material: {fileID: 0}
 --- !u!54 &548816925
 Rigidbody:
   m_ObjectHideFlags: 0

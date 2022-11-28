@@ -17,7 +17,7 @@ public class AbilityObserver : MonoBehaviour
     //the ability this Observer is associated with
     //(Just drag the associated script from the player in here)
     [SerializeField]
-    private Ability ability;
+    public Ability ability;
     
     void Start()
     {

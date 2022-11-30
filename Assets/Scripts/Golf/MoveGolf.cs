@@ -9,10 +9,12 @@ public class MoveGolf : MonoBehaviour
 
     //controls our shot
     public Vector3 direction;
-    public float speed = 1000F;
+    public float defaultSpeed = 500F;
     public float jumpHeight = 3.0f;
     public float gravityValue = 30f;
     public GameObject shotArrow;
+    private float speed;
+    private float maxSpeedFactor = 5.0f, minSpeedFactor = 0.2f;
 
     //controls physics
     private CharacterController controller;
@@ -24,6 +26,7 @@ public class MoveGolf : MonoBehaviour
     private MeshFilter shotArrowMF;
     private Mesh shotArrowMesh;
     private Vector3[] oldVerts;
+    private MeshRenderer shotArrowMR;
 
     //keeps score
     private ScorecardScript scorecard;
@@ -42,11 +45,12 @@ public class MoveGolf : MonoBehaviour
         //TODO: eventually add a better mesh for the arrow and avoid all this nonsense.
         //expansion only works for the arrow head. i don't feel like updating the shaft too, since i'm replacing 
         //all of this anyway with a better mesh.
-        GameObject shotArrowShaft = shotArrow.transform.GetChild(0).gameObject;
-        GameObject shotArrowHead = shotArrowShaft.transform.GetChild(0).gameObject;
+        //GameObject shotArrowShaft = shotArrow.transform.GetChild(0).gameObject;
+        GameObject shotArrowHead = shotArrow.transform.GetChild(1).gameObject;
         shotArrowMF = shotArrowHead.GetComponent<MeshFilter>();
         shotArrowMesh = shotArrowMF.mesh;
         oldVerts = shotArrowMesh.vertices;
+        shotArrowMR = shotArrowHead.GetComponent<MeshRenderer>();
 
         //TODO: better global scoring system??
         scorecard = transform.parent.GetComponent<ScorecardScript>();
@@ -57,16 +61,19 @@ public class MoveGolf : MonoBehaviour
     {
         Vector3[] newVerts = shotArrowMesh.vertices;
         //don't need to modify triangles or normals for this simple operation.
+        Color newcol = new Color(0, 0, 0);
 
-        for(var i=0; i < newVerts.Length; i++)
+        for (var i=0; i < newVerts.Length; i++)
         {
             newVerts[i].x = oldVerts[i].x * scale;
-            newVerts[i].z = oldVerts[i].z * scale;
 
-            newVerts[i].z -= (scale - 1) / 2;
+            newVerts[i].x -= (scale - 1.0f) * 5.0f;
+
+            newcol = new Color(scale / maxSpeedFactor, 0, (maxSpeedFactor-scale) / maxSpeedFactor, 1.0f);
         }
 
         shotArrowMesh.vertices = newVerts;
+        shotArrowMR.material.SetColor("_Color", newcol);
     }
 
     
@@ -108,18 +115,24 @@ public class MoveGolf : MonoBehaviour
             //W and S increase or decrease power
             if (Input.GetKey(KeyCode.W))
             {
-                currSpeed += moveSpeed;
-                resizeShotArrow(currSpeed);
+                if (currSpeed + moveSpeed <= maxSpeedFactor)
+                {
+                    currSpeed += moveSpeed;
+                    resizeShotArrow(currSpeed);
+                }
             }
 
             if (Input.GetKey(KeyCode.S))
             {
-                currSpeed -= moveSpeed;
-                resizeShotArrow(currSpeed);
+                if (currSpeed - moveSpeed >= minSpeedFactor)
+                {
+                    currSpeed -= moveSpeed;
+                    resizeShotArrow(currSpeed);
+                }
             }
 
             direction = shotArrow.transform.rotation * Vector3.back;
-            speed = currSpeed * 300;
+            speed = currSpeed * defaultSpeed;
             //Debug.Log("Speed: " + currSpeed);
 
 

@@ -46,7 +46,7 @@ public class MoveGolf : MonoBehaviour
         //expansion only works for the arrow head. i don't feel like updating the shaft too, since i'm replacing 
         //all of this anyway with a better mesh.
         //GameObject shotArrowShaft = shotArrow.transform.GetChild(0).gameObject;
-        GameObject shotArrowHead = shotArrow.transform.GetChild(1).gameObject;
+        GameObject shotArrowHead = shotArrow.transform.GetChild(0).gameObject;
         shotArrowMF = shotArrowHead.GetComponent<MeshFilter>();
         shotArrowMesh = shotArrowMF.mesh;
         oldVerts = shotArrowMesh.vertices;

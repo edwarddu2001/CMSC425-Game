@@ -6,6 +6,7 @@ public class MoveGolf : MonoBehaviour
 {
     //if not inMotion, set up and take your next shot. if in motion, allow the ball to move / jump / etc.
     bool inMotion = false;
+    float timeSlowed = 0;
 
     //controls our shot
     public Vector3 direction;
@@ -79,8 +80,23 @@ public class MoveGolf : MonoBehaviour
     
     void Update()
     {
-        //for brevity's sake, "almost stopped moving" = not moving. When velocity vector is small enough, stop motion.
-        inMotion = (rbody.velocity.magnitude > 0.2f);
+        /*for brevity's sake, "almost stopped moving" = not moving.
+        We decide the shot is over when the ball has nearly stopped moving for at least 2 seconds.*/
+        bool movingFast = (rbody.velocity.magnitude > 0.2f);
+        if (!movingFast)
+        {
+            if (timeSlowed > 2.0f)
+            {
+                inMotion = false;
+            } else
+            {
+                timeSlowed += Time.deltaTime;
+            }
+        } else
+        {
+            timeSlowed = 0.0f;
+            inMotion = true;
+        }
         //Debug.Log("Velocity: " + rbody.velocity.magnitude);
 
         //NOT IN MOTION: draw the arrow and line up your shot

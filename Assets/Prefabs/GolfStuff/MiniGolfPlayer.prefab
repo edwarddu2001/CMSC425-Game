@@ -254,6 +254,10 @@ PrefabInstance:
       propertyPath: direction.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 266827989616986235, guid: 95e3d3c235638ac4293031ca111be961, type: 3}
+      propertyPath: defaultSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3098464011997612200, guid: 95e3d3c235638ac4293031ca111be961, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -317,19 +321,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3098464011997612205, guid: 95e3d3c235638ac4293031ca111be961, type: 3}
   m_PrefabInstance: {fileID: 5212746181394309893}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5468658214730509181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7109092071784000424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72bcdad89cca19e4c8cf15cbcd4f2260, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hole: {fileID: 0}
 --- !u!114 &3858771564796090980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,6 +336,20 @@ MonoBehaviour:
   BoundingBox: {fileID: 0}
   respawnPoint: {fileID: 0}
   checkpoints: []
+--- !u!114 &5468658214730509181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7109092071784000424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72bcdad89cca19e4c8cf15cbcd4f2260, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hole: {fileID: 0}
+  ballCam: {fileID: 0}
 --- !u!4 &7109092071784000430 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3098464011997612203, guid: 95e3d3c235638ac4293031ca111be961, type: 3}

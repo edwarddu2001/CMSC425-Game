@@ -98,6 +98,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7520279857348167820, guid: cfbfcfb9b28f53140a0dadb1bef7f863, type: 3}
   m_PrefabInstance: {fileID: 3180453760050781359}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8183327770536942690 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6751521017322029261, guid: cfbfcfb9b28f53140a0dadb1bef7f863, type: 3}
+  m_PrefabInstance: {fileID: 3180453760050781359}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8183327772136902159 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6751521018926256800, guid: cfbfcfb9b28f53140a0dadb1bef7f863, type: 3}
@@ -126,6 +131,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4721396464745869915, guid: 8f0b0ceb5bd304a46a567b32a37e3dc6, type: 3}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 8183327770536942690}
     - target: {fileID: 7737145859962082345, guid: 8f0b0ceb5bd304a46a567b32a37e3dc6, type: 3}
       propertyPath: m_Pivot.x
       value: 0

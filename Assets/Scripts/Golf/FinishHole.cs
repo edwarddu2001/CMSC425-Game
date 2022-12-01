@@ -58,8 +58,9 @@ public class FinishHole : MonoBehaviour
 
             //lastly, record the final score for this hole...
             scorecard.finishThisHole();
-            holeGUI.SetActive(false);
             scorecardGUI.SetActive(true);
+            holeGUI.SetActive(false);
+            
         }
     }
 }

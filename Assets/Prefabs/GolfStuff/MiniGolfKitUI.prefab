@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3132838659265267215
+--- !u!1001 &3180453760050781359
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -11,10 +11,22 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
+    - target: {fileID: 2366954663631525341, guid: cfbfcfb9b28f53140a0dadb1bef7f863, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574358058531403113, guid: cfbfcfb9b28f53140a0dadb1bef7f863, type: 3}
+      propertyPath: jumpHeight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574358058531403114, guid: cfbfcfb9b28f53140a0dadb1bef7f863, type: 3}
+      propertyPath: holeGUI
+      value: 
+      objectReference: {fileID: 8183327772136902159}
     - target: {fileID: 2574358058531403114, guid: cfbfcfb9b28f53140a0dadb1bef7f863, type: 3}
       propertyPath: scorecardGUI
       value: 
-      objectReference: {fileID: 46752721840575827}
+      objectReference: {fileID: 576232791577513971}
     - target: {fileID: 3025036059153923605, guid: cfbfcfb9b28f53140a0dadb1bef7f863, type: 3}
       propertyPath: m_TagString
       value: Ground
@@ -37,15 +49,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7520279857348167820, guid: cfbfcfb9b28f53140a0dadb1bef7f863, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.004301
+      value: -4.5370646
       objectReference: {fileID: 0}
     - target: {fileID: 7520279857348167820, guid: cfbfcfb9b28f53140a0dadb1bef7f863, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00000047683716
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7520279857348167820, guid: cfbfcfb9b28f53140a0dadb1bef7f863, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.848258
+      value: 7.8828964
       objectReference: {fileID: 0}
     - target: {fileID: 7520279857348167820, guid: cfbfcfb9b28f53140a0dadb1bef7f863, type: 3}
       propertyPath: m_LocalRotation.w
@@ -77,21 +89,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7520279857348167821, guid: cfbfcfb9b28f53140a0dadb1bef7f863, type: 3}
       propertyPath: m_Name
-      value: MiniGolfKit
+      value: MiniGolfKitUI
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfbfcfb9b28f53140a0dadb1bef7f863, type: 3}
---- !u!4 &4838962245102554755 stripped
+--- !u!4 &4935482811334431779 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7520279857348167820, guid: cfbfcfb9b28f53140a0dadb1bef7f863, type: 3}
-  m_PrefabInstance: {fileID: 3132838659265267215}
+  m_PrefabInstance: {fileID: 3180453760050781359}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &7780465820063990142
+--- !u!1 &8183327772136902159 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6751521018926256800, guid: cfbfcfb9b28f53140a0dadb1bef7f863, type: 3}
+  m_PrefabInstance: {fileID: 3180453760050781359}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7827517292278995934
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 4838962245102554755}
+    m_TransformParent: {fileID: 4935482811334431779}
     m_Modifications:
     - target: {fileID: 939890117564941749, guid: 8f0b0ceb5bd304a46a567b32a37e3dc6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -203,8 +220,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f0b0ceb5bd304a46a567b32a37e3dc6, type: 3}
---- !u!1 &46752721840575827 stripped
+--- !u!1 &576232791577513971 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7737145859962082349, guid: 8f0b0ceb5bd304a46a567b32a37e3dc6, type: 3}
-  m_PrefabInstance: {fileID: 7780465820063990142}
+  m_PrefabInstance: {fileID: 7827517292278995934}
   m_PrefabAsset: {fileID: 0}

@@ -285,6 +285,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1057433016 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8559140234744353967, guid: df3dcf891b5dc074097a20e4a8594848, type: 3}
+  m_PrefabInstance: {fileID: 3132838660688071137}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1101887200 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2418401202413777840, guid: df3dcf891b5dc074097a20e4a8594848, type: 3}
@@ -386,6 +391,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 46752721140247225, guid: df3dcf891b5dc074097a20e4a8594848, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 631595944398533477, guid: df3dcf891b5dc074097a20e4a8594848, type: 3}
+      propertyPath: holeGUI
+      value: 
+      objectReference: {fileID: 1057433016}
     - target: {fileID: 4838962245102554754, guid: df3dcf891b5dc074097a20e4a8594848, type: 3}
       propertyPath: m_Name
       value: MiniGolfKit

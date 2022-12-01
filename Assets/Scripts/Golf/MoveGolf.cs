@@ -12,7 +12,7 @@ public class MoveGolf : MonoBehaviour
     //controls our shot
     public Vector3 direction;
     public float defaultSpeed = 0.1F;
-    public float jumpHeight = 3.0f;
+    public float jumpHeight = 20.0f;
     public float gravityValue = 30f;
     public GameObject shotArrow;
     private float speed;
@@ -176,14 +176,13 @@ public class MoveGolf : MonoBehaviour
                 playerVelocity.y = 0f;
             }*/
 
-            //TODO: groundedPlayer isn't working for the golf ball, it is always false.
             //Debug.Log(inContactWithGround);
 
             // Changes the height position of the player..
             if (Input.GetKeyDown(KeyCode.Space) && inContactWithGround > 0)
             {
                 Debug.Log("tried to jump");
-                rbody.AddForce(Vector3.up * speed, ForceMode.Impulse);
+                rbody.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
             }
             
 

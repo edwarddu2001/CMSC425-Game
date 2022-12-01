@@ -53,6 +53,9 @@ public class MoveGolf : MonoBehaviour
         oldVerts = shotArrowMesh.vertices;
         shotArrowMR = shotArrowHead.GetComponent<MeshRenderer>();
 
+        //set initial color of shotArrow
+        shotArrowMR.material.SetColor("_Color", new Color(1.0f / maxSpeedFactor, 0, (maxSpeedFactor - 1.0f) / maxSpeedFactor, 1.0f));
+
         //TODO: better global scoring system??
         scorecard = transform.parent.GetComponent<ScorecardScript>();
     }

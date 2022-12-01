@@ -13,6 +13,7 @@ public class FinishHole : MonoBehaviour
      the cup stays invisible but becomes active, giving the illusion of it "holding the ball".*/
     public GameObject hole;
     public GameObject ballCam;
+    public GameObject scorecardGUI;
 
     private GameObject trueHole;
     private GameObject cup;
@@ -56,6 +57,7 @@ public class FinishHole : MonoBehaviour
 
             //lastly, record the final score for this hole...
             scorecard.finishThisHole();
+            scorecardGUI.SetActive(true);
         }
     }
 }

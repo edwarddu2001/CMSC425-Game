@@ -177,7 +177,7 @@ public class MoveGolf : MonoBehaviour
             }*/
 
             //TODO: groundedPlayer isn't working for the golf ball, it is always false.
-            Debug.Log(inContactWithGround);
+            //Debug.Log(inContactWithGround);
 
             // Changes the height position of the player..
             if (Input.GetKeyDown(KeyCode.Space) && inContactWithGround > 0)

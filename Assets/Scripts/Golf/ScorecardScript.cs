@@ -6,7 +6,7 @@ public class ScorecardScript : MonoBehaviour
 {
     private int holeScore;
     private int courseScore;
-    private int[] holeByHole = new int[18];
+    private int[] holeByHole = new int[9];
     int currHole = 0;
 
     // Start is called before the first frame update
@@ -14,7 +14,7 @@ public class ScorecardScript : MonoBehaviour
     {
         holeScore = 0;
         courseScore = 0;
-        for(var i=0; i<18; i++)
+        for(var i=0; i<9; i++)
         {
             holeByHole[i] = -1;
         }
@@ -38,7 +38,7 @@ public class ScorecardScript : MonoBehaviour
         Debug.Log("Course score: " + courseScore);
         Debug.Log("Score for that hole: " + holeScore);
 
-        holeScore = 0;
+        //holeScore = 0; //not until we go to the next hole.
         currHole++;
     }
 

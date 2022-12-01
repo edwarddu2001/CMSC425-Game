@@ -5,6 +5,7 @@ using UnityEngine;
 public class MoveGolf : MonoBehaviour
 {
     //if not inMotion, set up and take your next shot. if in motion, allow the ball to move / jump / etc.
+    //inProgress is a flag set to true the very frame the user makes their shot, false the frame it stops
     bool inMotion = false;
     float timeSlowed = 0;
 
@@ -18,8 +19,6 @@ public class MoveGolf : MonoBehaviour
     private float maxSpeedFactor = 5.0f, minSpeedFactor = 0.2f;
 
     //controls physics
-    private CharacterController controller;
-    private bool groundedPlayer;
     private Vector3 playerVelocity;
     private Rigidbody rbody; //new
 
@@ -39,7 +38,6 @@ public class MoveGolf : MonoBehaviour
     //initialize stuff
     void Start()
     {
-        controller = GetComponent<CharacterController>();
         rbody = GetComponent<Rigidbody>();
         rbody.velocity = Vector3.zero;
 
@@ -160,7 +158,7 @@ public class MoveGolf : MonoBehaviour
 
             //when the player shoots the ball, add a force to the object with specified speed and direction.
             //and keep score!
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
             {
                 rbody.AddForce(direction * speed, ForceMode.Impulse);
                 scorecard.takeShot();
@@ -172,18 +170,17 @@ public class MoveGolf : MonoBehaviour
         else
         {
             shotArrow.SetActive(false);
-            bool groundedPlayer = controller.isGrounded;
 
-            if (groundedPlayer && playerVelocity.y < 0)
+            /*if (inContactWithGround > 0 && playerVelocity.y < 0)
             {
                 playerVelocity.y = 0f;
-            }
+            }*/
 
             //TODO: groundedPlayer isn't working for the golf ball, it is always false.
-            //Debug.Log(groundedPlayer);
+            Debug.Log(inContactWithGround);
 
             // Changes the height position of the player..
-            if (Input.GetKey(KeyCode.Space) && groundedPlayer)
+            if (Input.GetKeyDown(KeyCode.Space) && inContactWithGround > 0)
             {
                 Debug.Log("tried to jump");
                 rbody.AddForce(Vector3.up * speed, ForceMode.Impulse);
@@ -195,28 +192,28 @@ public class MoveGolf : MonoBehaviour
 
     }
 
-    void OnCollisionEnter(Collision collisionInfo)
-    {
-        //if we hit the ground, add to the number of ground objects we are hitting
-        if (collisionInfo.gameObject.tag == "Ground")
+        void OnCollisionEnter(Collision collisionInfo)
         {
+            //if we hit the ground, add to the number of ground objects we are hitting
+            if (collisionInfo.gameObject.tag == "Ground")
+            {
 
-            inContactWithGround++;
-        }
-
-    }
-
-
-
-    void OnCollisionExit(Collision collisionInfo)
-    {
-        //if we leave the ground, subtract from the number of ground objects we are hitting
-        if (collisionInfo.gameObject.tag == "Ground")
-        {
-
-            inContactWithGround--;
+                inContactWithGround++;
+            }
 
         }
 
-    }
+
+
+        void OnCollisionExit(Collision collisionInfo)
+        {
+            //if we leave the ground, subtract from the number of ground objects we are hitting
+            if (collisionInfo.gameObject.tag == "Ground")
+            {
+
+                inContactWithGround--;
+
+            }
+
+        }
 }

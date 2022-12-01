@@ -12,6 +12,7 @@ public class FinishHole : MonoBehaviour
      - The cup is an invisible box that will be inactive until the player gets the ball in the hole. When they do,
      the cup stays invisible but becomes active, giving the illusion of it "holding the ball".*/
     public GameObject hole;
+    public GameObject ballCam;
 
     private GameObject trueHole;
     private GameObject cup;
@@ -49,7 +50,11 @@ public class FinishHole : MonoBehaviour
             //remove the ground below the hole's collider, so the ball appears to sink into the hole
             holeGround.GetComponent<BoxCollider>().enabled = false;
 
-            //lastly, record the final score for this hole.
+            //remove the move and Camera components from the ball
+            Destroy(GetComponent<MoveGolf>());
+            Destroy(ballCam.transform.GetChild(0).GetComponentInChildren<ThirdPersonCamera>());
+
+            //lastly, record the final score for this hole...
             scorecard.finishThisHole();
         }
     }

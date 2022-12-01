@@ -370,6 +370,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1202497200900914539, guid: 21e649b5914ddca4183a8bd066b69cac, type: 3}
   m_PrefabInstance: {fileID: 7520279857589203099}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8713698347929079294 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1202497200900914533, guid: 21e649b5914ddca4183a8bd066b69cac, type: 3}
+  m_PrefabInstance: {fileID: 7520279857589203099}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7520279858013085207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -445,6 +450,10 @@ PrefabInstance:
       propertyPath: hole
       value: 
       objectReference: {fileID: 1925265733910605498}
+    - target: {fileID: 5468658214730509181, guid: 31e44dc83146cc2468670d0b7cc84f23, type: 3}
+      propertyPath: ballCam
+      value: 
+      objectReference: {fileID: 8713698347929079294}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31e44dc83146cc2468670d0b7cc84f23, type: 3}
 --- !u!4 &789809151346619833 stripped

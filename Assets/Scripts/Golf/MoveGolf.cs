@@ -10,7 +10,7 @@ public class MoveGolf : MonoBehaviour
 
     //controls our shot
     public Vector3 direction;
-    public float defaultSpeed = 500F;
+    public float defaultSpeed = 0.1F;
     public float jumpHeight = 3.0f;
     public float gravityValue = 30f;
     public GameObject shotArrow;
@@ -33,6 +33,8 @@ public class MoveGolf : MonoBehaviour
     private ScorecardScript scorecard;
 
     float currSpeed = 1.0f;
+    [SerializeField]
+    private int inContactWithGround = 0;
     
     //initialize stuff
     void Start()
@@ -150,6 +152,7 @@ public class MoveGolf : MonoBehaviour
                 }
             }
 
+            direction = direction.normalized;
             direction = shotArrow.transform.rotation * Vector3.back;
             speed = currSpeed * defaultSpeed;
             //Debug.Log("Speed: " + currSpeed);
@@ -159,7 +162,7 @@ public class MoveGolf : MonoBehaviour
             //and keep score!
             if (Input.GetMouseButtonDown(0))
             {
-                rbody.AddForce(direction * speed);
+                rbody.AddForce(direction * speed, ForceMode.Impulse);
                 scorecard.takeShot();
             }
         }
@@ -183,9 +186,35 @@ public class MoveGolf : MonoBehaviour
             if (Input.GetKey(KeyCode.Space) && groundedPlayer)
             {
                 Debug.Log("tried to jump");
-                playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+                rbody.AddForce(Vector3.up * speed, ForceMode.Impulse);
             }
             
+
+        }
+
+
+    }
+
+    void OnCollisionEnter(Collision collisionInfo)
+    {
+        //if we hit the ground, add to the number of ground objects we are hitting
+        if (collisionInfo.gameObject.tag == "Ground")
+        {
+
+            inContactWithGround++;
+        }
+
+    }
+
+
+
+    void OnCollisionExit(Collision collisionInfo)
+    {
+        //if we leave the ground, subtract from the number of ground objects we are hitting
+        if (collisionInfo.gameObject.tag == "Ground")
+        {
+
+            inContactWithGround--;
 
         }
 

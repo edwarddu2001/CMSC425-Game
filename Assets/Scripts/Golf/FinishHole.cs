@@ -20,12 +20,16 @@ public class FinishHole : MonoBehaviour
     private GameObject cup;
     private GameObject holeGround;
 
+    [SerializeField]
+    private AudioSource finishSound;
+
     //keeps score
     private ScorecardScript scorecard;
 
     // Start is called before the first frame update
     void Start()
     {
+        finishSound = this.GetComponent<AudioSource>();
         trueHole = hole.transform.GetChild(1).gameObject;
         cup = hole.transform.GetChild(2).gameObject;
         cup.SetActive(false);
@@ -51,6 +55,8 @@ public class FinishHole : MonoBehaviour
 
             //remove the ground below the hole's collider, so the ball appears to sink into the hole
             holeGround.GetComponent<BoxCollider>().enabled = false;
+
+            finishSound.Play();
 
             //remove the move and Camera components from the ball
             Destroy(GetComponent<MoveGolf>());

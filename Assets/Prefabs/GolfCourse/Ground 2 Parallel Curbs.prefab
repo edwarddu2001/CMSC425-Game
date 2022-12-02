@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4384727823183211178}
   m_Layer: 0
-  m_Name: Ground 2 left right curbs
+  m_Name: Ground 2 Parallel Curbs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,6 +41,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4384727823183211178}
     m_Modifications:
+    - target: {fileID: 4647635367496981650, guid: a8a0adb4af11d451191ab52a615195af, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.15
+      objectReference: {fileID: 0}
     - target: {fileID: 6265066172274900650, guid: a8a0adb4af11d451191ab52a615195af, type: 3}
       propertyPath: m_Name
       value: Curb 2
@@ -106,6 +110,10 @@ PrefabInstance:
     - target: {fileID: 3638170537622283298, guid: 1e159322962b041b6953ab7640c44f97, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3638170537622283298, guid: 1e159322962b041b6953ab7640c44f97, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7989605543284672503, guid: 1e159322962b041b6953ab7640c44f97, type: 3}
       propertyPath: m_RootOrder

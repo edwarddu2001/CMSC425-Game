@@ -20,7 +20,6 @@ public class FinishHole : MonoBehaviour
     private GameObject cup;
     private GameObject holeGround;
 
-    [SerializeField]
     private AudioSource finishSound;
 
     //keeps score

@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &144901797 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8559140233139865282, guid: df3dcf891b5dc074097a20e4a8594848, type: 3}
+  m_PrefabInstance: {fileID: 3132838660688071137}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &473612889
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,6 +404,10 @@ PrefabInstance:
       propertyPath: holeGUI
       value: 
       objectReference: {fileID: 1057433016}
+    - target: {fileID: 3061323363282449189, guid: df3dcf891b5dc074097a20e4a8594848, type: 3}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 144901797}
     - target: {fileID: 4838962245102554754, guid: df3dcf891b5dc074097a20e4a8594848, type: 3}
       propertyPath: m_Name
       value: MiniGolfKit

@@ -17,6 +17,9 @@ public class MoveGolf : MonoBehaviour
     public GameObject shotArrow;
     private float speed;
     private float maxSpeedFactor = 5.0f, minSpeedFactor = 0.2f;
+    //chipRotation is changed as you angle the shot up/down for a chip shot. 1.0 is the default, a flat shot on the ground.
+    //you can rotate it anywhere in the range (0, 100)
+    private float chipRotation = 0.0f;
 
     //controls physics
     private Vector3 playerVelocity;
@@ -131,6 +134,29 @@ public class MoveGolf : MonoBehaviour
                 shotArrow.transform.rotation = shotArrow.transform.rotation * Quaternion.Euler(Vector3.up * rotSpeed);
             }
 
+            //Q and E angle up or downwards for a chip shot
+            //TODO: Chip shot ability
+            if (false)
+            {
+                if (Input.GetKey(KeyCode.E))
+                {
+                    if (chipRotation + rotSpeed >= 0.0f)
+                    {
+                        shotArrow.transform.rotation = shotArrow.transform.rotation * Quaternion.Euler(Vector3.left * rotSpeed);
+                        chipRotation -= rotSpeed;
+                    }
+                }
+
+                if (Input.GetKey(KeyCode.Q))
+                {
+                    if (chipRotation + rotSpeed <= 50.0f)
+                    {
+                        shotArrow.transform.rotation = shotArrow.transform.rotation * Quaternion.Euler(Vector3.right * rotSpeed);
+                        chipRotation += rotSpeed;
+                    }
+                }
+            }
+
             //W and S increase or decrease power
             if (Input.GetKey(KeyCode.W))
             {
@@ -171,20 +197,22 @@ public class MoveGolf : MonoBehaviour
         {
             shotArrow.SetActive(false);
 
-            /*if (inContactWithGround > 0 && playerVelocity.y < 0)
-            {
-                playerVelocity.y = 0f;
-            }*/
-
             //Debug.Log(inContactWithGround);
 
             // Changes the height position of the player..
             if (Input.GetKeyDown(KeyCode.Space) && inContactWithGround > 0)
             {
-                Debug.Log("tried to jump");
+                //Debug.Log("tried to jump");
                 rbody.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
             }
-            
+
+            if (Input.GetKeyDown(KeyCode.R) && inContactWithGround > 0)
+            {
+                //Debug.Log("slowed down");
+                rbody.velocity = rbody.velocity * 0.8f;
+            }
+
+
 
         }
 

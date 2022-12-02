@@ -28,7 +28,7 @@ public class FinishHole : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        finishSound = this.GetComponent<AudioSource>();
+        finishSound = this.transform.parent.GetComponent<AudioSource>();
         trueHole = hole.transform.GetChild(1).gameObject;
         cup = hole.transform.GetChild(2).gameObject;
         cup.SetActive(false);

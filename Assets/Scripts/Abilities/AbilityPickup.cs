@@ -7,8 +7,14 @@ using UnityEngine;
     will activate an ability.
 */
 
+
+
 public class AbilityPickup : MonoBehaviour
 {
+    private AudioSource pickupSound; 
+    void Start() {
+        pickupSound = this.GetComponent<AudioSource>();
+    }
     //the controller in the scene that corresponds 
     //to this object's ability 
     [SerializeField]
@@ -17,6 +23,9 @@ public class AbilityPickup : MonoBehaviour
     void OnTriggerEnter(Collider other){
         if(string.Equals(other.gameObject.tag,"Player")){
             controller.ChangeActive(true);
+            pickupSound.Play();
+
         }
+
     }
 }

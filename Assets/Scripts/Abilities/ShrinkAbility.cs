@@ -10,7 +10,7 @@ public class ShrinkAbility : Ability
 	private GameObject obj;
 	[SerializeField]
 	public bool isShrunk = false;
-	public float shrinkProportion = .8f;
+	public float shrinkProportion = .6f;
 	public Material material;
 
 

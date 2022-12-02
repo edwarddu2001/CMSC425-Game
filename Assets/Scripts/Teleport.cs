@@ -6,7 +6,7 @@ public class Teleport : MonoBehaviour
 {
     public Transform target; 
     public GameObject player;
-    public bool teleported;
+    public bool teleported = false;
 
     void OnTriggerEnter(Collider other) {
 
@@ -25,7 +25,7 @@ public class Teleport : MonoBehaviour
 
     IEnumerator TeleportCoRoutine(GameObject playerObj)
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         teleported = true;
         playerObj.transform.position = target.position;
     

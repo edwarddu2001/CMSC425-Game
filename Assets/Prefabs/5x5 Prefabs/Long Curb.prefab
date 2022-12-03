@@ -87,6 +87,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Curb 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4647635367496981655, guid: a8a0adb4af11d451191ab52a615195af, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8a0adb4af11d451191ab52a615195af, type: 3}
 --- !u!4 &7827435436564237501 stripped

@@ -228,6 +228,9 @@ public class MoveGolf : MonoBehaviour
                 inContactWithGround++;
             }
 
+            // rbody.AddForce(Vector3.Reflect(direction, collisionInfo.contacts[0].normal) * rbody.velocity.magnitude,   
+             //          ForceMode.Impulse);
+
         }
 
 

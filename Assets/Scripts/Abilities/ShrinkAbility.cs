@@ -14,6 +14,7 @@ public class ShrinkAbility : Ability
 	public Material material;
 
 
+
 	public override void OnActivate(){
         if(!isShrunk){
 			

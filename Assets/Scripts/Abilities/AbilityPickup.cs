@@ -12,6 +12,7 @@ using UnityEngine;
 public class AbilityPickup : MonoBehaviour
 {
     private AudioSource pickupSound; 
+    private bool hasPlayed = false;
     void Start() {
         pickupSound = this.GetComponent<AudioSource>();
     }
@@ -23,7 +24,12 @@ public class AbilityPickup : MonoBehaviour
     void OnTriggerEnter(Collider other){
         if(string.Equals(other.gameObject.tag,"Player")){
             controller.ChangeActive(true);
-            pickupSound.Play();
+
+            if(!hasPlayed) {
+                pickupSound.Play();
+                hasPlayed = true;
+            }
+
 
         }
 

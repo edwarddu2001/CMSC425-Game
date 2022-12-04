@@ -38,7 +38,12 @@ public class DestroyableWall : MonoBehaviour
                 explosionEffect.Play();
                 rend.enabled = false;
                 this.GetComponent<Collider>().enabled = false;
+                bda.ReportBulldozing -= toggleTrigger;
                 Destroy(this.gameObject, breakingSound.clip.length);
+                
+
+                //TODO: end explosion effects after a little bit.
+                //gameObject.GetComponent<MeshRenderer>().enabled = false;
             }
         }
           

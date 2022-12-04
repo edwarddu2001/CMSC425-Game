@@ -26,6 +26,8 @@ public class LightupAbility2 : Ability2
     public override void OnActivate(GameObject target)
     {
         litUp = true;
+        //you will get an error here if you don't add any revealable objects into the scene, which
+        //is the whole point of the lightup ability.
         ReportLit(litUp);
         target.GetComponent<MeshRenderer>().material = material;
     }

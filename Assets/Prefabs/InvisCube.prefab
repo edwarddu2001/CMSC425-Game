@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7200032733378759302}
   - component: {fileID: 4087729883261837022}
   - component: {fileID: 8321402707969312447}
-  - component: {fileID: -6034877839163868274}
+  - component: {fileID: 4398435377393182199}
   m_Layer: 0
   m_Name: InvisCube
   m_TagString: Untagged
@@ -98,7 +98,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-6034877839163868274
+--- !u!114 &4398435377393182199
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3866411814534640656}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8635eafe9cc689d48a1949b76c420db1, type: 3}
+  m_Script: {fileID: 11500000, guid: eedfa3a1bd9e9884384ce3e216e9021a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lightUpAbility: {fileID: 0}

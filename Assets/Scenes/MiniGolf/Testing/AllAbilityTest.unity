@@ -278,6 +278,10 @@ PrefabInstance:
       propertyPath: abilityController
       value: 
       objectReference: {fileID: 1137210774}
+    - target: {fileID: 6975836371653997649, guid: b749e00b9f4ea48468b198c22c9e90ef, type: 3}
+      propertyPath: litUp
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8183327770536942693, guid: b749e00b9f4ea48468b198c22c9e90ef, type: 3}
       propertyPath: abObserver
       value: 
@@ -293,29 +297,33 @@ PrefabInstance:
     - target: {fileID: 8183327770536942693, guid: b749e00b9f4ea48468b198c22c9e90ef, type: 3}
       propertyPath: allAbilityIcons.Array.data[0]
       value: 
-      objectReference: {fileID: 21300000, guid: 8ba1c2c5e17a4f846a3b67ba06babbf0, type: 3}
+      objectReference: {fileID: 21300000, guid: 743a182096ed9ba46a3159816238bf33, type: 3}
     - target: {fileID: 8183327770536942693, guid: b749e00b9f4ea48468b198c22c9e90ef, type: 3}
       propertyPath: allAbilityIcons.Array.data[1]
       value: 
-      objectReference: {fileID: 21300000, guid: 78e5b2629c495714b9881fdbcb4e8993, type: 3}
+      objectReference: {fileID: 21300000, guid: 8ba1c2c5e17a4f846a3b67ba06babbf0, type: 3}
     - target: {fileID: 8183327770536942693, guid: b749e00b9f4ea48468b198c22c9e90ef, type: 3}
       propertyPath: allAbilityIcons.Array.data[2]
       value: 
-      objectReference: {fileID: 21300000, guid: 586adef8cf8f65d4bac6898c3ac358bb, type: 3}
+      objectReference: {fileID: 21300000, guid: 78e5b2629c495714b9881fdbcb4e8993, type: 3}
     - target: {fileID: 8183327770536942693, guid: b749e00b9f4ea48468b198c22c9e90ef, type: 3}
       propertyPath: allAbilityIcons.Array.data[3]
       value: 
-      objectReference: {fileID: 21300000, guid: def218c506c67424bac2b273510acd7b, type: 3}
+      objectReference: {fileID: 21300000, guid: 586adef8cf8f65d4bac6898c3ac358bb, type: 3}
     - target: {fileID: 8183327770536942693, guid: b749e00b9f4ea48468b198c22c9e90ef, type: 3}
       propertyPath: allAbilityIcons.Array.data[4]
       value: 
-      objectReference: {fileID: 21300000, guid: 6d9e52fc825ee244ab697d6d3d9cb505, type: 3}
+      objectReference: {fileID: 21300000, guid: def218c506c67424bac2b273510acd7b, type: 3}
     - target: {fileID: 8183327770536942693, guid: b749e00b9f4ea48468b198c22c9e90ef, type: 3}
       propertyPath: allAbilityIcons.Array.data[5]
       value: 
-      objectReference: {fileID: 21300000, guid: b7a526c2166f2924baefed6cff2d1eb0, type: 3}
+      objectReference: {fileID: 21300000, guid: 6d9e52fc825ee244ab697d6d3d9cb505, type: 3}
     - target: {fileID: 8183327770536942693, guid: b749e00b9f4ea48468b198c22c9e90ef, type: 3}
       propertyPath: allAbilityIcons.Array.data[6]
+      value: 
+      objectReference: {fileID: 21300000, guid: b7a526c2166f2924baefed6cff2d1eb0, type: 3}
+    - target: {fileID: 8183327770536942693, guid: b749e00b9f4ea48468b198c22c9e90ef, type: 3}
+      propertyPath: allAbilityIcons.Array.data[7]
       value: 
       objectReference: {fileID: 21300000, guid: 5802cfbaac998b049b7249e29e7c2dd2, type: 3}
     m_RemovedComponents: []
@@ -448,6 +456,7 @@ Transform:
   m_Children:
   - {fileID: 1492992431}
   - {fileID: 355212068}
+  - {fileID: 1802385837}
   m_Father: {fileID: 720691400}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -562,6 +571,71 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2798647303391406352, guid: b749e00b9f4ea48468b198c22c9e90ef, type: 3}
   m_PrefabInstance: {fileID: 442153082}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1391608084
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1022941025}
+    m_Modifications:
+    - target: {fileID: 5838491044954072583, guid: 4be9d43ce49503643aaad6f3ffc4e7db, type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9208195775171635393, guid: 4be9d43ce49503643aaad6f3ffc4e7db, type: 3}
+      propertyPath: m_Name
+      value: Chipshot Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 9208195775171635396, guid: 4be9d43ce49503643aaad6f3ffc4e7db, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9208195775171635396, guid: 4be9d43ce49503643aaad6f3ffc4e7db, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 9208195775171635396, guid: 4be9d43ce49503643aaad6f3ffc4e7db, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.514483
+      objectReference: {fileID: 0}
+    - target: {fileID: 9208195775171635396, guid: 4be9d43ce49503643aaad6f3ffc4e7db, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9208195775171635396, guid: 4be9d43ce49503643aaad6f3ffc4e7db, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9208195775171635396, guid: 4be9d43ce49503643aaad6f3ffc4e7db, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9208195775171635396, guid: 4be9d43ce49503643aaad6f3ffc4e7db, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9208195775171635396, guid: 4be9d43ce49503643aaad6f3ffc4e7db, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9208195775171635396, guid: 4be9d43ce49503643aaad6f3ffc4e7db, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9208195775171635396, guid: 4be9d43ce49503643aaad6f3ffc4e7db, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9208195775171635396, guid: 4be9d43ce49503643aaad6f3ffc4e7db, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9208195775171635398, guid: 4be9d43ce49503643aaad6f3ffc4e7db, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1b22a57cc457a1c4da31b7add05ba2dc, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4be9d43ce49503643aaad6f3ffc4e7db, type: 3}
 --- !u!1001 &1492992430
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -575,7 +649,7 @@ PrefabInstance:
       objectReference: {fileID: 1137210774}
     - target: {fileID: 9208195775171635393, guid: 4be9d43ce49503643aaad6f3ffc4e7db, type: 3}
       propertyPath: m_Name
-      value: Ability Coin
+      value: Shrink Coin
       objectReference: {fileID: 0}
     - target: {fileID: 9208195775171635396, guid: 4be9d43ce49503643aaad6f3ffc4e7db, type: 3}
       propertyPath: m_RootOrder
@@ -726,6 +800,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!4 &1802385837 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9208195775171635396, guid: 4be9d43ce49503643aaad6f3ffc4e7db, type: 3}
+  m_PrefabInstance: {fileID: 1391608084}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1804505424
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -739,7 +818,7 @@ PrefabInstance:
       objectReference: {fileID: 223939637}
     - target: {fileID: 9208195775171635393, guid: 4be9d43ce49503643aaad6f3ffc4e7db, type: 3}
       propertyPath: m_Name
-      value: Ability Coin (1)
+      value: Lightup Coin
       objectReference: {fileID: 0}
     - target: {fileID: 9208195775171635396, guid: 4be9d43ce49503643aaad6f3ffc4e7db, type: 3}
       propertyPath: m_RootOrder

@@ -34,7 +34,7 @@ public class GolfUIManager : MonoBehaviour
             abilityScripts[i] = null;
         }
 
-        determineAbilities();
+        //determineAbilities();
     }
 
     // Update is called once per frame
@@ -47,30 +47,30 @@ public class GolfUIManager : MonoBehaviour
 
 
         // ability name
-        updateAbilityIcon();
+        //updateAbilityIcon();
     }
 
     //add something eventually for all abilities we will have
     void determineAbilities()
     {
-        abilityScripts[0] = ball.GetComponent<ShrinkAbility>();
-        abilityScripts[1] = ball.GetComponent<LightUpAbility>();
-        //abilityScripts[2] = ball.GetComponent<BulldozerAbility>();
-        //abilityScripts[3] = ball.GetComponent<LabyrinthAbility>();
-        //abilityScripts[4] = ball.GetComponent<ChipshotAbility>();
-        //abilityScripts[5] = ball.GetComponent<MoveplusAbility>();
-        //abilityScripts[6] = ball.GetComponent<ZerogravAbility>();
-        //abilityScripts[7] = ball.GetComponent<???Ability>(); ...
+        abilityScripts[1] = ball.GetComponent<ShrinkAbility>();
+        abilityScripts[2] = ball.GetComponent<LightUpAbility>();
+        //abilityScripts[3] = ball.GetComponent<BulldozerAbility>();
+        //abilityScripts[4] = ball.GetComponent<LabyrinthAbility>();
+        //abilityScripts[5] = ball.GetComponent<ChipshotAbility>();
+        //abilityScripts[6] = ball.GetComponent<MoveplusAbility>();
+        //abilityScripts[7] = ball.GetComponent<ZerogravAbility>();
+        //abilityScripts[?] = ball.GetComponent<???Ability>(); ...
     }
 
     void updateAbilityIcon()
     {
-        if(abilityScripts[0] != null)
+        if(abilityScripts[1] != null)
         {
-            if(((ShrinkAbility) abilityScripts[0]).isShrunk)
+            if(((ShrinkAbility) abilityScripts[1]).isShrunk)
             {
                 currentAbilityDisplay.GetComponent<TextMeshProUGUI>().SetText("Shrink");
-                currentAbilityIcon.sprite = allAbilityIcons[0];
+                currentAbilityIcon.sprite = allAbilityIcons[1];
             }
         }
     }

@@ -7,7 +7,7 @@ action: allows you to hit the ball "in air" off your shot, as if you had a wedge
 pros: 
   - use it to jump over obstacles and chasms
 cons:
-  - shot power is overall decreased if you chip it in the air.
+  - ???
 */
 public class ChipshotAbility : Ability2
 {

@@ -15,12 +15,16 @@ public class ZerogravAbility : Ability2
     {
         //TODO: add zero gravity.
         target.GetComponent<MeshRenderer>().material = material;
-        Debug.Log("TODO: Add Zero Gravity");
+
+        Rigidbody rbody = target.GetComponent<Rigidbody>();
+        rbody.useGravity = false;
 
     }
     public override void OnDeactivate(GameObject target)
     {
         //TODO: remove zero gravity.
-        Debug.Log("TODO: Undo Zero Gravity");
+
+        Rigidbody rbody = target.GetComponent<Rigidbody>();
+        rbody.useGravity = true;
     }
 }

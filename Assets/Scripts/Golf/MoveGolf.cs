@@ -23,6 +23,7 @@ public class MoveGolf : MonoBehaviour
     //chipRotation is changed as you angle the shot up/down for a chip shot. 1.0 is the default, a flat shot on the ground.
     //you can rotate it anywhere in the range (0, 100)
     private float chipRotation = 0.0f;
+    private float yAxis;
 
     //controls physics
     private Vector3 playerVelocity;
@@ -134,24 +135,13 @@ public class MoveGolf : MonoBehaviour
                 rotSpeed *= 3.0f; moveSpeed *= 3.0f;
             }
 
-            //A and D rotate the shot left/right
-            if (Input.GetKey(KeyCode.A))
-            {
-                shotArrow.transform.rotation = shotArrow.transform.rotation * Quaternion.Euler(Vector3.down * rotSpeed);
-            }
-
-            if (Input.GetKey(KeyCode.D))
-            {
-                shotArrow.transform.rotation = shotArrow.transform.rotation * Quaternion.Euler(Vector3.up * rotSpeed);
-            }
-
-            //Q and E angle up or downwards for a chip shot
-            //TODO: Chip shot ability
+            //Q and E angle up or downwards for a chip shot or space shot
             if (observer.ability.GetAbilityName().Equals("Chipshot"))
             {
                 if (Input.GetKey(KeyCode.E))
                 {
-                    if (chipRotation + rotSpeed >= 0.0f)
+                    //Debug.Log(shotArrow.transform.rotation);
+                    if (chipRotation - rotSpeed >= 0.0f)
                     {
                         shotArrow.transform.rotation = shotArrow.transform.rotation * Quaternion.Euler(Vector3.left * rotSpeed);
                         chipRotation -= rotSpeed;
@@ -160,12 +150,37 @@ public class MoveGolf : MonoBehaviour
 
                 if (Input.GetKey(KeyCode.Q))
                 {
+                    //Debug.Log(shotArrow.transform.rotation);
                     if (chipRotation + rotSpeed <= 50.0f)
                     {
                         shotArrow.transform.rotation = shotArrow.transform.rotation * Quaternion.Euler(Vector3.right * rotSpeed);
                         chipRotation += rotSpeed;
                     }
                 }
+            } else if (observer.ability.GetAbilityName().Equals("ZeroGrav"))
+            {
+                if (Input.GetKey(KeyCode.E))
+                {
+                    shotArrow.transform.rotation = shotArrow.transform.rotation * Quaternion.Euler(Vector3.left * rotSpeed);
+                }
+
+                if (Input.GetKey(KeyCode.Q))
+                {
+                    shotArrow.transform.rotation = shotArrow.transform.rotation * Quaternion.Euler(Vector3.right * rotSpeed);
+                }
+            }
+
+            //A and D rotate the shot left/right
+            if (Input.GetKey(KeyCode.A))
+            {
+                //Debug.Log(shotArrow.transform.rotation);
+                shotArrow.transform.RotateAround(shotArrow.transform.position, Vector3.down, rotSpeed);
+            }
+
+            if (Input.GetKey(KeyCode.D))
+            {
+                //Debug.Log(shotArrow.transform.rotation);
+                shotArrow.transform.RotateAround(shotArrow.transform.position, Vector3.up, rotSpeed);
             }
 
             //W and S increase or decrease power

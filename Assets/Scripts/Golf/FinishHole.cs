@@ -61,6 +61,8 @@ public class FinishHole : MonoBehaviour
             Destroy(GetComponent<MoveGolf>());
             Destroy(ballCam.transform.GetChild(0).GetComponentInChildren<ThirdPersonCamera>());
 
+            GetComponent<AbObserver2>().ability.OnDeactivate(this.gameObject);
+
             //lastly, record the final score for this hole...
             scorecard.finishThisHole();
             scorecardGUI.SetActive(true);

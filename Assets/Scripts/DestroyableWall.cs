@@ -17,7 +17,7 @@ public class DestroyableWall : MonoBehaviour
 
         breakingSound = this.GetComponent<AudioSource>();
         rend = GetComponent<Renderer>();
-        rend.enabled = true;
+        //rend.enabled = true;
         explosionEffect = GetComponent<ParticleSystem>();
         collie = GetComponent<Collider>();
         collie.isTrigger = false;

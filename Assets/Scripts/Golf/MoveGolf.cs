@@ -10,13 +10,16 @@ public class MoveGolf : MonoBehaviour
     float timeSlowed = 0;
 
     //controls our shot
-    public Vector3 direction;
-    public float defaultSpeed = 0.1F;
+    
+    public float maxSpeedFactor = 5.0f, minSpeedFactor = 0.2f;
+    public float stoppingRate = 0.8f;
     public float jumpHeight = 20.0f;
-    public float gravityValue = 30f;
+    public float spinRate = 0; public float spinTime = 0.0f;
     public GameObject shotArrow;
     private float speed;
-    private float maxSpeedFactor = 5.0f, minSpeedFactor = 0.2f;
+    private float defaultSpeed = 10.0f;
+    private Vector3 direction;
+
     //chipRotation is changed as you angle the shot up/down for a chip shot. 1.0 is the default, a flat shot on the ground.
     //you can rotate it anywhere in the range (0, 100)
     private float chipRotation = 0.0f;
@@ -24,6 +27,7 @@ public class MoveGolf : MonoBehaviour
     //controls physics
     private Vector3 playerVelocity;
     private Rigidbody rbody; //new
+    private float timeSinceLastShot = 0;
 
     //controls the arrow mesh, for when we change its appearance
     private MeshFilter shotArrowMF;
@@ -33,6 +37,9 @@ public class MoveGolf : MonoBehaviour
 
     //keeps score
     private ScorecardScript scorecard;
+
+    //tracks current ability
+    private AbObserver2 observer;
 
     float currSpeed = 1.0f;
     [SerializeField]
@@ -58,6 +65,9 @@ public class MoveGolf : MonoBehaviour
 
         //set initial color of shotArrow
         shotArrowMR.material.SetColor("_Color", new Color(1.0f / maxSpeedFactor, 0, (maxSpeedFactor - 1.0f) / maxSpeedFactor, 1.0f));
+
+        //find observer
+        observer = GetComponent<AbObserver2>();
 
         //TODO: better global scoring system??
         scorecard = transform.parent.GetComponent<ScorecardScript>();
@@ -108,6 +118,7 @@ public class MoveGolf : MonoBehaviour
         //NOT IN MOTION: draw the arrow and line up your shot
         if(!inMotion)
         {
+            timeSinceLastShot = 0;
             //basic
             if(!shotArrow.activeInHierarchy)
             {
@@ -136,7 +147,7 @@ public class MoveGolf : MonoBehaviour
 
             //Q and E angle up or downwards for a chip shot
             //TODO: Chip shot ability
-            if (false)
+            if (observer.ability.GetAbilityName().Equals("Chipshot"))
             {
                 if (Input.GetKey(KeyCode.E))
                 {
@@ -209,10 +220,55 @@ public class MoveGolf : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.R) && inContactWithGround > 0)
             {
                 //Debug.Log("slowed down");
-                rbody.velocity = rbody.velocity * 0.8f;
+                rbody.velocity = rbody.velocity * stoppingRate;
             }
 
 
+            if (observer.ability.GetAbilityName().Equals("Movement+"))
+            {
+                timeSinceLastShot += Time.deltaTime;
+
+                //FULL STOP
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    //Debug.Log("FULL STOP!");
+                    rbody.velocity = rbody.velocity * 0.1f;
+                    rbody.angularVelocity = rbody.angularVelocity * 0.1f;
+                }
+
+                //put angular motion, AKA "spin" on the ball
+                Vector3 currVelocity = direction; //rbody.velocity;
+                currVelocity.y = 0;
+
+                Vector3 rightPerpVector = new Vector3(currVelocity.z, 0, -1 * currVelocity.x);
+                float timeFactor = 0;
+                if (timeSinceLastShot < spinTime) {
+                    timeFactor = (spinTime - timeSinceLastShot) / spinTime;
+                }
+
+                if (Input.GetKeyDown(KeyCode.A))
+                {
+                    rbody.AddForce((-1 * rightPerpVector) * spinRate * timeFactor, ForceMode.Impulse);
+                }
+
+                if (Input.GetKeyDown(KeyCode.D))
+                {
+                    rbody.AddForce(rightPerpVector * spinRate * timeFactor, ForceMode.Impulse);
+                }
+
+                //W goes forwards, in current direction of motion
+                if (Input.GetKeyDown(KeyCode.W))
+                {
+                    rbody.AddForce(currVelocity * spinRate * timeFactor, ForceMode.Impulse);
+                }
+
+                //...S goes backwards
+                if (Input.GetKeyDown(KeyCode.S))
+                {
+                    rbody.AddForce((-1 * currVelocity) * spinRate * timeFactor, ForceMode.Impulse);
+                }
+
+            }
 
         }
 

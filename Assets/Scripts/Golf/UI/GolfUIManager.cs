@@ -14,27 +14,19 @@ public class GolfUIManager : MonoBehaviour
     public Image currentAbilityIcon;
     public Sprite[] allAbilityIcons;
 
-    public GameObject abObserver;
     public GameObject hole;
     public GameObject ball;
 
+    private AbObserver2 abObserver;
     private int holeNum;
     private int shotNum;
-
-    private MonoBehaviour[] abilityScripts;
 
     void Start()
     {
         holeNum = hole.GetComponent<HoleProperties>().holeNumber;
-        shotNum = 1;
+        shotNum = 0;
 
-        abilityScripts = new MonoBehaviour[8];
-        for(var i=0; i < 8; i++)
-        {
-            abilityScripts[i] = null;
-        }
-
-        //determineAbilities();
+        abObserver = ball.GetComponent<AbObserver2>();
     }
 
     // Update is called once per frame
@@ -43,35 +35,37 @@ public class GolfUIManager : MonoBehaviour
         shotNum = ball.transform.parent.GetComponent<ScorecardScript>().getHoleScore();
         holeNumDisplay.GetComponent<TextMeshProUGUI>().SetText("Hole #" + holeNum);
         shotNumDisplay.GetComponent<TextMeshProUGUI>().SetText("Shot #" + shotNum);
-        //currentAbilityDisplay.GetComponent<TextMeshProUGUI>().SetText(abObserver.GetComponent<AbilityObserver>().ability.ToString());
+
+        //display ability name
+        string abName = abObserver.ability.GetAbilityName();
+
+        //style choice
+        if(abName.Equals("Nothing")) { abName = "No Ability...";  } 
+
+        currentAbilityDisplay.GetComponent<TextMeshProUGUI>().SetText(abName);
 
 
-        // ability name
-        //updateAbilityIcon();
-    }
-
-    //add something eventually for all abilities we will have
-    void determineAbilities()
-    {
-        abilityScripts[1] = ball.GetComponent<ShrinkAbility>();
-        abilityScripts[2] = ball.GetComponent<LightUpAbility>();
-        //abilityScripts[3] = ball.GetComponent<BulldozerAbility>();
-        //abilityScripts[4] = ball.GetComponent<LabyrinthAbility>();
-        //abilityScripts[5] = ball.GetComponent<ChipshotAbility>();
-        //abilityScripts[6] = ball.GetComponent<MoveplusAbility>();
-        //abilityScripts[7] = ball.GetComponent<ZerogravAbility>();
-        //abilityScripts[?] = ball.GetComponent<???Ability>(); ...
+        // ability icon / picture
+        updateAbilityIcon();
     }
 
     void updateAbilityIcon()
     {
-        if(abilityScripts[1] != null)
+        string abName = abObserver.ability.GetAbilityName();
+        int index;
+
+        switch (abName)
         {
-            if(((ShrinkAbility) abilityScripts[1]).isShrunk)
-            {
-                currentAbilityDisplay.GetComponent<TextMeshProUGUI>().SetText("Shrink");
-                currentAbilityIcon.sprite = allAbilityIcons[1];
-            }
+            case "Shrink": index = 1; break;
+            case "Lightup": index = 2; break;
+            case "Bulldozer": index = 3; break;
+            case "Labyrinth": index = 4; break;
+            case "Chipshot": index = 5; break;
+            case "Movement+": index = 6; break;
+            case "ZeroGrav": index = 7; break;
+            default: index = 0; break;
         }
+
+        currentAbilityIcon.sprite = allAbilityIcons[index];
     }
 }

@@ -11,8 +11,6 @@ public class InvisibleObject2 : MonoBehaviour
     void Start()
     {
         mesh = GetComponent<MeshRenderer>();
-        //make sure that any object you want to "light up" are called "InvisCube" 
-        //the name must be exact for it to work
 
         //make sure there is a controller for this ability in the scene
         if (lightUpAbility != null)

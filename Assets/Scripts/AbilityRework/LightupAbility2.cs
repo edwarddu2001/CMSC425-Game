@@ -3,6 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*LIGHTUP ABILITY: brighten your horizons
+action: emits a pale glow from the ball, and reveals secret paths of the same color as your light.
+pros: 
+  - open up new paths you otherwise couldn't see!
+cons:
+  - no inherent cons, however, this ability is quite specific.
+  - also, the platforms will vanish when you lose this ability.
+*/
 public class LightupAbility2 : Ability2
 {
     // public event Action<bool> ReportActivate;

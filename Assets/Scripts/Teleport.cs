@@ -27,6 +27,7 @@ public class Teleport : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         teleported = true;
+        playerObj.GetComponent<Rigidbody>().velocity = new Vector3(0, 0 ,0 );
         playerObj.transform.position = target.position;
     
     }

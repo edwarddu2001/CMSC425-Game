@@ -159,7 +159,22 @@ public class MoveGolf : MonoBehaviour
 
     void moveLabyrinth()
     {
-        rbody.AddForce(Vector3.up * 0.0001f);
+        if (Input.GetKey(KeyCode.A))
+        {
+            rbody.AddForce(Vector3.left * 0.01f);
+        } if (Input.GetKey(KeyCode.D))
+        {
+            rbody.AddForce(Vector3.right * 0.01f);
+        }
+        if (Input.GetKey(KeyCode.W))
+        {
+            rbody.AddForce(Vector3.up * 0.01f);
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            rbody.AddForce(Vector3.back * 0.01f);
+        }
+        
 
         if (Input.GetKey(KeyCode.F))
         {

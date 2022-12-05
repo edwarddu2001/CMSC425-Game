@@ -23,7 +23,7 @@ public class LabyrinthAbility : Ability2
     public Material material;
 
     public float maxPowerDecrease = 1.5f;
-    public float frictionIncrease = 2.0f;
+    public float speedDecrease = 2.0f;
     public float jumpHeightDecrease = 2.0f;
     private float oldStoppingRate;
 
@@ -36,10 +36,9 @@ public class LabyrinthAbility : Ability2
     {
         target.GetComponent<MeshRenderer>().material = material;
 
-        target.GetComponent<SphereCollider>().material.dynamicFriction *= frictionIncrease;
         MoveGolf movement = target.GetComponent<MoveGolf>();
         movement.maxSpeedFactor /= maxPowerDecrease;
-        movement.defaultSpeed /= maxPowerDecrease;
+        movement.defaultSpeed /= speedDecrease;
         movement.jumpHeight /= jumpHeightDecrease;
 
         oldStoppingRate = movement.stoppingRate;
@@ -58,10 +57,9 @@ public class LabyrinthAbility : Ability2
         //Debug.Log("TODO: Undo Labyrinth Rotation");
         //courseContainer.GetComponent<LabyrinthRotate>().enabled = false;
 
-        target.GetComponent<SphereCollider>().material.dynamicFriction /= frictionIncrease;
         MoveGolf movement = target.GetComponent<MoveGolf>();
         movement.maxSpeedFactor *= maxPowerDecrease;
-        movement.defaultSpeed *= maxPowerDecrease;
+        movement.defaultSpeed *= speedDecrease;
         movement.jumpHeight *= jumpHeightDecrease;
 
         movement.stoppingRate = oldStoppingRate;

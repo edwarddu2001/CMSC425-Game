@@ -50,6 +50,8 @@ public class MoveGolf : MonoBehaviour
     float currSpeed = 1.0f;
     [SerializeField]
     private int inContactWithGround = 0;
+
+    private AudioSource hitSound;
     
     //initialize stuff
     void Start()
@@ -77,6 +79,9 @@ public class MoveGolf : MonoBehaviour
 
         //TODO: better global scoring system??
         scorecard = transform.parent.GetComponent<ScorecardScript>();
+
+        // initialize the hit sound
+        hitSound = this.GetComponent<AudioSource>();
     }
 
     //expand or shrink the shot arrow, to represent a stronger or weaker shot
@@ -240,6 +245,7 @@ public class MoveGolf : MonoBehaviour
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
             scorecard.takeShot();
+            
 
             //disable all abilities
             toggleAllAbilities(false);
@@ -367,7 +373,9 @@ public class MoveGolf : MonoBehaviour
 
             if (!labyrinthMode)
             {
+                hitSound.Play();
                 rbody.AddForce(direction * speed, ForceMode.Impulse);
+                
             }
             else
             {
@@ -388,7 +396,9 @@ public class MoveGolf : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && inContactWithGround > 0)
         {
             //Debug.Log("tried to jump");
+            
             rbody.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+            
         }
 
         if (Input.GetKeyDown(KeyCode.R) && inContactWithGround > 0)

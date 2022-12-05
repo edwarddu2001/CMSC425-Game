@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*ZERO GRAVITY ABILITY: i believe i can fly!
+action: disables gravity
+pros: 
+  - no gravity! :D
+cons:
+  - no gravity? D:
+*/
 public class ZerogravAbility : Ability2
 {
     public Material material;

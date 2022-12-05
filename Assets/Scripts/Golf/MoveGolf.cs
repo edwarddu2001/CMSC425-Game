@@ -17,7 +17,7 @@ public class MoveGolf : MonoBehaviour
     public float spinRate = 0; public float spinTime = 0.0f;
     public GameObject shotArrow;
     private float speed;
-    private float defaultSpeed = 10.0f;
+    public float defaultSpeed = 10.0f;
     private Vector3 direction;
 
     //chipRotation is changed as you angle the shot up/down for a chip shot. 1.0 is the default, a flat shot on the ground.
@@ -41,6 +41,10 @@ public class MoveGolf : MonoBehaviour
 
     //tracks current ability
     private AbObserver2 observer;
+
+    //"labyrinth mode" is a special mode that completely changes movement, when you have the labyrinth ability
+    private bool labyrinthMode = false, movingLabyrinth = false;
+    private LabyrinthRotate rotatableObjectScript;
 
     float currSpeed = 1.0f;
     [SerializeField]
@@ -97,224 +101,319 @@ public class MoveGolf : MonoBehaviour
     
     void Update()
     {
-        /*for brevity's sake, "almost stopped moving" = not moving.
-        We decide the shot is over when the ball has nearly stopped moving for at least 2 seconds.*/
-        bool movingFast = (rbody.velocity.magnitude > 0.2f);
-        if (!movingFast)
+        //all abilities have normal golf ball movement, EXCEPT the labyrinth ability in labyrinth mode.
+        if (!movingLabyrinth)
         {
-            if (timeSlowed > 2.0f)
+            /*for brevity's sake, "almost stopped moving" = not moving.
+            We decide the shot is over when the ball has nearly stopped moving for at least 2 seconds.*/
+            bool movingFast = (rbody.velocity.magnitude > 0.2f);
+            if (!movingFast)
             {
-                inMotion = false;
-            } else
-            {
-                timeSlowed += Time.deltaTime;
-            }
-        } else
-        {
-            timeSlowed = 0.0f;
-            inMotion = true;
-        }
-        //Debug.Log("Velocity: " + rbody.velocity.magnitude);
-
-        //NOT IN MOTION: draw the arrow and line up your shot
-        if(!inMotion)
-        {
-            timeSinceLastShot = 0;
-            //basic
-            if(!shotArrow.activeInHierarchy)
-            {
-                shotArrow.SetActive(true);
-            }
-            rbody.velocity = Vector3.zero;
-
-
-            //modify shot arrow based on user input
-            float rotSpeed = 0.04f; float moveSpeed = 0.001f;
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                rotSpeed *= 3.0f; moveSpeed *= 3.0f;
-            }
-
-            //Q and E angle up or downwards for a chip shot or space shot
-            if (observer.ability.GetAbilityName().Equals("Chipshot"))
-            {
-                if (Input.GetKey(KeyCode.E))
+                if (timeSlowed > 2.0f)
                 {
-                    //Debug.Log(shotArrow.transform.rotation);
-                    if (chipRotation - rotSpeed >= 0.0f)
-                    {
-                        shotArrow.transform.rotation = shotArrow.transform.rotation * Quaternion.Euler(Vector3.left * rotSpeed);
-                        chipRotation -= rotSpeed;
-                    }
+                    inMotion = false;
                 }
-
-                if (Input.GetKey(KeyCode.Q))
+                else
                 {
-                    //Debug.Log(shotArrow.transform.rotation);
-                    if (chipRotation + rotSpeed <= 50.0f)
-                    {
-                        shotArrow.transform.rotation = shotArrow.transform.rotation * Quaternion.Euler(Vector3.right * rotSpeed);
-                        chipRotation += rotSpeed;
-                    }
+                    timeSlowed += Time.deltaTime;
                 }
-            } else if (observer.ability.GetAbilityName().Equals("ZeroGrav"))
+            }
+            else
             {
-                if (Input.GetKey(KeyCode.E))
-                {
-                    shotArrow.transform.rotation = shotArrow.transform.rotation * Quaternion.Euler(Vector3.left * rotSpeed);
-                }
+                timeSlowed = 0.0f;
+                inMotion = true;
+            }
+            //Debug.Log("Velocity: " + rbody.velocity.magnitude);
 
-                if (Input.GetKey(KeyCode.Q))
+            //NOT IN MOTION: draw the arrow and line up your shot
+            if (!inMotion)
+            {
+                if (!labyrinthMode)
                 {
-                    shotArrow.transform.rotation = shotArrow.transform.rotation * Quaternion.Euler(Vector3.right * rotSpeed);
+                    ShotSetup();
+                } else
+                {
+                    LabyrinthSetup();
                 }
             }
 
-            //A and D rotate the shot left/right
-            if (Input.GetKey(KeyCode.A))
-            {
-                //Debug.Log(shotArrow.transform.rotation);
-                shotArrow.transform.RotateAround(shotArrow.transform.position, Vector3.down, rotSpeed);
-            }
 
-            if (Input.GetKey(KeyCode.D))
+            //IN MOTION: the ball is now moving. allow for jumping
+            else
             {
-                //Debug.Log(shotArrow.transform.rotation);
-                shotArrow.transform.RotateAround(shotArrow.transform.position, Vector3.up, rotSpeed);
-            }
-
-            //W and S increase or decrease power
-            if (Input.GetKey(KeyCode.W))
-            {
-                if (currSpeed + moveSpeed <= maxSpeedFactor)
+                if (!labyrinthMode)
                 {
-                    currSpeed += moveSpeed;
-                    resizeShotArrow(currSpeed);
+                    moveNormally();
                 }
-            }
-
-            if (Input.GetKey(KeyCode.S))
-            {
-                if (currSpeed - moveSpeed >= minSpeedFactor)
-                {
-                    currSpeed -= moveSpeed;
-                    resizeShotArrow(currSpeed);
-                }
-            }
-
-            direction = direction.normalized;
-            direction = shotArrow.transform.rotation * Vector3.back;
-            speed = currSpeed * defaultSpeed;
-            //Debug.Log("Speed: " + currSpeed);
-
-
-            //when the player shoots the ball, add a force to the object with specified speed and direction.
-            //and keep score!
-            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
-            {
-                rbody.AddForce(direction * speed, ForceMode.Impulse);
-                scorecard.takeShot();
             }
         }
-
-
-        //IN MOTION: the ball is now moving. allow for jumping
+        //when we are actively in labyrinth mode, call the method there.
         else
         {
-            shotArrow.SetActive(false);
-
-            //Debug.Log(inContactWithGround);
-
-            // Changes the height position of the player..
-            if (Input.GetKeyDown(KeyCode.Space) && inContactWithGround > 0)
-            {
-                //Debug.Log("tried to jump");
-                rbody.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
-            }
-
-            if (Input.GetKeyDown(KeyCode.R) && inContactWithGround > 0)
-            {
-                //Debug.Log("slowed down");
-                rbody.velocity = rbody.velocity * stoppingRate;
-            }
-
-
-            if (observer.ability.GetAbilityName().Equals("Movement+"))
-            {
-                timeSinceLastShot += Time.deltaTime;
-
-                //FULL STOP
-                if (Input.GetKeyDown(KeyCode.F))
-                {
-                    //Debug.Log("FULL STOP!");
-                    rbody.velocity = rbody.velocity * 0.1f;
-                    rbody.angularVelocity = rbody.angularVelocity * 0.1f;
-                }
-
-                //put angular motion, AKA "spin" on the ball
-                Vector3 currVelocity = direction; //rbody.velocity;
-                currVelocity.y = 0;
-
-                Vector3 rightPerpVector = new Vector3(currVelocity.z, 0, -1 * currVelocity.x);
-                float timeFactor = 0;
-                if (timeSinceLastShot < spinTime) {
-                    timeFactor = (spinTime - timeSinceLastShot) / spinTime;
-                }
-
-                if (Input.GetKeyDown(KeyCode.A))
-                {
-                    rbody.AddForce((-1 * rightPerpVector) * spinRate * timeFactor, ForceMode.Impulse);
-                }
-
-                if (Input.GetKeyDown(KeyCode.D))
-                {
-                    rbody.AddForce(rightPerpVector * spinRate * timeFactor, ForceMode.Impulse);
-                }
-
-                //W goes forwards, in current direction of motion
-                if (Input.GetKeyDown(KeyCode.W))
-                {
-                    rbody.AddForce(currVelocity * spinRate * timeFactor, ForceMode.Impulse);
-                }
-
-                //...S goes backwards
-                if (Input.GetKeyDown(KeyCode.S))
-                {
-                    rbody.AddForce((-1 * currVelocity) * spinRate * timeFactor, ForceMode.Impulse);
-                }
-
-            }
-
+            
+            moveLabyrinth();
         }
 
 
     }
 
-        void OnCollisionEnter(Collision collisionInfo)
+    void moveLabyrinth()
+    {
+        rbody.AddForce(Vector3.up * 0.0001f);
+
+        if (Input.GetKey(KeyCode.F))
         {
-            //if we hit the ground, add to the number of ground objects we are hitting
-            if (collisionInfo.gameObject.tag == "Ground")
-            {
+            labyrinthMode = false;
+            movingLabyrinth = false;
+            rotatableObjectScript.enabled = false;
+        }
+    }
 
-                inContactWithGround++;
-            }
+    public void setRotatableObject(GameObject courseContainer)
+    {
+        rotatableObjectScript = courseContainer.GetComponent<LabyrinthRotate>();
+    }
 
-            // rbody.AddForce(Vector3.Reflect(direction, collisionInfo.contacts[0].normal) * rbody.velocity.magnitude,   
-             //          ForceMode.Impulse);
-
+    void LabyrinthSetup()
+    {
+        //toggles Labyrinth mode if you have the labyrinth ability
+        if (Input.GetKeyDown(KeyCode.F) && observer.ability.GetAbilityName() == "Labyrinth")
+        {
+            labyrinthMode = !labyrinthMode;
+            shotArrow.SetActive(!labyrinthMode);
+            Debug.Log("Labyrinth mode now " + labyrinthMode);
         }
 
 
-
-        void OnCollisionExit(Collision collisionInfo)
+        //when the player "shoots" the ball, just allow them to start rotating the labyrinth object.
+        //and keep score!
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
-            //if we leave the ground, subtract from the number of ground objects we are hitting
-            if (collisionInfo.gameObject.tag == "Ground")
+            scorecard.takeShot();
+
+            rotatableObjectScript.enabled = true;
+            movingLabyrinth = true;
+            moveLabyrinth();
+        }
+    }
+
+    void ShotSetup()
+    {
+        timeSinceLastShot = 0;
+        //basic
+        if (!shotArrow.activeInHierarchy)
+        {
+            shotArrow.SetActive(true);
+        }
+        rbody.velocity = Vector3.zero;
+
+
+        //modify shot arrow based on user input
+        float rotSpeed = 0.15f; float moveSpeed = 0.005f;
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            rotSpeed *= 3.0f; moveSpeed *= 3.0f;
+        } else if(Input.GetKey(KeyCode.LeftControl))
+        {
+            rotSpeed /= 3.0f; moveSpeed /= 3.0f;
+        }
+
+        //Q and E angle up or downwards for a chip shot or space shot
+        if (observer.ability.GetAbilityName().Equals("Chipshot"))
+        {
+            if (Input.GetKey(KeyCode.E))
             {
+                //Debug.Log(shotArrow.transform.rotation);
+                if (chipRotation - rotSpeed >= 0.0f)
+                {
+                    shotArrow.transform.rotation = shotArrow.transform.rotation * Quaternion.Euler(Vector3.left * rotSpeed);
+                    chipRotation -= rotSpeed;
+                }
+            }
 
-                inContactWithGround--;
+            if (Input.GetKey(KeyCode.Q))
+            {
+                //Debug.Log(shotArrow.transform.rotation);
+                if (chipRotation + rotSpeed <= 50.0f)
+                {
+                    shotArrow.transform.rotation = shotArrow.transform.rotation * Quaternion.Euler(Vector3.right * rotSpeed);
+                    chipRotation += rotSpeed;
+                }
+            }
+        }
+        else if (observer.ability.GetAbilityName().Equals("ZeroGrav"))
+        {
+            if (Input.GetKey(KeyCode.E))
+            {
+                shotArrow.transform.rotation = shotArrow.transform.rotation * Quaternion.Euler(Vector3.left * rotSpeed);
+            }
 
+            if (Input.GetKey(KeyCode.Q))
+            {
+                shotArrow.transform.rotation = shotArrow.transform.rotation * Quaternion.Euler(Vector3.right * rotSpeed);
+            }
+        }
+
+        //A and D rotate the shot left/right
+        if (Input.GetKey(KeyCode.A))
+        {
+            shotArrow.transform.RotateAround(shotArrow.transform.position, Vector3.down, rotSpeed);
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            shotArrow.transform.RotateAround(shotArrow.transform.position, Vector3.up, rotSpeed);
+        }
+
+        if(currSpeed > maxSpeedFactor)
+        {
+            currSpeed = maxSpeedFactor;
+            resizeShotArrow(currSpeed);
+        }
+        //W and S increase or decrease power
+        if (Input.GetKey(KeyCode.W))
+        {
+            if (currSpeed + moveSpeed <= maxSpeedFactor)
+            {
+                currSpeed += moveSpeed;
+                resizeShotArrow(currSpeed);
+            }
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            if (currSpeed - moveSpeed >= minSpeedFactor)
+            {
+                currSpeed -= moveSpeed;
+                resizeShotArrow(currSpeed);
+            }
+        }
+
+        //toggles Labyrinth mode if you have the labyrinth ability
+        if (Input.GetKeyDown(KeyCode.F) && observer.ability.GetAbilityName() == "Labyrinth")
+        {
+            labyrinthMode = !labyrinthMode;
+            shotArrow.SetActive(!labyrinthMode);
+            Debug.Log("Labyrinth mode now " + labyrinthMode);
+        }
+
+        direction = direction.normalized;
+        direction = shotArrow.transform.rotation * Vector3.back;
+        speed = currSpeed * defaultSpeed;
+
+
+        //when the player shoots the ball, add a force to the object with specified speed and direction.
+        //and keep score!
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+        {
+            scorecard.takeShot();
+
+            if (!labyrinthMode)
+            {
+                rbody.AddForce(direction * speed, ForceMode.Impulse);
+            }
+            else
+            {
+                movingLabyrinth = true;
+                moveLabyrinth();
             }
 
         }
+    }
+
+    void moveNormally()
+    {
+        shotArrow.SetActive(false);
+
+        //do all of the following for a NORMAL shot (labyrinth mode disabled.)
+
+        // Changes the height position of the player..
+        if (Input.GetKeyDown(KeyCode.Space) && inContactWithGround > 0)
+        {
+            //Debug.Log("tried to jump");
+            rbody.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+        }
+
+        if (Input.GetKeyDown(KeyCode.R) && inContactWithGround > 0)
+        {
+            //Debug.Log("slowed down");
+            rbody.velocity = rbody.velocity * stoppingRate;
+        }
+
+
+        if (observer.ability.GetAbilityName().Equals("Movement+"))
+        {
+            timeSinceLastShot += Time.deltaTime;
+
+            //FULL STOP
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                //Debug.Log("FULL STOP!");
+                rbody.velocity = rbody.velocity * 0.1f;
+                rbody.angularVelocity = rbody.angularVelocity * 0.1f;
+            }
+
+            //put angular motion, AKA "spin" on the ball
+            Vector3 currVelocity = direction; //rbody.velocity;
+            currVelocity.y = 0;
+
+            Vector3 rightPerpVector = new Vector3(currVelocity.z, 0, -1 * currVelocity.x);
+            float timeFactor = 0;
+            if (timeSinceLastShot < spinTime)
+            {
+                timeFactor = (spinTime - timeSinceLastShot) / spinTime;
+            }
+
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                rbody.AddForce((-1 * rightPerpVector) * spinRate * timeFactor, ForceMode.Impulse);
+            }
+
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                rbody.AddForce(rightPerpVector * spinRate * timeFactor, ForceMode.Impulse);
+            }
+
+            //W goes forwards, in current direction of motion
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                rbody.AddForce(currVelocity * spinRate * timeFactor, ForceMode.Impulse);
+            }
+
+            //...S goes backwards
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                rbody.AddForce((-1 * currVelocity) * spinRate * timeFactor, ForceMode.Impulse);
+            }
+
+        }
+    }
+
+    void OnCollisionEnter(Collision collisionInfo)
+    {
+        //if we hit the ground, add to the number of ground objects we are hitting
+        if (collisionInfo.gameObject.tag == "Ground")
+        {
+
+            inContactWithGround++;
+        }
+
+        // rbody.AddForce(Vector3.Reflect(direction, collisionInfo.contacts[0].normal) * rbody.velocity.magnitude,   
+            //          ForceMode.Impulse);
+
+    }
+
+
+
+    void OnCollisionExit(Collision collisionInfo)
+    {
+        //if we leave the ground, subtract from the number of ground objects we are hitting
+        if (collisionInfo.gameObject.tag == "Ground")
+        {
+
+            inContactWithGround--;
+
+        }
+
+    }
 }

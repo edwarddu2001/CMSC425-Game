@@ -17,7 +17,6 @@ public class ShrinkAbility2 : Ability2
     public bool isShrunk = false;
     public float shrinkProportion = .6f;
     public float maxSpeedDecreaseFactor = 0.8f;
-    public float frictionIncreaseFactor = 2f;
     public Material material;
 
     public override string GetAbilityName()
@@ -36,8 +35,8 @@ public class ShrinkAbility2 : Ability2
         MoveGolf movement = target.GetComponent<MoveGolf>();
         movement.maxSpeedFactor *= maxSpeedDecreaseFactor;
 
-        //another thing: to make the ball appear to move slower, we'll increase its friction
-        target.GetComponent<SphereCollider>().material.dynamicFriction *= frictionIncreaseFactor;
+        //decrease its speed, too.
+        movement.defaultSpeed *= maxSpeedDecreaseFactor;
 
     }
 
@@ -51,7 +50,7 @@ public class ShrinkAbility2 : Ability2
         MoveGolf movement = target.GetComponent<MoveGolf>();
         movement.maxSpeedFactor /= maxSpeedDecreaseFactor;
 
-        target.GetComponent<SphereCollider>().material.dynamicFriction /= frictionIncreaseFactor;
+        movement.defaultSpeed /= maxSpeedDecreaseFactor;
 
     }
 }

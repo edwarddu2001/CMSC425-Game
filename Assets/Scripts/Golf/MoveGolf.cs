@@ -45,6 +45,7 @@ public class MoveGolf : MonoBehaviour
     //"labyrinth mode" is a special mode that completely changes movement, when you have the labyrinth ability
     private bool labyrinthMode = false, movingLabyrinth = false;
     private LabyrinthRotate rotatableObjectScript;
+    private AbilityPickup2[] abilitiesList;
 
     float currSpeed = 1.0f;
     [SerializeField]
@@ -150,7 +151,6 @@ public class MoveGolf : MonoBehaviour
         //when we are actively in labyrinth mode, call the method there.
         else
         {
-            
             moveLabyrinth();
         }
 
@@ -163,15 +163,50 @@ public class MoveGolf : MonoBehaviour
 
         if (Input.GetKey(KeyCode.F))
         {
+            toggleAllAbilities(true);
+
             labyrinthMode = false;
             movingLabyrinth = false;
             rotatableObjectScript.enabled = false;
         }
     }
 
-    public void setRotatableObject(GameObject courseContainer)
+    //call this method if you have to respawn and you're moving with labyrinth at the moment.
+    //it's necessary to reset movement back to normal.
+    public void respawnWithLabyrinth()
+    {
+        toggleAllAbilities(true);
+
+        rotatableObjectScript.returnToOriginalRotation();
+        rotatableObjectScript.enabled = false;
+        labyrinthMode = false;
+        movingLabyrinth = false;
+
+        inMotion = true;
+        rbody.AddForce(Vector3.down, ForceMode.Impulse);
+    }
+
+    public void setRotatableObjects(GameObject courseContainer, GameObject abList)
     {
         rotatableObjectScript = courseContainer.GetComponent<LabyrinthRotate>();
+        abilitiesList = abList.GetComponentsInChildren<AbilityPickup2>();
+    }
+
+    private void toggleAllAbilities(bool enable)
+    {
+        if(enable) {
+            for (var i = 0; i < abilitiesList.Length; i++)
+            {
+                abilitiesList[i].enablePickup();
+            }
+        } else
+        {
+            for (var i = 0; i < abilitiesList.Length; i++)
+            {
+                abilitiesList[i].disablePickup();
+            }
+        }
+        
     }
 
     void LabyrinthSetup()
@@ -191,12 +226,17 @@ public class MoveGolf : MonoBehaviour
         {
             scorecard.takeShot();
 
+            //disable all abilities
+            toggleAllAbilities(false);
+            
             rotatableObjectScript.enabled = true;
             movingLabyrinth = true;
             moveLabyrinth();
         }
     }
 
+
+    //SETUP: for the next shot. spawn the shot arrow, control its direction/power with WASD.
     void ShotSetup()
     {
         timeSinceLastShot = 0;
@@ -205,11 +245,13 @@ public class MoveGolf : MonoBehaviour
         {
             shotArrow.SetActive(true);
         }
+
         rbody.velocity = Vector3.zero;
+        rbody.angularVelocity = Vector3.zero;
 
 
         //modify shot arrow based on user input
-        float rotSpeed = 0.15f; float moveSpeed = 0.005f;
+        float rotSpeed = 0.08f; float moveSpeed = 0.004f;
         if (Input.GetKey(KeyCode.LeftShift))
         {
             rotSpeed *= 3.0f; moveSpeed *= 3.0f;

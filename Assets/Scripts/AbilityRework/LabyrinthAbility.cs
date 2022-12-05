@@ -19,6 +19,7 @@ public class LabyrinthAbility : Ability2
 {
     //public event Action<GameObject> reportRotatableObject;
     public GameObject courseContainer;
+    public GameObject abilitiesList;
     public Material material;
 
     public float maxPowerDecrease = 1.5f;
@@ -48,7 +49,7 @@ public class LabyrinthAbility : Ability2
         //TODO: add labyrinth rotation.
         //courseContainer.GetComponent<LabyrinthRotate>().enabled = true;
         //reportRotatableObject(courseContainer);
-        target.GetComponent<MoveGolf>().setRotatableObject(courseContainer);
+        target.GetComponent<MoveGolf>().setRotatableObjects(courseContainer, abilitiesList);
 
     }
     public override void OnDeactivate(GameObject target)

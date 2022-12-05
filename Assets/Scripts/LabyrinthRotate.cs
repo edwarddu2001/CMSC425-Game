@@ -22,6 +22,7 @@ using UnityEngine;
 
 public class LabyrinthRotate : MonoBehaviour
 {
+    Quaternion originalRot;
     float rotAboutX, rotAboutZ;
     float rotX, rotY, rotZ;
     //To change the max amount the map is allowed to rotate in any direction, change this
@@ -32,6 +33,7 @@ public class LabyrinthRotate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        originalRot = transform.rotation;
         /*rotAboutX = 0;
         rotAboutZ = 0;*/
 
@@ -87,5 +89,10 @@ public class LabyrinthRotate : MonoBehaviour
                 //collie.transform.rotation = transform.rotation * Quaternion.Euler(Vector3.left * 0.02f);
             }
         }
+    }
+
+    public void returnToOriginalRotation()
+    {
+        transform.rotation = originalRot;
     }
 }

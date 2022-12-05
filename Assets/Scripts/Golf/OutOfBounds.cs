@@ -6,7 +6,7 @@ using UnityEngine;
 public class OutOfBounds : MonoBehaviour
 {
 
-    public GameObject BoundingBox;
+    //public GameObject BoundingBox;
     public GameObject respawnPoint;
     public GameObject[] checkpoints;
 
@@ -54,7 +54,7 @@ public class OutOfBounds : MonoBehaviour
 
         //two collisions this script will handle: going out of bounds and respawning, or reaching a checkpoint.
         //case 1: collided with the boundary box (went out of bounds), respawn.
-        BoxCollider[] bounds = BoundingBox.transform.GetComponentsInChildren<BoxCollider>();
+        /*BoxCollider[] bounds = BoundingBox.transform.GetComponentsInChildren<BoxCollider>();
         for(var i=0; i<bounds.Length; i++)
         {
             if(bounds[i].Equals(collision))
@@ -62,6 +62,16 @@ public class OutOfBounds : MonoBehaviour
                 Respawn();
                 isRespawning = true;
                 break;
+            }
+        }*/
+        if (collision.gameObject.tag.Equals("OutOfBounds"))
+        {
+            Respawn();
+            isRespawning = true;
+            if (GetComponent<AbObserver2>().ability.GetAbilityName().Equals("Labyrinth"))
+            {
+                GetComponent<MoveGolf>().respawnWithLabyrinth();
+                
             }
         }
 

@@ -308,7 +308,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: ac419b2653162e149921fd5f29082d97, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1b22a57cc457a1c4da31b7add05ba2dc, type: 2}
+      objectReference: {fileID: 2100000, guid: 9f25ab9b1c25f944d8fb0f88b1de84a3, type: 2}
     - target: {fileID: 919132149155446097, guid: ac419b2653162e149921fd5f29082d97, type: 3}
       propertyPath: m_Name
       value: arrow
@@ -475,25 +475,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80c96c272f9e31241bba9c55b93c0a89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BoundingBox: {fileID: 0}
   respawnPoint: {fileID: 0}
   checkpoints: []
---- !u!114 &7031159440211997582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5251109740545307483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72bcdad89cca19e4c8cf15cbcd4f2260, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hole: {fileID: 0}
-  ballCam: {fileID: 0}
-  holeGUI: {fileID: 0}
-  scorecardGUI: {fileID: 0}
 --- !u!114 &3059951779421528460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,6 +503,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability: {fileID: 3059951779421528460}
+--- !u!114 &7031159440211997582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5251109740545307483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72bcdad89cca19e4c8cf15cbcd4f2260, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hole: {fileID: 0}
+  ballCam: {fileID: 0}
+  holeGUI: {fileID: 0}
+  scorecardGUI: {fileID: 0}
 --- !u!4 &5251109740545307485 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3098464011997612203, guid: 95e3d3c235638ac4293031ca111be961, type: 3}

@@ -92,6 +92,10 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
+    - target: {fileID: 7827435436564237497, guid: 27310aebf2c8245efa0a9093e521a1bc, type: 3}
+      propertyPath: m_TagString
+      value: Curb
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2495146349249555344, guid: 27310aebf2c8245efa0a9093e521a1bc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 27310aebf2c8245efa0a9093e521a1bc, type: 3}

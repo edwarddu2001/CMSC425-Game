@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4379085040639533863}
   m_Layer: 0
   m_Name: Short Curb
-  m_TagString: Untagged
+  m_TagString: Curb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,6 +86,10 @@ PrefabInstance:
     - target: {fileID: 5803383960968988762, guid: 28ad28cd000d14f0ca89f638e21f3d5d, type: 3}
       propertyPath: m_Name
       value: Curb 2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5803383960968988762, guid: 28ad28cd000d14f0ca89f638e21f3d5d, type: 3}
+      propertyPath: m_TagString
+      value: Curb
       objectReference: {fileID: 0}
     - target: {fileID: 6697372789170509375, guid: 28ad28cd000d14f0ca89f638e21f3d5d, type: 3}
       propertyPath: m_Material

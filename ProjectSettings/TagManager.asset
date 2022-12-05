@@ -7,6 +7,9 @@ TagManager:
   - Ground
   - Shrink
   - OutOfBounds
+  - Curb
+  - Windmill
+  - Enemy
   layers:
   - Default
   - TransparentFX

@@ -51,7 +51,8 @@ public class MoveGolf : MonoBehaviour
     [SerializeField]
     private int inContactWithGround = 0;
 
-    private AudioSource hitSound;
+    [SerializeField]
+    private AudioSource[] sounds = new AudioSource[2];
     
     //initialize stuff
     void Start()
@@ -80,8 +81,6 @@ public class MoveGolf : MonoBehaviour
         //TODO: better global scoring system??
         scorecard = transform.parent.GetComponent<ScorecardScript>();
 
-        // initialize the hit sound
-        hitSound = this.GetComponent<AudioSource>();
     }
 
     //expand or shrink the shot arrow, to represent a stronger or weaker shot
@@ -373,7 +372,7 @@ public class MoveGolf : MonoBehaviour
 
             if (!labyrinthMode)
             {
-                hitSound.Play();
+                sounds[0].Play();
                 rbody.AddForce(direction * speed, ForceMode.Impulse);
                 
             }
@@ -461,10 +460,13 @@ public class MoveGolf : MonoBehaviour
         //if we hit the ground, add to the number of ground objects we are hitting
         if (collisionInfo.gameObject.tag == "Ground")
         {
-
+            
             inContactWithGround++;
         }
-
+        else if (collisionInfo.gameObject.tag == "Curb" || collisionInfo.gameObject.tag == "Enemy"
+        || collisionInfo.gameObject.tag == "Windmill") {
+            sounds[1].Play();
+        }   
         // rbody.AddForce(Vector3.Reflect(direction, collisionInfo.contacts[0].normal) * rbody.velocity.magnitude,   
             //          ForceMode.Impulse);
 

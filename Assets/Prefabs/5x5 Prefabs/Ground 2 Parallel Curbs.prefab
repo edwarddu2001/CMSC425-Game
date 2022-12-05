@@ -89,6 +89,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Long Curb
       objectReference: {fileID: 0}
+    - target: {fileID: 4450122835969074156, guid: 27310aebf2c8245efa0a9093e521a1bc, type: 3}
+      propertyPath: m_TagString
+      value: Curb
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827435436564237497, guid: 27310aebf2c8245efa0a9093e521a1bc, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27310aebf2c8245efa0a9093e521a1bc, type: 3}
 --- !u!4 &7404558818551417324 stripped

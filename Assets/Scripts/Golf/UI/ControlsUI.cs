@@ -116,22 +116,22 @@ public class ControlsUI : MonoBehaviour
                 if (abil.Equals("Labyrinth"))
                 {
                     arr2[0] = "W"; arr2[1] = "S";
-                    generateNewUIKey(arr2, "");
+                    generateNewUIKey(arr2, "", getAssociatedColor(abil));
                     arr2[0] = "A"; arr2[1] = "D";
-                    generateNewUIKey(arr2, "Rot. Labyrinth");
+                    generateNewUIKey(arr2, "Rot. Labyrinth", getAssociatedColor(abil));
 
                     arr1[0] = "F";
-                    generateNewUIKey(arr1, "End Labyrinth");
+                    generateNewUIKey(arr1, "End Labyrinth", getAssociatedColor(abil));
                 }
                 else if (abil.Equals("Movement+"))
                 {
                     arr2[0] = "W"; arr2[1] = "S";
-                    generateNewUIKey(arr2, "");
+                    generateNewUIKey(arr2, "", getAssociatedColor(abil));
                     arr2[0] = "A"; arr2[1] = "D";
-                    generateNewUIKey(arr2, "Spin ball");
+                    generateNewUIKey(arr2, "Spin ball", getAssociatedColor(abil));
 
-                    arr2[0] = "W"; arr2[1] = "F";
-                    generateNewUIKey(arr2, "FULL STOP!");
+                    arr1[0] = "F";
+                    generateNewUIKey(arr1, "FULL STOP!", getAssociatedColor(abil));
                 }
                 else
                 {
@@ -152,11 +152,11 @@ public class ControlsUI : MonoBehaviour
                 if(abil.Equals("Chipshot") || abil.Equals("ZeroGrav"))
                 {
                     arr2[0] = "Q"; arr2[1] = "E";
-                    generateNewUIKey(arr2, "Change Loft");
+                    generateNewUIKey(arr2, "Change Loft", getAssociatedColor(abil));
                 } else if(abil.Equals("Labyrinth"))
                 {
                     arr1[0] = "F";
-                    generateNewUIKey(arr1, "Toggle Labyrinth Mode");
+                    generateNewUIKey(arr1, "Toggle Labyrinth Mode", getAssociatedColor(abil));
                 }
 
             }
@@ -168,7 +168,8 @@ public class ControlsUI : MonoBehaviour
     }
 
     //generate a new key, or combo of keys, at the next available y coordinate
-    private void generateNewUIKey(string[] keys, string desc/*, Color col, int[] optionCodes*/)
+    //return value changes the color of the text, if we'd like.
+    private void generateNewUIKey(string[] keys, string desc, Color col/*, int[] optionCodes*/)
     {
         Image newKey;
         for (var i=0; i<keys.Length; i++)
@@ -185,7 +186,7 @@ public class ControlsUI : MonoBehaviour
 
             TextMeshProUGUI textToReplace = newKey.GetComponentInChildren<TextMeshProUGUI>();
             textToReplace.SetText(keys[i]);
-
+            textToReplace.color = col;
 
         }
         //add a description to whatever these controls might be...
@@ -199,6 +200,7 @@ public class ControlsUI : MonoBehaviour
         Vector3 moveDescTo = keyImage.rectTransform.anchoredPosition3D;
         descTMP.rectTransform.anchoredPosition3D = new Vector3(moveDescTo.x + 65, moveDescTo.y + keyYCoords, moveDescTo.z);
         descTMP.SetText(desc);
+        descTMP.color = col;
 
         //start a new row...
         keyYCoords = keyYCoords - 50.0f;
@@ -241,12 +243,11 @@ public class ControlsUI : MonoBehaviour
 
     private void standardSetupKeys()
     {
-
         arr2[0] = "A"; arr2[1] = "D";
-        generateNewUIKey(arr2, "Change Angle");
+        generateNewUIKey(arr2, "Change Angle", Color.white);
 
         arr2[0] = "W"; arr2[1] = "S";
-        generateNewUIKey(arr2, "Change Power");
+        generateNewUIKey(arr2, "Change Power", Color.white);
 
         generateNewBigUIKey("LSHIFT", "Speed Setup");
         /*arr2[0] = "Q"; arr2[1] = "E";
@@ -256,7 +257,7 @@ public class ControlsUI : MonoBehaviour
     private void standardMovingKeys()
     {
         arr1[0] = "R";
-        generateNewUIKey(arr1, "Slow Motion");
+        generateNewUIKey(arr1, "Slow Motion", Color.white);
     }
 
     //returns the color we should change text to, depending on our ability

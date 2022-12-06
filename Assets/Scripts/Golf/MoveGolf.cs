@@ -122,6 +122,9 @@ public class MoveGolf : MonoBehaviour
                     if (inMotion == true)
                     {
                         inMotion = false;
+                        //because the player might lose chipshot or zero-grav, reset loft on every shot.
+                        Quaternion q = shotArrow.transform.rotation;
+                        shotArrow.transform.rotation = new Quaternion(0, q.y, 0, q.w);
                         reportChangeInState(false, observer.ability);
                     }
 
@@ -271,6 +274,9 @@ public class MoveGolf : MonoBehaviour
     //SETUP: for the next shot. spawn the shot arrow, control its direction/power with WASD.
     void ShotSetup()
     {
+
+        //Debug.Log(shotArrow.transform.rotation);
+
         timeSinceLastShot = 0;
         //basic
         if (!shotArrow.activeInHierarchy)

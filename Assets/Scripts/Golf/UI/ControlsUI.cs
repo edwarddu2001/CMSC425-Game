@@ -14,6 +14,7 @@ public class ControlsUI : MonoBehaviour
 
     //DYNAMIC CONTROLS: changes the UI depending on player's game state.
     public TextMeshProUGUI motionTeller;
+    private MotionTellerUI motionTellerUI;
     public GameObject dynamicControlsTemplate;
     private GameObject dynamicControls;
     public Image keyImage;
@@ -49,7 +50,7 @@ public class ControlsUI : MonoBehaviour
      more trouble than it's worth to set up such a system. We know exactly when and why state can change already.
      
      We considered using some sort of static event, but that was never covered in class so we had to abandon that idea.*/
-    private GameObject panel;
+
     private float keyXCoords = -50.0f;
     private float keyYCoords = -50.0f;
 
@@ -62,8 +63,7 @@ public class ControlsUI : MonoBehaviour
         activeControls = true;
         abObserver = playerBall.GetComponent<AbObserver2>();
 
-        //ugly, but no need to set it as a public variable. we know exactly where it is.
-        panel = gameObject.transform.GetChild(0).transform.GetChild(0).gameObject;
+        motionTellerUI = motionTeller.GetComponent<MotionTellerUI>();
     }
 
     /*Because player state only changes in specific cases, we don't need to constantly be checking for
@@ -87,6 +87,12 @@ public class ControlsUI : MonoBehaviour
     {
         if (activeControls)
         {
+            abil = activeAbility.GetAbilityName();
+            //change color at the top to the color of our ability
+            //Debug.Log(getAssociatedColor(abil));
+            motionTeller.color = getAssociatedColor(abil);
+
+
             if (dynamicControls != null)
             {
                 Destroy(dynamicControls);
@@ -99,7 +105,7 @@ public class ControlsUI : MonoBehaviour
             dynamicControls.GetComponent<RectTransform>().anchoredPosition3D = dynamicControlsTemplate.GetComponent<RectTransform>().anchoredPosition3D;
 
             //string TESTCONTROLS = "";
-            abil = activeAbility.GetAbilityName();
+            
 
             if (inMotion)
             {
@@ -253,6 +259,36 @@ public class ControlsUI : MonoBehaviour
         generateNewUIKey(arr1, "Slow Motion");
     }
 
+    //returns the color we should change text to, depending on our ability
+    private Color getAssociatedColor(string abilName)
+    {
+        if (abilName != null) {
+            switch (abilName)
+            {
+                case "Shrink":
+                    return new Color(0, 0, 255/255);
+                case "Bulldozer":
+                    //return new Color(0, 0, 255);
+                    return new Color(236/255, 19 / 255, 19 / 255);
+                case "Chipshot":
+                    return new Color(43 / 255, 164 / 255, 39 / 255);
+                case "Labyrinth":
+                    return new Color(110 / 255, 38 / 255, 142 / 255);
+                case "Lightup":
+                    return new Color(226 / 255, 170 / 255, 97 / 255);
+                case "Movement+":
+                    return new Color(255 / 255, 105 / 255, 11 / 255);
+                case "ZeroGrav":
+                    return new Color(30 / 255, 30 / 255, 30 / 255);
+                default:
+                    return new Color(255 / 255, 255 / 255, 255 / 255);
+            }
+        } else
+        {
+            Debug.Log("the player ability wasn't set yet.");
+            return new Color(0, 0, 0);
+        }
+    }
     // Update is called once per frame
     /*void Update()
     {

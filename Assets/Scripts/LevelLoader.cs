@@ -8,7 +8,7 @@ public class LevelLoader : MonoBehaviour
     public float transitionTime = 1f;
     
     //serialized for testing purposes
- 
+    [SerializeField]
     private bool nextLevel = false;
     private bool mainMenu = false;
 

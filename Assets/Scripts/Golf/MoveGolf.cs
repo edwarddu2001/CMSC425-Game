@@ -48,7 +48,7 @@ public class MoveGolf : MonoBehaviour
     private AbilityPickup2[] abilitiesList;
 
     //we'd better tell our friendly player what the controls are...
-    //public ControlsUI controlUI;
+    public ControlsUI controlUI;
 
     float currSpeed = 1.0f;
     [SerializeField]
@@ -404,7 +404,7 @@ public class MoveGolf : MonoBehaviour
 
     public void reportChangeInState(bool inMotion, Ability2 ability)
     {
-        //controlUI.resetControlGUI(inMotion, ability);
+        controlUI.resetControlGUI(inMotion, ability);
     }
 
     void moveNormally()

@@ -16,6 +16,7 @@ public class ControlsUI : MonoBehaviour
     public GameObject dynamicControlsTemplate;
     private GameObject dynamicControls;
     public Image keyImage;
+    //public Image bigKeyImage;
     public Sprite[] keyOptions;
     public TextMeshProUGUI descTemplate;
 
@@ -120,6 +121,36 @@ public class ControlsUI : MonoBehaviour
         keyYCoords = keyYCoords - 50.0f;
     }
 
+    //variant of the above method, except it pushes bigger key icons onto the scene.
+    private void generateNewBigUIKey(string key, string desc)
+    {
+        Image newKey = Object.Instantiate(keyImage);
+        newKey.gameObject.SetActive(true);
+        newKey.rectTransform.localScale = new Vector3(2, 1, 1);
+        newKey.rectTransform.SetParent(dynamicControls.transform);
+
+        Vector3 transVec = newKey.rectTransform.transform.position;
+        newKey.rectTransform.anchoredPosition3D = new Vector3(transVec.x, transVec.y + keyYCoords, transVec.z);
+
+        TextMeshProUGUI textToReplace = newKey.GetComponentInChildren<TextMeshProUGUI>();
+        textToReplace.SetText(key);
+
+        //add a description to whatever these controls might be...
+        TextMeshProUGUI descTMP = Object.Instantiate(descTemplate);
+        descTMP.gameObject.SetActive(true);
+        descTMP.transform.SetParent(dynamicControls.transform);
+        //move it to the far right edge of the controls panel
+        descTMP.rectTransform.anchorMin = new Vector2(1, 1);
+        descTMP.rectTransform.anchorMax = new Vector2(1, 1);
+
+        Vector3 moveDescTo = keyImage.rectTransform.anchoredPosition3D;
+        descTMP.rectTransform.anchoredPosition3D = new Vector3(moveDescTo.x + 65, moveDescTo.y + keyYCoords, moveDescTo.z);
+        descTMP.SetText(desc);
+
+        //start a new row...
+        keyYCoords = keyYCoords - 50.0f;
+    }
+
     private void standardSetupKeys()
     {
 
@@ -129,6 +160,7 @@ public class ControlsUI : MonoBehaviour
         arr2[0] = "W"; arr2[1] = "S";
         generateNewUIKey(arr2, "Change Power");
 
+        //generateNewBigUIKey("LSHIFT", "Speed Setup");
         /*arr2[0] = "Q"; arr2[1] = "E";
         generateNewUIKey(arr2);*/
     }

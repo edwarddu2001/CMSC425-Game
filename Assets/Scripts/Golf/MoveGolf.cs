@@ -6,11 +6,11 @@ public class MoveGolf : MonoBehaviour
 {
     //if not inMotion, set up and take your next shot. if in motion, allow the ball to move / jump / etc.
     //inProgress is a flag set to true the very frame the user makes their shot, false the frame it stops
-    bool inMotion = false;
+    bool inMotion = true;
     float timeSlowed = 0;
 
     //controls our shot
-    
+
     public float maxSpeedFactor = 5.0f, minSpeedFactor = 0.2f;
     public float stoppingRate = 0.8f;
     public float jumpHeight = 20.0f;
@@ -47,13 +47,16 @@ public class MoveGolf : MonoBehaviour
     private LabyrinthRotate rotatableObjectScript;
     private AbilityPickup2[] abilitiesList;
 
+    //we'd better tell our friendly player what the controls are...
+    public ControlsUI controlUI;
+
     float currSpeed = 1.0f;
     [SerializeField]
     private int inContactWithGround = 0;
 
     [SerializeField]
-    private AudioSource[] sounds = new AudioSource[2];
-    
+    private AudioSource[] sounds = new AudioSource[3];
+
     //initialize stuff
     void Start()
     {
@@ -90,20 +93,20 @@ public class MoveGolf : MonoBehaviour
         //don't need to modify triangles or normals for this simple operation.
         Color newcol = new Color(0, 0, 0);
 
-        for (var i=0; i < newVerts.Length; i++)
+        for (var i = 0; i < newVerts.Length; i++)
         {
             newVerts[i].x = oldVerts[i].x * scale;
 
             newVerts[i].x -= (scale - 1.0f) * 5.0f;
 
-            newcol = new Color(scale / maxSpeedFactor, 0, (maxSpeedFactor-scale) / maxSpeedFactor, 1.0f);
+            newcol = new Color(scale / maxSpeedFactor, 0, (maxSpeedFactor - scale) / maxSpeedFactor, 1.0f);
         }
 
         shotArrowMesh.vertices = newVerts;
         shotArrowMR.material.SetColor("_Color", newcol);
     }
 
-    
+
     void Update()
     {
         //all abilities have normal golf ball movement, EXCEPT the labyrinth ability in labyrinth mode.
@@ -116,7 +119,12 @@ public class MoveGolf : MonoBehaviour
             {
                 if (timeSlowed > 2.0f)
                 {
-                    inMotion = false;
+                    if (inMotion == true)
+                    {
+                        inMotion = false;
+                        reportChangeInState(false, observer.ability);
+                    }
+
                 }
                 else
                 {
@@ -136,7 +144,8 @@ public class MoveGolf : MonoBehaviour
                 if (!labyrinthMode)
                 {
                     ShotSetup();
-                } else
+                }
+                else
                 {
                     LabyrinthSetup();
                 }
@@ -166,7 +175,8 @@ public class MoveGolf : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             rbody.AddForce(Vector3.left * 0.01f);
-        } if (Input.GetKey(KeyCode.D))
+        }
+        if (Input.GetKey(KeyCode.D))
         {
             rbody.AddForce(Vector3.right * 0.01f);
         }
@@ -178,7 +188,7 @@ public class MoveGolf : MonoBehaviour
         {
             rbody.AddForce(Vector3.back * 0.01f);
         }
-        
+
 
         if (Input.GetKey(KeyCode.F))
         {
@@ -213,19 +223,21 @@ public class MoveGolf : MonoBehaviour
 
     private void toggleAllAbilities(bool enable)
     {
-        if(enable) {
+        if (enable)
+        {
             for (var i = 0; i < abilitiesList.Length; i++)
             {
                 abilitiesList[i].enablePickup();
             }
-        } else
+        }
+        else
         {
             for (var i = 0; i < abilitiesList.Length; i++)
             {
                 abilitiesList[i].disablePickup();
             }
         }
-        
+
     }
 
     void LabyrinthSetup()
@@ -244,11 +256,11 @@ public class MoveGolf : MonoBehaviour
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
             scorecard.takeShot();
-            
+
 
             //disable all abilities
             toggleAllAbilities(false);
-            
+
             rotatableObjectScript.enabled = true;
             movingLabyrinth = true;
             moveLabyrinth();
@@ -275,7 +287,8 @@ public class MoveGolf : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             rotSpeed *= 3.0f; moveSpeed *= 3.0f;
-        } else if(Input.GetKey(KeyCode.LeftControl))
+        }
+        else if (Input.GetKey(KeyCode.LeftControl))
         {
             rotSpeed /= 3.0f; moveSpeed /= 3.0f;
         }
@@ -327,7 +340,7 @@ public class MoveGolf : MonoBehaviour
             shotArrow.transform.RotateAround(shotArrow.transform.position, Vector3.up, rotSpeed);
         }
 
-        if(currSpeed > maxSpeedFactor)
+        if (currSpeed > maxSpeedFactor)
         {
             currSpeed = maxSpeedFactor;
             resizeShotArrow(currSpeed);
@@ -374,7 +387,7 @@ public class MoveGolf : MonoBehaviour
             {
                 sounds[0].Play();
                 rbody.AddForce(direction * speed, ForceMode.Impulse);
-                
+
             }
             else
             {
@@ -382,7 +395,16 @@ public class MoveGolf : MonoBehaviour
                 moveLabyrinth();
             }
 
+            //send out a message to change the controls GUI, saying the ball is now in Motion. regardless of its ability,
+            //this will work, as controlUI does the heavy lifting.
+            reportChangeInState(true, observer.ability);
+
         }
+    }
+
+    public void reportChangeInState(bool inMotion, Ability2 ability)
+    {
+        controlUI.resetControlGUI(inMotion, ability);
     }
 
     void moveNormally()
@@ -392,12 +414,15 @@ public class MoveGolf : MonoBehaviour
         //do all of the following for a NORMAL shot (labyrinth mode disabled.)
 
         // Changes the height position of the player..
-        if (Input.GetKeyDown(KeyCode.Space) && inContactWithGround > 0)
+        if (!(observer.ability.GetAbilityName().Equals("Movement+") || observer.ability.GetAbilityName().Equals("ZeroGrav")))
         {
-            //Debug.Log("tried to jump");
-            
-            rbody.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
-            
+            if (Input.GetKeyDown(KeyCode.Space) && inContactWithGround > 0)
+            {
+                //Debug.Log("tried to jump");
+                sounds[2].Play();
+                rbody.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.R) && inContactWithGround > 0)
@@ -460,15 +485,16 @@ public class MoveGolf : MonoBehaviour
         //if we hit the ground, add to the number of ground objects we are hitting
         if (collisionInfo.gameObject.tag == "Ground")
         {
-            
+
             inContactWithGround++;
         }
         else if (collisionInfo.gameObject.tag == "Curb" || collisionInfo.gameObject.tag == "Enemy"
-        || collisionInfo.gameObject.tag == "Windmill") {
+        || collisionInfo.gameObject.tag == "Windmill")
+        {
             sounds[1].Play();
-        }   
+        }
         // rbody.AddForce(Vector3.Reflect(direction, collisionInfo.contacts[0].normal) * rbody.velocity.magnitude,   
-            //          ForceMode.Impulse);
+        //          ForceMode.Impulse);
 
     }
 

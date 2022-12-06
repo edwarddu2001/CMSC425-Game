@@ -456,7 +456,16 @@ MonoBehaviour:
   holeNumDisplay: {fileID: 8904030207083821931}
   shotNumDisplay: {fileID: 8904030206135021753}
   currentAbilityDisplay: {fileID: 8904030206481892799}
-  abObserver: {fileID: 0}
+  currentAbilityIcon: {fileID: 8512810517246087040}
+  allAbilityIcons:
+  - {fileID: 21300000, guid: 743a182096ed9ba46a3159816238bf33, type: 3}
+  - {fileID: 21300000, guid: 8ba1c2c5e17a4f846a3b67ba06babbf0, type: 3}
+  - {fileID: 21300000, guid: 78e5b2629c495714b9881fdbcb4e8993, type: 3}
+  - {fileID: 21300000, guid: 586adef8cf8f65d4bac6898c3ac358bb, type: 3}
+  - {fileID: 21300000, guid: def218c506c67424bac2b273510acd7b, type: 3}
+  - {fileID: 21300000, guid: 6d9e52fc825ee244ab697d6d3d9cb505, type: 3}
+  - {fileID: 21300000, guid: b7a526c2166f2924baefed6cff2d1eb0, type: 3}
+  - {fileID: 21300000, guid: 5802cfbaac998b049b7249e29e7c2dd2, type: 3}
   hole: {fileID: 0}
   ball: {fileID: 0}
 --- !u!1 &8904030206401041134

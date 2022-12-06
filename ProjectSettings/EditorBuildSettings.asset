@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MiniGolf/Testing/LevelChange/LevelChangeTest.unity
+    guid: e0c736f184fe9da42890592f644ea0ae
+  - enabled: 1
+    path: Assets/Scenes/MiniGolf/Testing/LevelChange/LevelChangeTest 1.unity
+    guid: dd30d91bec5e8f448907c0064e6505d4
   m_configObjects: {}

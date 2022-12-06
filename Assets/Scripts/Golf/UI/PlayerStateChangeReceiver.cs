@@ -2,8 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AbController2 : MonoBehaviour
+public class PlayerStateChangeReceiver : MonoBehaviour
 {
+    public PlayerStateChangeSender psc;
+
+    public PlayerStateChangeReceiver()
+    {
+
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {

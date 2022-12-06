@@ -15,9 +15,14 @@ public class OutOfBounds : MonoBehaviour
     private Vector3[] checkpointSpawns;
 
     private ScorecardScript scorecard;
+    private MoveGolf mg;
+    private AbObserver2 observer;
 
     public void Start()
     {
+        mg = GetComponent<MoveGolf>();
+        observer = GetComponent<AbObserver2>();
+
         currCheckpoint = -1;
         scorecard = transform.parent.GetComponent<ScorecardScript>();
         rbody = GetComponent<Rigidbody>();
@@ -68,11 +73,12 @@ public class OutOfBounds : MonoBehaviour
         {
             Respawn();
             isRespawning = true;
-            if (GetComponent<AbObserver2>().ability.GetAbilityName().Equals("Labyrinth"))
+            if (observer.ability.GetAbilityName().Equals("Labyrinth"))
             {
-                GetComponent<MoveGolf>().respawnWithLabyrinth();
+                mg.respawnWithLabyrinth();
                 
             }
+            mg.reportChangeInState(false, observer.ability);
         }
 
         //case 2: hit a checkpoint, is it further along the hole? if so, set the new variable.

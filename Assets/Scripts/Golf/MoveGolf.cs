@@ -52,7 +52,7 @@ public class MoveGolf : MonoBehaviour
     private int inContactWithGround = 0;
 
     [SerializeField]
-    private AudioSource[] sounds = new AudioSource[2];
+    private AudioSource[] sounds = new AudioSource[3];
     
     //initialize stuff
     void Start()
@@ -395,7 +395,7 @@ public class MoveGolf : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && inContactWithGround > 0)
         {
             //Debug.Log("tried to jump");
-            
+            sounds[2].Play();
             rbody.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
             
         }

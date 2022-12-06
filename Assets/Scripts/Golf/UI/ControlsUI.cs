@@ -269,17 +269,17 @@ public class ControlsUI : MonoBehaviour
                     return new Color(0, 0, 255/255);
                 case "Bulldozer":
                     //return new Color(0, 0, 255);
-                    return new Color(236/255, 19 / 255, 19 / 255);
+                    return new Color(236.0f / 255.0f, 19.0f / 255.0f, 19.0f / 255.0f);
                 case "Chipshot":
-                    return new Color(43 / 255, 164 / 255, 39 / 255);
+                    return new Color(43.0f / 255.0f, 164.0f / 255.0f, 39.0f / 255.0f);
                 case "Labyrinth":
-                    return new Color(110 / 255, 38 / 255, 142 / 255);
+                    return new Color(110.0f / 255.0f, 38.0f / 255.0f, 142.0f / 255.0f);
                 case "Lightup":
-                    return new Color(226 / 255, 170 / 255, 97 / 255);
+                    return new Color(226.0f / 255.0f, 170.0f / 255.0f, 97.0f / 255.0f);
                 case "Movement+":
-                    return new Color(255 / 255, 105 / 255, 11 / 255);
+                    return new Color(255.0f / 255.0f, 105.0f / 255.0f, 11.0f / 255.0f);
                 case "ZeroGrav":
-                    return new Color(30 / 255, 30 / 255, 30 / 255);
+                    return new Color(30.0f / 255.0f, 30.0f / 255.0f, 30.0f / 255.0f);
                 default:
                     return new Color(255 / 255, 255 / 255, 255 / 255);
             }

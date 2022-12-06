@@ -125,6 +125,8 @@ public class MoveGolf : MonoBehaviour
                         //because the player might lose chipshot or zero-grav, reset loft on every shot.
                         Quaternion q = shotArrow.transform.rotation;
                         shotArrow.transform.rotation = new Quaternion(0, q.y, 0, q.w);
+                        chipRotation = 0;
+                        
                         reportChangeInState(false, observer.ability);
                     }
 
@@ -173,6 +175,10 @@ public class MoveGolf : MonoBehaviour
 
     }
 
+
+    //movement with the labyrinth ability is completely different
+    //it's done by rotating the map, however, the unity physics engine has a tough time when the rigidbody is still...
+    //so we add little love taps to the ball to keep it moving in the direction of rotation.
     void moveLabyrinth()
     {
         if (Input.GetKey(KeyCode.A))
@@ -304,7 +310,8 @@ public class MoveGolf : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.E))
             {
-                //Debug.Log(shotArrow.transform.rotation);
+                /*Debug.Log("rotVec:" + shotArrow.transform.rotation);
+                Debug.Log("chipRot: " + shotArrow.transform.rotation);*/
                 if (chipRotation - rotSpeed >= 0.0f)
                 {
                     shotArrow.transform.rotation = shotArrow.transform.rotation * Quaternion.Euler(Vector3.left * rotSpeed);
@@ -314,7 +321,8 @@ public class MoveGolf : MonoBehaviour
 
             if (Input.GetKey(KeyCode.Q))
             {
-                //Debug.Log(shotArrow.transform.rotation);
+                /*Debug.Log("rotVec:" + shotArrow.transform.rotation);
+                Debug.Log("chipRot: " + chipRotation);*/
                 if (chipRotation + rotSpeed <= 50.0f)
                 {
                     shotArrow.transform.rotation = shotArrow.transform.rotation * Quaternion.Euler(Vector3.right * rotSpeed);

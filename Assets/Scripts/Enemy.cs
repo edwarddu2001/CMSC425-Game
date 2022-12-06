@@ -10,16 +10,22 @@ public class Enemy : MonoBehaviour
 
     [SerializeField]
     private Transform[] destinationPoints;
+    [SerializeField]
+    private InvisibleAbility invisibleAbility;
 
     private Vector3 currentDestination;
-
     private int destinationIndex;
-
+    private bool playerInvisible;
     private bool moveToPlayer;
 
     void Start()
     {
         navAgent = GetComponent<NavMeshAgent>();
+
+        if (invisibleAbility != null)
+        {
+            invisibleAbility.ReportInvisible += PlayerInvisible;
+        }
     }
 
     void Update()
@@ -27,9 +33,14 @@ public class Enemy : MonoBehaviour
         CheckReachedDestination();
     }
 
+    void PlayerInvisible(bool invisible)
+    {
+        playerInvisible = invisible;
+    }
+
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !playerInvisible)
         {
             moveToPlayer = true;
             navAgent.SetDestination(other.transform.position);
@@ -38,7 +49,7 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !playerInvisible)
         {
             navAgent.SetDestination(other.transform.position);
         }

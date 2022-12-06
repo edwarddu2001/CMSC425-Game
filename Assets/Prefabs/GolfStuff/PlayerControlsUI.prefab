@@ -638,6 +638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerContainer: {fileID: 0}
+  motionTeller: {fileID: 1423203485615439898}
   dynamicControlsTemplate: {fileID: 1423203485255318355}
   keyImage: {fileID: 1423203485372537299}
   keyOptions: []

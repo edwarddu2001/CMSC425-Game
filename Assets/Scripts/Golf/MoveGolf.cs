@@ -414,12 +414,15 @@ public class MoveGolf : MonoBehaviour
         //do all of the following for a NORMAL shot (labyrinth mode disabled.)
 
         // Changes the height position of the player..
-        if (Input.GetKeyDown(KeyCode.Space) && inContactWithGround > 0)
+        if (!(observer.ability.GetAbilityName().Equals("Movement+") || observer.ability.GetAbilityName().Equals("ZeroGrav")))
         {
-            //Debug.Log("tried to jump");
-            sounds[2].Play();
-            rbody.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+            if (Input.GetKeyDown(KeyCode.Space) && inContactWithGround > 0)
+            {
+                //Debug.Log("tried to jump");
+                sounds[2].Play();
+                rbody.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
 
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.R) && inContactWithGround > 0)

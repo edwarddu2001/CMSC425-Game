@@ -12,6 +12,8 @@ cons:
 public class ZerogravAbility : Ability2
 {
     public Material material;
+    private MoveGolf mg;
+    private float oldJumpHeight;
 
     public override string GetAbilityName()
     {
@@ -20,16 +22,21 @@ public class ZerogravAbility : Ability2
 
     public override void OnActivate(GameObject target)
     {
-        //TODO: add zero gravity.
         target.GetComponent<MeshRenderer>().material = material;
 
+        //disable jumping
+        mg = target.GetComponent<MoveGolf>();
+        oldJumpHeight = mg.jumpHeight;
+        mg.jumpHeight = 0;
+
+        //turn off gravity for this ball
         Rigidbody rbody = target.GetComponent<Rigidbody>();
         rbody.useGravity = false;
 
     }
     public override void OnDeactivate(GameObject target)
     {
-        //TODO: remove zero gravity.
+        mg.jumpHeight = oldJumpHeight;
 
         Rigidbody rbody = target.GetComponent<Rigidbody>();
         rbody.useGravity = true;

@@ -8,6 +8,10 @@ public class ScorecardScript : MonoBehaviour
     private int courseScore;
     private int[] holeByHole = new int[9];
     int currHole = 0;
+    [SerializeField]
+    private int par; 
+    [SerializeField]
+    private AudioSource[] sounds = new AudioSource[2];
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +38,13 @@ public class ScorecardScript : MonoBehaviour
     {
         courseScore += holeScore;
         holeByHole[currHole] = holeScore;
+         if (holeScore <= par) {
+            sounds[0].Play();
+
+         }
+         else {
+            sounds[1].Play();
+         }
 
         Debug.Log("Course score: " + courseScore);
         Debug.Log("Score for that hole: " + holeScore);

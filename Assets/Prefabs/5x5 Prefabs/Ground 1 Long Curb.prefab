@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4846560431791321150}
   m_Layer: 0
-  m_Name: Ground 1 Curb
+  m_Name: Ground 1 Long Curb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

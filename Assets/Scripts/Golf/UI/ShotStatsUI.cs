@@ -58,24 +58,19 @@ public class ShotStatsUI : MonoBehaviour
             //this will ensure speed is always displayed with 2 decimal places.
             float speedVal = ((int)(currSpeed * 100) / 100.0f);
             shotPowerText.SetText("Power: " + speedVal );
-            //shotArrowRepresentation.transform.rotation = ballMovement.getShotRotation();
-            //shotDirection.rectTransform.Rotate(Vector3.forward, Vector3.SignedAngle(Vector3.up, currDirection, Vector3.forward));
-            /*Quaternion q = ballMovement.getShotRotation();
-            Debug.Log(q);*/
 
-            //we think this works, problem is it's always rotating by that angle...so what to do?
+            //"Angle" is the angle from straight ahead (Vector3.forward) to our ball's direction, solely in the XZ plane.
             Quaternion q = Quaternion.Euler(new Vector3(0, 0, currXZangle+180));
             shotDirection.rectTransform.rotation = q;
 
-            /*q = Quaternion.Euler(new Vector3(0, 0, currLoft + 90));
-            shotLoft.rectTransform.rotation = q;*/
+            //"Loft" is the angle from the XZ plane to our direction. unless you have chipshot or ZeroGrav, loft is always 0.
             q = Quaternion.Euler(new Vector3(0, 0, currLoft));
             shotLoft.rectTransform.rotation = q;
-            //shotDirection.rectTransform.Rotate(Vector3.forward, currXZangle);
-            //shotLoft.rectTransform.rotation = ballMovement.getShotRotation();
 
+            //set text for these values
             rotDegrees.SetText("Angle: " + ((int) currXZangle).ToString() );
-            loftDegrees.SetText("Loft: " + ((int) currLoft).ToString() );
+            if (Mathf.Abs(currLoft) < 1) { loftDegrees.SetText("NO LOFT"); }
+            else { loftDegrees.SetText("Loft: " + ((int)currLoft).ToString()); }
         }
     }
 }

@@ -16,6 +16,7 @@ public class ShotStatsUI : MonoBehaviour
     public TextMeshProUGUI loftDegrees;
     //public GameObject shotArrowRepresentation;
     public Slider shotPower;
+    public TextMeshProUGUI shotPowerText;
 
     private bool isEnabled = true;
 
@@ -54,6 +55,9 @@ public class ShotStatsUI : MonoBehaviour
             currLoft = ballMovement.getShotLoft();
 
             shotPower.value = currSpeed;
+            //this will ensure speed is always displayed with 2 decimal places.
+            float speedVal = ((int)(currSpeed * 100) / 100.0f);
+            shotPowerText.SetText("Power: " + speedVal );
             //shotArrowRepresentation.transform.rotation = ballMovement.getShotRotation();
             //shotDirection.rectTransform.Rotate(Vector3.forward, Vector3.SignedAngle(Vector3.up, currDirection, Vector3.forward));
             /*Quaternion q = ballMovement.getShotRotation();

@@ -2078,6 +2078,7 @@ MonoBehaviour:
   rotDegrees: {fileID: 6821817615781308647}
   loftDegrees: {fileID: 6545652083026781572}
   shotPower: {fileID: 4852157298189989813}
+  shotPowerText: {fileID: 6946016131018229929}
   playerContainer: {fileID: 0}
 --- !u!1 &6913387620151352746
 GameObject:

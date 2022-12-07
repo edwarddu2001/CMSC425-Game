@@ -451,7 +451,7 @@ public class MoveGolf : MonoBehaviour
             timeSinceLastShot += Time.deltaTime;
 
             //FULL STOP
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.F) && inContactWithGround > 0)
             {
                 //Debug.Log("FULL STOP!");
                 rbody.velocity = rbody.velocity * 0.1f;

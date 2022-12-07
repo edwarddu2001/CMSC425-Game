@@ -428,5 +428,17 @@ PrefabInstance:
       propertyPath: nextLevelName
       value: LevelChangeTest 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3341086966478100699, guid: bf40448c4a4dbbf4eb656783cbb499c0, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3341086966478100699, guid: bf40448c4a4dbbf4eb656783cbb499c0, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3341086966478100699, guid: bf40448c4a4dbbf4eb656783cbb499c0, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf40448c4a4dbbf4eb656783cbb499c0, type: 3}

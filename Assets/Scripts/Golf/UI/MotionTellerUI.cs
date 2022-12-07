@@ -7,14 +7,14 @@ public class MotionTellerUI : MonoBehaviour
 {
     TextMeshProUGUI txt;
     string starterText;
-    bool moving = false;
+    bool moving = false, hasNotRegistered1 = true, hasNotRegistered2 = true;
     float timePassed;
 
     // Start is called before the first frame update
     void Start()
     {
         txt = GetComponent<TextMeshProUGUI>();
-        starterText = txt.text;
+        starterText = "In Motion.";
         timePassed = 0;
     }
 
@@ -24,15 +24,20 @@ public class MotionTellerUI : MonoBehaviour
         if (moving)
         {
             timePassed += Time.deltaTime;
-            if(timePassed % 1.5f < 0.5f)
+            Debug.Log(timePassed % 3.0f);
+            if(timePassed % 3.0f > 1.0f && hasNotRegistered1)
             {
                 txt.text = txt.text + ".";
-            } else if(timePassed % 1.5f < 1.0f)
+                hasNotRegistered1 = false;
+            } else if(timePassed % 3.0f > 2.0f && hasNotRegistered2)
             {
                 txt.text = txt.text + ".";
-            } else
+                hasNotRegistered2 = false;
+            } else if(timePassed % 3.0f < 1.0f && !hasNotRegistered1 && !hasNotRegistered2)
             {
                 txt.text = starterText;
+                hasNotRegistered1 = true;
+                hasNotRegistered2 = true;
             }
         }
     }
@@ -40,11 +45,13 @@ public class MotionTellerUI : MonoBehaviour
     public void startMovingText()
     {
         moving = true;
+        txt.text = starterText;
     }
 
     public void stopMovingText()
     {
         moving = false;
         timePassed = 0;
+        hasNotRegistered1 = hasNotRegistered2 = true;
     }
 }

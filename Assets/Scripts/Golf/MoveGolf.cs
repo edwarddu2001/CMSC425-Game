@@ -522,7 +522,7 @@ public class MoveGolf : MonoBehaviour
 
     public float getShotAngle()
     {
-        return Vector3.SignedAngle(Vector3.left, direction, Vector3.up);
+        return -1 * Vector3.SignedAngle(Vector3.forward, direction, Vector3.up);
     }
 
     public Vector3 getShotDirection()

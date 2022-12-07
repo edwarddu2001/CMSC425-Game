@@ -110,7 +110,8 @@ public class ControlsUI : MonoBehaviour
             if (inMotion)
             {
                 //TESTCONTROLS += "Moving; ";
-                motionTeller.SetText("In Motion...");
+                //motionTeller.SetText("In Motion...");
+                motionTellerUI.startMovingText();
                 
                 //TODO: Labyrinth special case
                 if (abil.Equals("Labyrinth"))
@@ -146,7 +147,9 @@ public class ControlsUI : MonoBehaviour
             else
             {
                 //TESTCONTROLS += "At rest; ";
+                motionTellerUI.stopMovingText();
                 motionTeller.SetText("Shot Setup");
+                
 
                 standardSetupKeys();
                 if(abil.Equals("Chipshot") || abil.Equals("ZeroGrav"))

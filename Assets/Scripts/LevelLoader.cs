@@ -7,10 +7,9 @@ public class LevelLoader : MonoBehaviour
     public Animator nextLevelTransition;
     public float transitionTime = 1f;
     
-    //serialized for testing purposes
-    [SerializeField]
-    private bool nextLevel = false;
-    private bool mainMenu = false;
+    public enum levelType {Next, Menu};
+    public levelType linkedTo = levelType.Next; 
+    private bool active = false;
 
     [SerializeField]
     private string nextLevelName = "";
@@ -22,12 +21,23 @@ public class LevelLoader : MonoBehaviour
         mainMenuSceneName = mainMenuScene.name;
     }
 
+
     void Update()
     {
-        if (nextLevel){
-            StartCoroutine(LoadLevel(nextLevelName));
-            nextLevel = false;
+        if (active){
+            switch (linkedTo){
+                case levelType.Next:
+                    StartCoroutine(LoadLevel(nextLevelName));
+                    break;
+                case levelType.Menu:
+                    StartCoroutine(LoadLevel(mainMenuSceneName));
+                    break;
+                default:
+                    break;
+            }
+            active = false;
         }
+ 
     }
 
     IEnumerator LoadLevel(string levelIndex){
@@ -37,5 +47,11 @@ public class LevelLoader : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
         //load scene
          SceneManager.LoadScene(levelIndex);
+    }
+
+    public void activate(){
+        if (!active){
+            active = true;
+        }
     }
 }

@@ -8098,6 +8098,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1002903550013456595, guid: d2a6af70941f47c4d9a1810ea4d60e2e, type: 3}
+      propertyPath: playerContainer
+      value: 
+      objectReference: {fileID: 708543634204321314}
+    - target: {fileID: 1389424284409878815, guid: d2a6af70941f47c4d9a1810ea4d60e2e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f8f74d32cff0683498466a20bead95e3, type: 3}
     - target: {fileID: 1423203485255318355, guid: d2a6af70941f47c4d9a1810ea4d60e2e, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -8194,10 +8202,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerControlsUI
       objectReference: {fileID: 0}
+    - target: {fileID: 2365217238737932676, guid: d2a6af70941f47c4d9a1810ea4d60e2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4597696559088508856, guid: d2a6af70941f47c4d9a1810ea4d60e2e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7371986195783259885, guid: d2a6af70941f47c4d9a1810ea4d60e2e, type: 3}
       propertyPath: playerContainer
       value: 
       objectReference: {fileID: 1034592232}
+    - target: {fileID: 8663300041223471260, guid: d2a6af70941f47c4d9a1810ea4d60e2e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d21adfb625a9e064ca93222d40c52f3c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2a6af70941f47c4d9a1810ea4d60e2e, type: 3}
 --- !u!114 &1934479974 stripped

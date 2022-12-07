@@ -24,7 +24,6 @@ public class MotionTellerUI : MonoBehaviour
         if (moving)
         {
             timePassed += Time.deltaTime;
-            Debug.Log(timePassed % 3.0f);
             if(timePassed % 3.0f > 1.0f && hasNotRegistered1)
             {
                 txt.text = txt.text + ".";

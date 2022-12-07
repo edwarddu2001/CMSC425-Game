@@ -12,6 +12,8 @@ public class ShotStatsUI : MonoBehaviour
 {
     public Image shotDirection;
     public Image shotLoft;
+    public TextMeshProUGUI rotDegrees;
+    public TextMeshProUGUI loftDegrees;
     //public GameObject shotArrowRepresentation;
     public Slider shotPower;
 
@@ -24,6 +26,7 @@ public class ShotStatsUI : MonoBehaviour
     private MoveGolf ballMovement;
     //private Vector3 currDirection;
     private float currXZangle;
+    private float currLoft;
     private float currSpeed;
 
     // Start is called before the first frame update
@@ -48,6 +51,7 @@ public class ShotStatsUI : MonoBehaviour
             //currDirection = ballMovement.getShotAngle();
             currXZangle = ballMovement.getShotAngle();
             currSpeed = ballMovement.getShotPower();
+            currLoft = ballMovement.getShotLoft();
 
             shotPower.value = currSpeed;
             //shotArrowRepresentation.transform.rotation = ballMovement.getShotRotation();
@@ -56,10 +60,18 @@ public class ShotStatsUI : MonoBehaviour
             Debug.Log(q);*/
 
             //we think this works, problem is it's always rotating by that angle...so what to do?
-            Quaternion q = Quaternion.Euler(new Vector3(0, 0, currXZangle));
+            Quaternion q = Quaternion.Euler(new Vector3(0, 0, currXZangle+180));
             shotDirection.rectTransform.rotation = q;
+
+            /*q = Quaternion.Euler(new Vector3(0, 0, currLoft + 90));
+            shotLoft.rectTransform.rotation = q;*/
+            q = Quaternion.Euler(new Vector3(0, 0, currLoft));
+            shotLoft.rectTransform.rotation = q;
             //shotDirection.rectTransform.Rotate(Vector3.forward, currXZangle);
             //shotLoft.rectTransform.rotation = ballMovement.getShotRotation();
+
+            rotDegrees.SetText("Angle: " + ((int) currXZangle).ToString() );
+            loftDegrees.SetText("Loft: " + ((int) currLoft).ToString() );
         }
     }
 }

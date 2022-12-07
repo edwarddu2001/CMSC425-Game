@@ -401,8 +401,9 @@ public class MoveGolf : MonoBehaviour
 
         //now for the actual vector we use to take our shot...
         //it's the direction of our shot (normalized for consistency) times the scalar of our shot speed.
-        direction = direction.normalized;
+        
         direction = shotArrow.transform.rotation * Vector3.back;
+        direction = direction.normalized;
         speed = currSpeed * defaultSpeed;
 
 
@@ -522,7 +523,15 @@ public class MoveGolf : MonoBehaviour
 
     public float getShotAngle()
     {
-        return -1 * Vector3.SignedAngle(Vector3.forward, direction, Vector3.up);
+        Vector3 XZdir = new Vector3(direction.x, 0, direction.z);
+        return -1 * Vector3.SignedAngle(Vector3.forward, XZdir, Vector3.up);
+    }
+
+    public float getShotLoft()
+    {
+        //return Vector3.SignedAngle(Vector3.forward, direction, Vector3.left);
+        Vector3 XZdir = new Vector3(direction.x, 0, direction.z);
+        return Vector3.Angle(direction, XZdir);
     }
 
     public Vector3 getShotDirection()

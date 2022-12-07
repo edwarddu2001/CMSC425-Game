@@ -1801,8 +1801,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28b2a385d23fc6c48a394456eb7d6f2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotDirection: {fileID: 0}
-  shotLoft: {fileID: 0}
+  shotDirection: {fileID: 8663300041223471260}
+  shotLoft: {fileID: 1389424284409878815}
   shotPower: {fileID: 4852157298189989813}
   playerContainer: {fileID: 0}
 --- !u!1 &6913387620151352746

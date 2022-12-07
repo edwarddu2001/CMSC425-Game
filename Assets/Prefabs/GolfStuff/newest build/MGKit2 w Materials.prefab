@@ -6949,6 +6949,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5551336195294413754}
     m_Modifications:
+    - target: {fileID: 1002903550013456595, guid: d2a6af70941f47c4d9a1810ea4d60e2e, type: 3}
+      propertyPath: playerContainer
+      value: 
+      objectReference: {fileID: 1087680333264613734}
     - target: {fileID: 1448243470071281491, guid: d2a6af70941f47c4d9a1810ea4d60e2e, type: 3}
       propertyPath: m_Pivot.x
       value: 0

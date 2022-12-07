@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//controls all things related to movement of the golf ball.
 public class MoveGolf : MonoBehaviour
 {
-    //if not inMotion, set up and take your next shot. if in motion, allow the ball to move / jump / etc.
-    //inProgress is a flag set to true the very frame the user makes their shot, false the frame it stops
+    //BIG IDEA: if not inMotion, set up and take your next shot. if in motion, allow the ball to move / jump / etc.
     bool inMotion = true;
     float timeSlowed = 0;
 
-    //controls our shot
-
+    //public variables that control our shot: how far we can hit it, what we can do with it, etc.
     public float maxSpeedFactor = 5.0f, minSpeedFactor = 0.2f;
     public float stoppingRate = 0.8f;
     public float jumpHeight = 20.0f;
@@ -51,6 +50,8 @@ public class MoveGolf : MonoBehaviour
     public ControlsUI controlUI;
 
     float currSpeed = 1.0f;
+
+    //this keeps track of how many "Ground" labelled objects the ball is colliding with. If 0, we're in midair.
     [SerializeField]
     private int inContactWithGround = 0;
 
@@ -65,23 +66,22 @@ public class MoveGolf : MonoBehaviour
 
         shotArrow.SetActive(false);
 
-        //TODO: eventually add a better mesh for the arrow and avoid all this nonsense.
-        //expansion only works for the arrow head. i don't feel like updating the shaft too, since i'm replacing 
-        //all of this anyway with a better mesh.
-        //GameObject shotArrowShaft = shotArrow.transform.GetChild(0).gameObject;
+        //"shotArrow" refers to the 3D arrow jutting out of your ball.
+        //to signify rotation or loft, we simply rotate it in the respective direction.
+        //to signify a change in power, we'll increase/decrease the size of the thing, and change color
         GameObject shotArrowHead = shotArrow.transform.GetChild(0).gameObject;
         shotArrowMF = shotArrowHead.GetComponent<MeshFilter>();
         shotArrowMesh = shotArrowMF.mesh;
         oldVerts = shotArrowMesh.vertices;
         shotArrowMR = shotArrowHead.GetComponent<MeshRenderer>();
 
-        //set initial color of shotArrow
+        //set initial color of shotArrow- blue = soft, red = powerful...
         shotArrowMR.material.SetColor("_Color", new Color(1.0f / maxSpeedFactor, 0, (maxSpeedFactor - 1.0f) / maxSpeedFactor, 1.0f));
 
         //find observer
         observer = GetComponent<AbObserver2>();
 
-        //TODO: better global scoring system??
+        //the so-called "global" scoring system
         scorecard = transform.parent.GetComponent<ScorecardScript>();
 
     }
@@ -107,6 +107,7 @@ public class MoveGolf : MonoBehaviour
     }
 
 
+    //unfortunately, it only makes sense to run most code in update since too much can be happening all at once.
     void Update()
     {
         //all abilities have normal golf ball movement, EXCEPT the labyrinth ability in labyrinth mode.
@@ -122,7 +123,8 @@ public class MoveGolf : MonoBehaviour
                     if (inMotion == true)
                     {
                         inMotion = false;
-                        //because the player might lose chipshot or zero-grav, reset loft on every shot.
+                        /*problem: the player might lose chipshot or zero-grav, and be unable to change their loft again.
+                         * solution: reset loft on every shot. loft is pretty risky to use most of the time anyway*/
                         Quaternion q = shotArrow.transform.rotation;
                         shotArrow.transform.rotation = new Quaternion(0, q.y, 0, q.w);
                         chipRotation = 0;
@@ -133,6 +135,7 @@ public class MoveGolf : MonoBehaviour
                 }
                 else
                 {
+                    //if the ball is slow, but it hasn't been the threshold of 2 seconds yet, just keep counting
                     timeSlowed += Time.deltaTime;
                 }
             }
@@ -141,7 +144,6 @@ public class MoveGolf : MonoBehaviour
                 timeSlowed = 0.0f;
                 inMotion = true;
             }
-            //Debug.Log("Velocity: " + rbody.velocity.magnitude);
 
             //NOT IN MOTION: draw the arrow and line up your shot
             if (!inMotion)
@@ -166,7 +168,7 @@ public class MoveGolf : MonoBehaviour
                 }
             }
         }
-        //when we are actively in labyrinth mode, call the method there.
+        //when we are actively in labyrinth mode, call that method there.
         else
         {
             moveLabyrinth();
@@ -177,7 +179,8 @@ public class MoveGolf : MonoBehaviour
 
 
     //movement with the labyrinth ability is completely different
-    //it's done by rotating the map, however, the unity physics engine has a tough time when the rigidbody is still...
+    //it's done by rotating the map, however, the unity physics engine has a tough time with this...
+    //it will incorrectly assume the rigidbody is staying still, seemingly ignoring the collisions happening.
     //so we add little love taps to the ball to keep it moving in the direction of rotation.
     void moveLabyrinth()
     {
@@ -198,7 +201,7 @@ public class MoveGolf : MonoBehaviour
             rbody.AddForce(Vector3.back * 0.01f);
         }
 
-
+        //end your "labyrinth rotation", go back to normal.
         if (Input.GetKey(KeyCode.F))
         {
             toggleAllAbilities(true);
@@ -209,10 +212,12 @@ public class MoveGolf : MonoBehaviour
         }
     }
 
-    //call this method if you have to respawn and you're moving with labyrinth at the moment.
-    //it's necessary to reset movement back to normal.
+    /*call this method if you have to respawn and you're moving with labyrinth at the moment.
+    it's necessary to reset movement back to normal, AND return the map to its original rotation.
+    otherwise the player can mess up the map permanently by rotating things poorly*/
     public void respawnWithLabyrinth()
     {
+        //TODO: REPLACE WITH AN ACTION!
         toggleAllAbilities(true);
 
         rotatableObjectScript.returnToOriginalRotation();
@@ -224,12 +229,14 @@ public class MoveGolf : MonoBehaviour
         rbody.AddForce(Vector3.down, ForceMode.Impulse);
     }
 
+    //used by any labyrinthAbility script, to set the current object of rotation.
     public void setRotatableObjects(GameObject courseContainer, GameObject abList)
     {
         rotatableObjectScript = courseContainer.GetComponent<LabyrinthRotate>();
         abilitiesList = abList.GetComponentsInChildren<AbilityPickup2>();
     }
 
+    //TODO: REPLACE WITH AN ACTION!
     private void toggleAllAbilities(bool enable)
     {
         if (enable)
@@ -249,6 +256,8 @@ public class MoveGolf : MonoBehaviour
 
     }
 
+    //setting up shots is different in labyrinth mode, because not only can you take a normal shot, you can also
+    //take a "labyrinth shot" by using your ability and rotating the map.
     void LabyrinthSetup()
     {
         //toggles Labyrinth mode if you have the labyrinth ability
@@ -277,11 +286,9 @@ public class MoveGolf : MonoBehaviour
     }
 
 
-    //SETUP: for the next shot. spawn the shot arrow, control its direction/power with WASD.
+    //SETUP: for the next shot. activate the shot arrow, control its direction/power with WASD.
     void ShotSetup()
     {
-
-        //Debug.Log(shotArrow.transform.rotation);
 
         timeSinceLastShot = 0;
         //basic
@@ -306,12 +313,18 @@ public class MoveGolf : MonoBehaviour
         }
 
         //Q and E angle up or downwards for a chip shot or space shot
+        //chipShot: you can only go 50 degrees upwards. this is constant, bc going more than this with gravity on
+        //would be stupid (we tried it)
+
+        /*i confuse myself reading all this, so for reference, here's what the rotations mean:
+         when A/D pressed, shotArrow rotates in the XZ plane, so it rotates about the Y axis.
+         when Q/E pressed, shotArrow rotates in the YZ plane, so it rotates about the X axis.
+         the Z axis is never used. if it were, it would rotate the arrow in orientations other than "flat, pointing
+         in that direction over there". which isn't what we want. */
         if (observer.ability.GetAbilityName().Equals("Chipshot"))
         {
             if (Input.GetKey(KeyCode.E))
             {
-                /*Debug.Log("rotVec:" + shotArrow.transform.rotation);
-                Debug.Log("chipRot: " + shotArrow.transform.rotation);*/
                 if (chipRotation - rotSpeed >= 0.0f)
                 {
                     shotArrow.transform.rotation = shotArrow.transform.rotation * Quaternion.Euler(Vector3.left * rotSpeed);
@@ -321,8 +334,7 @@ public class MoveGolf : MonoBehaviour
 
             if (Input.GetKey(KeyCode.Q))
             {
-                /*Debug.Log("rotVec:" + shotArrow.transform.rotation);
-                Debug.Log("chipRot: " + chipRotation);*/
+
                 if (chipRotation + rotSpeed <= 50.0f)
                 {
                     shotArrow.transform.rotation = shotArrow.transform.rotation * Quaternion.Euler(Vector3.right * rotSpeed);
@@ -330,6 +342,7 @@ public class MoveGolf : MonoBehaviour
                 }
             }
         }
+        //zero gravity is similar to chip shot in execution, but you can go anywhere in any direction.
         else if (observer.ability.GetAbilityName().Equals("ZeroGrav"))
         {
             if (Input.GetKey(KeyCode.E))
@@ -386,6 +399,8 @@ public class MoveGolf : MonoBehaviour
             Debug.Log("Labyrinth mode now " + labyrinthMode);
         }
 
+        //now for the actual vector we use to take our shot...
+        //it's the direction of our shot (normalized for consistency) times the scalar of our shot speed.
         direction = direction.normalized;
         direction = shotArrow.transform.rotation * Vector3.back;
         speed = currSpeed * defaultSpeed;
@@ -416,11 +431,14 @@ public class MoveGolf : MonoBehaviour
         }
     }
 
+    //reports a change in state to the Controls UI (left side of screen)
+    //more on this feature in that script.
     public void reportChangeInState(bool inMotion, Ability2 ability)
     {
         controlUI.resetControlGUI(inMotion, ability);
     }
 
+    //normal movement with no gimmicks. you can usually jump with Space, or slow the ball down with R
     void moveNormally()
     {
         shotArrow.SetActive(false);
@@ -445,7 +463,7 @@ public class MoveGolf : MonoBehaviour
             rbody.velocity = rbody.velocity * stoppingRate;
         }
 
-
+        //movement+ allows you to put spin on the ball and perform FULL STOPs
         if (observer.ability.GetAbilityName().Equals("Movement+"))
         {
             timeSinceLastShot += Time.deltaTime;
@@ -458,7 +476,9 @@ public class MoveGolf : MonoBehaviour
                 rbody.angularVelocity = rbody.angularVelocity * 0.1f;
             }
 
-            //put angular motion, AKA "spin" on the ball
+            //put "spin" on the ball.
+            //it's not actually angular motion, but small impulses are a good enough approximation.
+            //the power of spin decreases with time, until "spinTime" is reached, when spin is 0
             Vector3 currVelocity = direction; //rbody.velocity;
             currVelocity.y = 0;
 
@@ -494,6 +514,28 @@ public class MoveGolf : MonoBehaviour
         }
     }
 
+    //getters for methods that need them...
+    public float getShotPower()
+    {
+        return currSpeed;
+    }
+
+    public float getShotAngle()
+    {
+        return Vector3.SignedAngle(Vector3.left, direction, Vector3.up);
+    }
+
+    public Vector3 getShotDirection()
+    {
+        return direction;
+    }
+
+    public Quaternion getShotRotation()
+    {
+        return shotArrow.transform.rotation;
+    }
+
+    //now, detect when a ball is on the ground, so we know when some actions can be taken.
     void OnCollisionEnter(Collision collisionInfo)
     {
         //if we hit the ground, add to the number of ground objects we are hitting
@@ -507,13 +549,11 @@ public class MoveGolf : MonoBehaviour
         {
             sounds[1].Play();
         }
-        // rbody.AddForce(Vector3.Reflect(direction, collisionInfo.contacts[0].normal) * rbody.velocity.magnitude,   
-        //          ForceMode.Impulse);
 
     }
 
 
-
+    //detects when a ball leaves the ground.
     void OnCollisionExit(Collision collisionInfo)
     {
         //if we leave the ground, subtract from the number of ground objects we are hitting
@@ -526,3 +566,5 @@ public class MoveGolf : MonoBehaviour
 
     }
 }
+
+//you made it this far?

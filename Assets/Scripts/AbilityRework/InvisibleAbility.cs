@@ -5,11 +5,27 @@ using UnityEngine;
 
 public class InvisibleAbility : Ability2
 {
-    bool invisible = false;
+    private bool invisible = false;
+    private float timeRemaining = 10;
     public event Action<bool> ReportInvisible;
 
     [SerializeField]
-    Material material;
+    private Material material;
+    [SerializeField]
+    private GameObject player;
+
+    void Update()
+    {
+        if (invisible)
+        {
+            timeRemaining -= Time.deltaTime;
+            Debug.Log(timeRemaining);
+            if (timeRemaining <= 0)
+            {
+                TimeRanOut(player);
+            }
+        }
+    }
 
     public override string GetAbilityName()
     {
@@ -18,11 +34,27 @@ public class InvisibleAbility : Ability2
 
     public override void OnActivate(GameObject target)
     {
-        invisible = true;
         //you will get an error here if you don't add any enemies into the scene, which
         //is the whole point of the invisible ability.
+        invisible = true;
         ReportInvisible(invisible);
+
         target.GetComponent<MeshRenderer>().material = material;
+        timeRemaining = 10;
+    }
+
+    void TimeRanOut(GameObject target)
+    {
+        OnDeactivate(target);
+
+        MoveGolf mg = target.GetComponent<MoveGolf>();
+        AbObserver2 observer = target.GetComponent<AbObserver2>();
+
+        NoAbility2 noAbility = target.GetComponent<NoAbility2>();
+
+        mg.reportChangeInState(true, noAbility);
+        target.GetComponent<AbObserver2>().ability = noAbility;
+        target.GetComponent<AbObserver2>().ActivateNewAbility();
     }
 
     public override void OnDeactivate(GameObject target)

@@ -3522,6 +3522,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5551336195294413754}
     m_Modifications:
+    - target: {fileID: 4721396464745869915, guid: 8f0b0ceb5bd304a46a567b32a37e3dc6, type: 3}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 5551336194325612051}
     - target: {fileID: 7737145859962082345, guid: 8f0b0ceb5bd304a46a567b32a37e3dc6, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3619,6 +3623,11 @@ PrefabInstance:
 --- !u!224 &8010134505276234226 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7737145859962082345, guid: 8f0b0ceb5bd304a46a567b32a37e3dc6, type: 3}
+  m_PrefabInstance: {fileID: 321562955919019483}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8010134505276234230 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7737145859962082349, guid: 8f0b0ceb5bd304a46a567b32a37e3dc6, type: 3}
   m_PrefabInstance: {fileID: 321562955919019483}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &823844757258185791
@@ -3739,7 +3748,7 @@ PrefabInstance:
     - target: {fileID: 7031159440211997582, guid: 9842d60abbc8fa249a9267dd45472c87, type: 3}
       propertyPath: scorecardGUI
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8010134505276234230}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9842d60abbc8fa249a9267dd45472c87, type: 3}
 --- !u!4 &1087680333264613733 stripped

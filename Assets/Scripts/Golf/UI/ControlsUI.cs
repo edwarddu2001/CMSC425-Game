@@ -39,6 +39,9 @@ public class ControlsUI : MonoBehaviour
     private float timer;
     private Vector3 veca, vecb;
 
+    //the "shoot" panel blurs a little when the ball is in motion.
+    public Image shootPanel;
+
     private bool inMotion;
 
     /*This script handles the controls that you see on the left side of your screen.
@@ -142,7 +145,8 @@ public class ControlsUI : MonoBehaviour
             if (inMotion)
             {
                 motionTellerUI.startMovingText();
-                
+                shootPanel.color = new Color(shootPanel.color.r, shootPanel.color.g, shootPanel.color.b, 0.2f);
+
                 //TODO: Labyrinth special case
                 if (abil.Equals("Labyrinth"))
                 {
@@ -192,6 +196,7 @@ public class ControlsUI : MonoBehaviour
                 //TESTCONTROLS += "At rest; ";
                 motionTellerUI.stopMovingText();
                 motionTeller.SetText("Shot Setup");
+                shootPanel.color = new Color(shootPanel.color.r, shootPanel.color.g, shootPanel.color.b, 0.5f);
 
                 if (abil.Equals("Labyrinth"))
                 {

@@ -45,6 +45,11 @@ public class Enemy : MonoBehaviour
             moveToPlayer = true;
             navAgent.SetDestination(other.transform.position);
         }
+
+        if (other.CompareTag("Player") && playerInvisible)
+        {
+            moveToPlayer = false;
+        }
     }
 
     void OnTriggerStay(Collider other)
@@ -52,6 +57,11 @@ public class Enemy : MonoBehaviour
         if (other.CompareTag("Player") && !playerInvisible)
         {
             navAgent.SetDestination(other.transform.position);
+        }
+
+        if (other.CompareTag("Player") && playerInvisible)
+        {
+            moveToPlayer = false;
         }
     }
 

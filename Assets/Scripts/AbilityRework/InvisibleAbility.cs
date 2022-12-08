@@ -6,7 +6,7 @@ using UnityEngine;
 public class InvisibleAbility : Ability2
 {
     private bool invisible = false;
-    private float timeRemaining = 10;
+    private float timeRemaining = 15;
     public event Action<bool> ReportInvisible;
 
     [SerializeField]
@@ -19,7 +19,6 @@ public class InvisibleAbility : Ability2
         if (invisible)
         {
             timeRemaining -= Time.deltaTime;
-            Debug.Log(timeRemaining);
             if (timeRemaining <= 0)
             {
                 TimeRanOut(player);
@@ -40,7 +39,7 @@ public class InvisibleAbility : Ability2
         ReportInvisible(invisible);
 
         target.GetComponent<MeshRenderer>().material = material;
-        timeRemaining = 10;
+        timeRemaining = 15;
     }
 
     void TimeRanOut(GameObject target)

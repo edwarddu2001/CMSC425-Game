@@ -54,6 +54,8 @@ public class ShotStatsUI : MonoBehaviour
             currSpeed = ballMovement.getShotPower();
             currLoft = ballMovement.getShotLoft();
 
+            //can change with some abilities.
+            shotPower.maxValue = ballMovement.maxSpeedFactor;
             shotPower.value = currSpeed;
             //this will ensure speed is always displayed with 2 decimal places.
             float speedVal = ((int)(currSpeed * 100) / 100.0f);
@@ -68,7 +70,8 @@ public class ShotStatsUI : MonoBehaviour
             shotLoft.rectTransform.rotation = q;
 
             //set text for these values
-            rotDegrees.SetText("Angle: " + ((int) currXZangle).ToString() );
+            if(currXZangle < 0) { rotDegrees.SetText("Angle: " + (180 + (int)currXZangle).ToString() + "W"); }
+            else { rotDegrees.SetText("Angle: " + (180 - (int)currXZangle).ToString() + "E"); }
             if (Mathf.Abs(currLoft) < 1) { loftDegrees.SetText("NO LOFT"); }
             else { loftDegrees.SetText("Loft: " + ((int)currLoft).ToString()); }
         }

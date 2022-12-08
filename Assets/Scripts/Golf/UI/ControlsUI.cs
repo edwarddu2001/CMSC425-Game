@@ -11,6 +11,7 @@ public class ControlsUI : MonoBehaviour
     public GameObject playerContainer;
     private GameObject playerBall;
     private GameObject shotArrow;
+    private Image panel;
 
     [SerializeField]
     private bool labyrinthMode = false;
@@ -33,7 +34,11 @@ public class ControlsUI : MonoBehaviour
     private AbObserver2 abObserver;
     string abil;
 
-    private bool activeControls;
+    //used for controls on / off animation
+    private bool activeControls, transition;
+    private float timer;
+    private Vector3 veca, vecb;
+
     private bool inMotion;
 
     /*This script handles the controls that you see on the left side of your screen.
@@ -65,24 +70,48 @@ public class ControlsUI : MonoBehaviour
         playerBall = playerContainer.transform.GetChild(0).gameObject;
         shotArrow = playerContainer.transform.GetChild(1).gameObject;
 
-        activeControls = true;
+        activeControls = true; transition = false;
         abObserver = playerBall.GetComponent<AbObserver2>();
 
         motionTellerUI = motionTeller.GetComponent<MotionTellerUI>();
+
+        //ugly, but still better than public variables...
+        panel = gameObject.transform.GetChild(0).transform.GetChild(0).GetComponent<Image>();
+
+        veca = panel.rectTransform.position; vecb = new Vector3(veca.x - 400, veca.y, veca.z);
+        timer = 0.0f;
     }
 
     /*Because player state only changes in specific cases, we don't need to constantly be checking for
      those changes. The only thing we need "update" for is to toggle the controls panel on demand.*/
     private void Update()
     {
-        if (activeControls != gameObject.activeInHierarchy)
+        if (transition)
         {
-            gameObject.SetActive(activeControls);
+            timer += Time.deltaTime;
+            //make the transition last 3 seconds in either direction.
+            if (timer <= 3.0f)
+            {
+                if (activeControls)
+                {
+                    panel.rectTransform.position = Vector3.Lerp(vecb, veca, timer / 3.0f);
+                }
+                else
+                {
+                    panel.rectTransform.position = Vector3.Lerp(veca, vecb, timer / 3.0f);
+                }
+            } else
+            {
+                //done transition
+                transition = false;
+                timer = 0.0f;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.C))
         {
             activeControls = !activeControls;
+            transition = true;
         }
     }
 

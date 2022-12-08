@@ -73,15 +73,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    //If the player makes contact, reset the scene
-    void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }   
-    }
-
     void CheckReachedDestination()
     {
         // Check if we've reached the destination

@@ -33,14 +33,14 @@ public class ScorecardUI : MonoBehaviour
 
         holeNum = holeUI.hole.GetComponent<HoleProperties>().holeNumber;
 
-        int[] holeScoreValues = scorecard.getHoleByHole();
+        string[] holeScoreValues = scorecard.getHoleByHole();
         string disp;
 
         string txt = holeSummary.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text;
         holeSummary.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = txt + scorecard.getHoleScore() + ".";
 
-        for (var i = 0; i < holeScoreDisplays.Length; i++) {
-            if(holeScoreValues[i] == -1)
+        for (var i = 0; i < 9; i++) {
+            if(holeScoreValues[i].Equals("-1"))
             {
                 disp = "?";
             } else

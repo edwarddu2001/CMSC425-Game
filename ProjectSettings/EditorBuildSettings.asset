@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MiniGolf/Actual Holes/MountainHole.unity
     guid: 11e02fec112b7d647bb25c7188406860
+  - enabled: 1
+    path: Assets/Scenes/MiniGolf/MainMenu.unity
+    guid: f52ea2eb4d5464359aebccded6be8ea6
+  - enabled: 1
+    path: Assets/Scenes/MiniGolf/Actual Holes/Shrink.unity
+    guid: 2151cb47163ed425fb641b9acb81576d
   m_configObjects: {}

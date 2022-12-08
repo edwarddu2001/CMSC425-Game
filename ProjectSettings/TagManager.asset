@@ -10,6 +10,7 @@ TagManager:
   - Curb
   - Windmill
   - Enemy
+  - DontDestroy
   layers:
   - Default
   - TransparentFX

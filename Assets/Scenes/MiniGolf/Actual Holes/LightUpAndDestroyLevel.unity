@@ -3941,7 +3941,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1087680333264613733, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 32.15
+      value: -51.08
       objectReference: {fileID: 0}
     - target: {fileID: 5040564684324618112, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: UIManager

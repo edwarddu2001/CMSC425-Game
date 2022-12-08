@@ -318,7 +318,7 @@ Transform:
   - {fileID: 982607545}
   - {fileID: 994964748}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &31145979
 PrefabInstance:
@@ -3847,7 +3847,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 10
   m_Center: {x: 0, y: -0.098113626, z: -0.30684307}
 --- !u!1001 &994964747
 PrefabInstance:

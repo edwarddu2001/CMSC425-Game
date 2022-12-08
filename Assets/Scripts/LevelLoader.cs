@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class LevelLoader : MonoBehaviour
 {
     public Animator nextLevelTransition;
@@ -9,7 +10,7 @@ public class LevelLoader : MonoBehaviour
     
     public enum levelType {Next, Menu};
     public levelType linkedTo = levelType.Next; 
-    private bool active = false;
+    public bool active = false;
 
     [SerializeField]
     private string nextLevelName = "";
@@ -50,6 +51,7 @@ public class LevelLoader : MonoBehaviour
     }
 
     public void activate(){
+        Debug.Log("I work");
         if (!active){
             active = true;
         }

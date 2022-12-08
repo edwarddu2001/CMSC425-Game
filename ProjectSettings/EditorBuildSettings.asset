@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MiniGolf/Actual Holes/LightUpAndDestroyLevel.unity
     guid: fddbac4a9a4464f059b05e98ecac90f7
+  - enabled: 1
+    path: Assets/Scenes/MiniGolf/Actual Holes/MountainHole.unity
+    guid: 11e02fec112b7d647bb25c7188406860
   m_configObjects: {}

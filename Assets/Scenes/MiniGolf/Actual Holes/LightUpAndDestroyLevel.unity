@@ -3971,6 +3971,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -1.7705626
       objectReference: {fileID: 0}
+    - target: {fileID: 5551336193825089566, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5551336193848583319, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: m_Name
       value: MGKit2 w Materials
@@ -4069,7 +4073,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6362220975051716549, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: nextLevelName
-      value: 
+      value: MountainHole
       objectReference: {fileID: 0}
     - target: {fileID: 7110219971584422163, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: m_AnchorMax.y

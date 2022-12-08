@@ -26,6 +26,9 @@ public class ScorecardScript : MonoBehaviour
         courseScore = PlayerPrefs.GetInt("courseScore");
         holes = PlayerPrefs.GetString("holeByHole");
 
+        Debug.Log("currHole:" + currHole);
+        Debug.Log("holes:" + holes);
+
         temp = holes.Split(",");
         
         for (int i = 0 ; i < 9 ; i++) {

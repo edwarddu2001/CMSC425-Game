@@ -18,9 +18,24 @@ EditorBuildSettings:
     path: Assets/Scenes/MiniGolf/Actual Holes/MountainHole.unity
     guid: 11e02fec112b7d647bb25c7188406860
   - enabled: 1
-    path: Assets/Scenes/MiniGolf/MainMenu.unity
+    path: Assets/Scenes/MiniGolf/Actual Holes/MainMenu.unity
     guid: f52ea2eb4d5464359aebccded6be8ea6
   - enabled: 1
     path: Assets/Scenes/MiniGolf/Actual Holes/Shrink.unity
     guid: 2151cb47163ed425fb641b9acb81576d
+  - enabled: 1
+    path: Assets/Scenes/MiniGolf/Actual Holes/VeryLongHole.unity
+    guid: a20a762015cb7f44191a94f4275ec965
+  - enabled: 1
+    path: Assets/Scenes/MiniGolf/Actual Holes/Islands.unity
+    guid: 10337f9b706614b588f05e3ae9a45bb1
+  - enabled: 1
+    path: Assets/Scenes/MiniGolf/Actual Holes/SpaceHole.unity
+    guid: e737f0ae6d5b59d45b5d4e53a883ce32
+  - enabled: 1
+    path: Assets/Scenes/MiniGolf/Actual Holes/EnemyLevel.unity
+    guid: 8c68d3b99499e9a4e85811631ce4c9da
+  - enabled: 1
+    path: Assets/Scenes/MiniGolf/Actual Holes/TunnelHole.unity
+    guid: 811cb5358b9c02a44aa3bf49800b9eda
   m_configObjects: {}

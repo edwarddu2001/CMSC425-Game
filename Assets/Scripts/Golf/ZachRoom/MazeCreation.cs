@@ -79,7 +79,7 @@ public class MazeCreation : MonoBehaviour
                                 node.neighbors[i].neighbors[numNeighbors-1] = node;  
                                 rooms.Add(node.neighbors[i]);
                                 //if we aren't waiting, add it to queue, else add it to wait queue
-                                if(r != NodeStatus.Waiting) {
+                                if(r != NodeStatus.Waiting || node.id == 0) {
                                     nextUnfilled.Add(node.neighbors[i]);
                                 } else {
                                     waiting.Add(node.neighbors[i]);
@@ -143,25 +143,37 @@ public class MazeCreation : MonoBehaviour
         Node nodeEntering = roomNum(roomRef.id).neighbors[wallNum];
         
         ZachRoomScript roomEntering = roomRef.neighbors[wallNum].GetComponent<ZachRoomScript>();
+        Vector3 enteringForward = roomEntering.gameObject.transform.forward;
         
         //instantiate new inroom neighbors other than oldroom
         for(int i = 0; i < 4; i++){
             if (roomEntering.neighbors[i] == null){
-                int rot = (int)((((Vector3.SignedAngle(roomEntering.gameObject.transform.forward, Vector3.forward, Vector3.up)))/90) -i + 0.01f )% numNeighbors;
-                if (nodeEntering.neighbors[i].id < 0 || nodeEntering.neighbors[i].id > rooms.Count){
-                    //spawn dead end
-                    GameObject newRoom = Instantiate(
-                        deadEndPrefab, new Vector3(7*Mathf.Cos(Mathf.PI/2*(rot)),0,7*Mathf.Sin(Mathf.PI/2*(rot))) + roomEntering.gameObject.transform.position, Quaternion.Euler(0,90*(-i+2),0));
-        
-                } else if (roomEntering.id != roomIn){
-                    GameObject newRoom = Instantiate(
-                        roomPrefab, new Vector3(7*Mathf.Cos(Mathf.PI/2*(rot)),0,7*Mathf.Sin(Mathf.PI/2*(rot))) + roomEntering.gameObject.transform.position, Quaternion.Euler(0,90*(roomNum(roomEntering.id).neighbors[i].NeighborNumber(roomEntering.id)-i-1),0));
-                    roomEntering.GetComponent<ZachRoomScript>().neighbors[i] = newRoom;
-                    newRoom.GetComponent<ZachRoomScript>().id = roomNum(roomEntering.id).neighbors[i].id;
-                    Debug.Log("newRoom id: " + newRoom.GetComponent<ZachRoomScript>().id + " roomEntering id: " + roomEntering.id + " newneighborNumber: " + roomNum(newRoom.GetComponent<ZachRoomScript>().id).NeighborNumber(roomEntering.id));
-                    newRoom.GetComponent<ZachRoomScript>().neighbors[roomNum(newRoom.GetComponent<ZachRoomScript>().id).NeighborNumber(roomEntering.id)] = roomEntering.gameObject;
-                    newRoom.GetComponent<ZachRoomScript>().PrintId();
-                    newRoom.name = "Room " + newRoom.GetComponent<ZachRoomScript>().id;
+                //what neightbor # is
+                int rot = Mathf.FloorToInt((((-Vector3.SignedAngle(enteringForward, Vector3.forward, Vector3.up)))/90) - i + .001f);// % numNeighbors;
+                Debug.Log("i:" + i +" rot:" + rot);
+                if(nodeEntering.neighbors[i].neighbors[0] != null){
+                    if (/*nodeEntering.neighbors[i].id < 0 || nodeEntering.neighbors[i].id > rooms.Count || */nodeEntering.neighbors[i].neighbors[0].id == -1){
+                        //spawn dead end
+                        GameObject newRoom = Instantiate(
+                            deadEndPrefab, new Vector3(7*Mathf.Sin(Mathf.PI/2*(-rot)),0,-7*Mathf.Cos(Mathf.PI/2*(rot))) + roomEntering.gameObject.transform.position, roomEntering.gameObject.transform.rotation*Quaternion.Euler(0,90*(2*((i+1)%2)+3+i),0));
+                            for(int n = 0; n < 3; n++){
+                                newRoom.GetComponent<ZachRoomScript>().neighbors[n] = null;
+                            }
+                            roomEntering.GetComponent<ZachRoomScript>().neighbors[i] = newRoom;
+                            newRoom.GetComponent<ZachRoomScript>().neighbors[3] = roomEntering.gameObject;
+                            newRoom.GetComponent<ZachRoomScript>().id = roomNum(roomEntering.id).neighbors[i].id;
+                            newRoom.name = "DeadEnd " + newRoom.GetComponent<ZachRoomScript>().id;
+            
+                    } else if (roomEntering.id != roomIn){
+                        GameObject newRoom = Instantiate(
+                            roomPrefab, new Vector3(7*Mathf.Sin(Mathf.PI/2*(-rot)),0,-7*Mathf.Cos(Mathf.PI/2*(rot))) + roomEntering.gameObject.transform.position, roomEntering.gameObject.transform.rotation*Quaternion.Euler(0,90*(2*((i+1)%2)+(roomNum(roomEntering.id).neighbors[i].NeighborNumber(roomEntering.id))+i),0));
+                        roomEntering.GetComponent<ZachRoomScript>().neighbors[i] = newRoom;
+                        newRoom.GetComponent<ZachRoomScript>().id = roomNum(roomEntering.id).neighbors[i].id;
+                        Debug.Log("newRoom id: " + newRoom.GetComponent<ZachRoomScript>().id + " roomEntering id: " + roomEntering.id + " newneighborNumber: " + roomNum(newRoom.GetComponent<ZachRoomScript>().id).NeighborNumber(roomEntering.id));
+                        newRoom.GetComponent<ZachRoomScript>().neighbors[roomNum(newRoom.GetComponent<ZachRoomScript>().id).NeighborNumber(roomEntering.id)] = roomEntering.gameObject;
+                        newRoom.GetComponent<ZachRoomScript>().PrintId();
+                        newRoom.name = "Room " + newRoom.GetComponent<ZachRoomScript>().id;
+                    }
                 }
             }
         }

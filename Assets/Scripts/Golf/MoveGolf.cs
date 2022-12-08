@@ -552,7 +552,14 @@ public class MoveGolf : MonoBehaviour
     {
         //return Vector3.SignedAngle(Vector3.forward, direction, Vector3.left);
         Vector3 XZdir = new Vector3(direction.x, 0, direction.z);
-        return Vector3.Angle(direction, XZdir);
+        if(direction.y >= 0)
+        {
+            return Vector3.Angle(direction, XZdir);
+        } else
+        {
+            return -1 * Vector3.Angle(direction, XZdir);
+        }
+        
     }
 
     public Vector3 getShotDirection()

@@ -154,6 +154,13 @@ public class MazeCreation : MonoBehaviour
                 }
             }
         }
+
+        foreach (Node n in rooms){
+            for(int i = 0; i < 4; i++){
+                Debug.Log(n.id + ": " + (SpecialRoom) (i+1) + "- " +  dirTo((SpecialRoom) i+1, n.id));
+                n.dirTo[i] = dirTo((SpecialRoom) (i+1), n.id);
+            }
+        }
     }
 
     private int distFrom(SpecialRoom sr, int roomNum){
@@ -161,7 +168,9 @@ public class MazeCreation : MonoBehaviour
         ArrayList queue = new ArrayList();
         int depth = 0;
         traversed.Add(roomNum);
-        queue.Add(rooms[roomNum]);
+        if (roomNum != -1){
+            queue.Add(rooms[roomNum]);
+        }
         while(true){
             ArrayList queueNew = new ArrayList();
             foreach(Node n in queue){
@@ -264,6 +273,8 @@ public class MazeCreation : MonoBehaviour
         public static int idCount = 0;
         public static Node None = new Node(-1);
         public SpecialRoom roomType = SpecialRoom.Not;
+        //Tee, Goal, Bulldozer, LightUp
+        public int[] dirTo = {-1,-1,-1,-1};
         
  
 
@@ -307,6 +318,10 @@ public class MazeCreation : MonoBehaviour
                 toReturn += neighbor.id + " ";
             }
             toReturn += "}\n";  
+            foreach (int dir in dirTo){
+                toReturn += dir + " ";
+            }
+            toReturn += "}\n";
             return toReturn;
         }
     }

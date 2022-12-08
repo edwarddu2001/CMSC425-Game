@@ -62,5 +62,6 @@ public class ScorecardUI : MonoBehaviour
     private void OnEnable()
     {
         UpdateScoreboard();
+        Cursor.lockState = CursorLockMode.None;
     }
 }

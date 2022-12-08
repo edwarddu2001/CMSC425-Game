@@ -16,6 +16,7 @@ public class ZachHole : MonoBehaviour
     public GameObject holeGUI;
     public GameObject scorecardGUI;
     public GameObject player;
+    public GameObject floor;
 
     private GameObject trueHole;
     private GameObject cup;
@@ -39,11 +40,6 @@ public class ZachHole : MonoBehaviour
         scorecard = player.transform.parent.GetComponent<ScorecardScript>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -60,7 +56,7 @@ public class ZachHole : MonoBehaviour
 
             //remove the move and Camera components from the ball
             Destroy(player.GetComponent<MoveGolf>());
-            Destroy(ballCam.transform.GetChild(0).GetComponentInChildren<ThirdPersonCamera>());
+            Destroy(ballCam.GetComponent<CameraHolder>());
 
             player.GetComponent<AbObserver2>().ability.OnDeactivate(player.gameObject);
 
@@ -68,6 +64,8 @@ public class ZachHole : MonoBehaviour
             scorecard.finishThisHole();
             scorecardGUI.SetActive(true);
             holeGUI.SetActive(false);
+            floor.SetActive(false);
+            Debug.Log("ended");
             
         }
     }

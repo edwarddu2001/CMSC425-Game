@@ -58,5 +58,6 @@ public class ZachRoomScript : MonoBehaviour
             hole.holeGUI = holeGUI;
             hole.scorecardGUI = scorecardGUI;
             hole.player = player;
+            hole.floor = transform.GetChild(0).gameObject;
     }
 }

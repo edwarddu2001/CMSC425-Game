@@ -222,11 +222,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5551336194949407829, guid: 873d27183cc8e45b19bd637924446228, type: 3}
   m_PrefabInstance: {fileID: 690215664}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &682898771 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5551336194902383637, guid: 873d27183cc8e45b19bd637924446228, type: 3}
-  m_PrefabInstance: {fileID: 690215664}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &690215664
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -308,6 +303,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+--- !u!1 &1058167889 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6294469985591673512, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+  m_PrefabInstance: {fileID: 690215664}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1064674200 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4877770090759249762, guid: 873d27183cc8e45b19bd637924446228, type: 3}
@@ -343,8 +343,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballCam: {fileID: 670326342}
-  holeGUI: {fileID: 682898771}
-  scorecardGUI: {fileID: 0}
+  holeGUI: {fileID: 1058167889}
+  scorecardGUI: {fileID: 1642141536}
   roomPrefab: {fileID: 5432567263857057400, guid: 18e045e4624193e408d69d8e072edaac, type: 3}
   deadEndPrefab: {fileID: 5432567263857057400, guid: e280769faa915eb47b33f9c892c73986, type: 3}
   seed: 420
@@ -365,3 +365,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1642141536 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8010134505276234230, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+  m_PrefabInstance: {fileID: 690215664}
+  m_PrefabAsset: {fileID: 0}

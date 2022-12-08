@@ -216,6 +216,7 @@ MonoBehaviour:
   ballCam: {fileID: 0}
   holeGUI: {fileID: 0}
   scorecardGUI: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &1518252903085228322
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,4 +1013,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd12a5fbe684aef4ba724e7ed2e867f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holeNumber: 0
+  holeNumber: 9

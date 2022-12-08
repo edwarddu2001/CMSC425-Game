@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4647635367496981655}
   m_Layer: 0
   m_Name: Curb 2
-  m_TagString: Untagged
+  m_TagString: Curb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

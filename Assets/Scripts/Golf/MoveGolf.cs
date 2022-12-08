@@ -189,11 +189,11 @@ public class MoveGolf : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            rbody.AddForce(Vector3.left * 0.01f);
+            rbody.AddForce(Vector3.right * 0.01f);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            rbody.AddForce(Vector3.right * 0.01f);
+            rbody.AddForce(Vector3.left * 0.01f);
         }
         if (Input.GetKey(KeyCode.W))
         {
@@ -269,7 +269,8 @@ public class MoveGolf : MonoBehaviour
     //take a "labyrinth shot" by using your ability and rotating the map.
     void LabyrinthSetup()
     {
-        //toggles Labyrinth mode if you have the labyrinth ability (to turning it ON)
+        //toggles Labyrinth mode if you have the labyrinth ability (to turning it OFF). next frame,
+        //ShotSetup() called instead
         if (Input.GetKeyDown(KeyCode.F) && observer.ability.GetAbilityName() == "Labyrinth")
         {
             labyrinthMode = false;
@@ -292,7 +293,6 @@ public class MoveGolf : MonoBehaviour
 
             rotatableObjectScript.enabled = true;
             movingLabyrinth = true;
-            //moveLabyrinth();
             reportLabyrinthChangeInState();
             reportChangeInState(true, observer.ability);
         }
@@ -404,7 +404,8 @@ public class MoveGolf : MonoBehaviour
             }
         }
 
-        //toggles Labyrinth mode if you have the labyrinth ability (to turning it ON)
+        //toggles Labyrinth mode if you have the labyrinth ability (to turning it ON). next frame,
+        //LabyrinthSetup() called instead
         if (Input.GetKeyDown(KeyCode.F) && observer.ability.GetAbilityName() == "Labyrinth")
         {
             labyrinthMode = true;

@@ -12,6 +12,11 @@ public class ControlsUI : MonoBehaviour
     private GameObject playerBall;
     private GameObject shotArrow;
 
+    [SerializeField]
+    private bool labyrinthMode = false;
+    [SerializeField]
+    private bool movingLabyrinth = false;
+
     //DYNAMIC CONTROLS: changes the UI depending on player's game state.
     public TextMeshProUGUI motionTeller;
     private MotionTellerUI motionTellerUI;
@@ -82,14 +87,13 @@ public class ControlsUI : MonoBehaviour
     }
 
     //clears out the old controls and makes new ones.
-    //TODO: REMOVE DEBUGGING ITEMS
+    //we have to figure out which controls are active based on player's current state, then add them in
     public void resetControlGUI(bool inMotion, Ability2 activeAbility)
     {
         if (activeControls)
         {
             abil = activeAbility.GetAbilityName();
             //change color at the top to the color of our ability
-            //Debug.Log(getAssociatedColor(abil));
             motionTeller.color = getAssociatedColor(abil);
 
 
@@ -104,25 +108,31 @@ public class ControlsUI : MonoBehaviour
             dynamicControls.transform.SetParent(dynamicControlsTemplate.transform.parent);
             dynamicControls.GetComponent<RectTransform>().anchoredPosition3D = dynamicControlsTemplate.GetComponent<RectTransform>().anchoredPosition3D;
 
-            //string TESTCONTROLS = "";
             
-
+            //for all ability cases when the ball IS MOVING
             if (inMotion)
             {
-                //TESTCONTROLS += "Moving; ";
-                //motionTeller.SetText("In Motion...");
                 motionTellerUI.startMovingText();
                 
                 //TODO: Labyrinth special case
                 if (abil.Equals("Labyrinth"))
                 {
-                    arr2[0] = "W"; arr2[1] = "S";
-                    generateNewUIKey(arr2, "", getAssociatedColor(abil));
-                    arr2[0] = "A"; arr2[1] = "D";
-                    generateNewUIKey(arr2, "Rot. Labyrinth", getAssociatedColor(abil));
 
-                    arr1[0] = "F";
-                    generateNewUIKey(arr1, "End Labyrinth", getAssociatedColor(abil));
+                    //case 3: labyrinth mode on, and currently moving (rotating the labyrinth Platform)
+                    if (movingLabyrinth)
+                    {
+                        arr2[0] = "W"; arr2[1] = "S";
+                        generateNewUIKey(arr2, "", getAssociatedColor(abil));
+                        arr2[0] = "A"; arr2[1] = "D";
+                        generateNewUIKey(arr2, "Rot. Labyrinth", getAssociatedColor(abil));
+
+                        arr1[0] = "F";
+                        generateNewUIKey(arr1, "End Labyrinth", getAssociatedColor(abil));
+                    } else
+                    {
+                        standardMovingKeys();
+                    }
+
                 }
                 else if (abil.Equals("Movement+"))
                 {
@@ -131,6 +141,8 @@ public class ControlsUI : MonoBehaviour
                     arr2[0] = "A"; arr2[1] = "D";
                     generateNewUIKey(arr2, "Spin ball", getAssociatedColor(abil));
 
+                    arr1[0] = "R";
+                    generateNewUIKey(arr1, "Partial Stop", getAssociatedColor(abil));
                     arr1[0] = "F";
                     generateNewUIKey(arr1, "FULL STOP!", getAssociatedColor(abil));
                 }
@@ -144,31 +156,67 @@ public class ControlsUI : MonoBehaviour
                     }
                 }
             }
+
+            //for all ability cases where the ball IS STOPPED
             else
             {
                 //TESTCONTROLS += "At rest; ";
                 motionTellerUI.stopMovingText();
                 motionTeller.SetText("Shot Setup");
-                
 
-                standardSetupKeys();
-                if(abil.Equals("Chipshot") || abil.Equals("ZeroGrav"))
+                if (abil.Equals("Labyrinth"))
                 {
-                    arr2[0] = "Q"; arr2[1] = "E";
-                    generateNewUIKey(arr2, "Change Loft", getAssociatedColor(abil));
-                } else if(abil.Equals("Labyrinth"))
+                    //case 1: labyrinth mode off
+                    if (!labyrinthMode)
+                    {
+                        standardSetupKeys();
+                        arr1[0] = "F";
+                        generateNewUIKey(arr1, "Lab Mode ON", getAssociatedColor(abil));
+                    }
+                    //case 2: labyrinth mode on, but not moving yet
+                    if (labyrinthMode && !movingLabyrinth)
+                    {
+                        arr1[0] = "F";
+                        generateNewUIKey(arr1, "Lab Mode OFF", getAssociatedColor(abil));
+
+                        generateNewBigUIKey("Space", "Start!");
+                    }
+                }
+                else
                 {
-                    arr1[0] = "F";
-                    generateNewUIKey(arr1, "Toggle Labyrinth Mode", getAssociatedColor(abil));
+                    standardSetupKeys();
+                    if (abil.Equals("Chipshot") || abil.Equals("ZeroGrav"))
+                    {
+                        arr2[0] = "Q"; arr2[1] = "E";
+                        generateNewUIKey(arr2, "Change Loft", getAssociatedColor(abil));
+                    }
+                    else if (abil.Equals("Labyrinth"))
+                    {
+                        arr1[0] = "F";
+                        generateNewUIKey(arr1, "Toggle Labyrinth Mode", getAssociatedColor(abil));
+                    }
                 }
 
             }
 
-
-            //TESTCONTROLS += activeAbility.GetAbilityName();
-            //Debug.Log("New Contols: [" + TESTCONTROLS + "]");
         }
     }
+
+    //MoveGolf uses these to tell this script when labyrinth mode is on or off, a special but important case.
+    public void reportLabyrinthMode(bool on, bool moving)
+    {
+        labyrinthMode = on;
+        movingLabyrinth = moving;
+
+    }
+
+
+
+    /*all methods below this line are related to generating the UI itself. since there's too many combinations
+    //to hard code, i figured i should do it programatically. it's not that interesting, but if you want a basic
+    idea of how it works: there's a disabled object called "dynamicControls" in the controlsUI object, which gets
+    set to a new object containing all the controls you see on a reported change in state. when a new change in state 
+    happens, the old one is deleted so as to not cause any memory leaks.*/
 
     //generate a new key, or combo of keys, at the next available y coordinate
     //return value changes the color of the text, if we'd like.
@@ -293,9 +341,4 @@ public class ControlsUI : MonoBehaviour
             return new Color(0, 0, 0);
         }
     }
-    // Update is called once per frame
-    /*void Update()
-    {
-
-    }*/
 }

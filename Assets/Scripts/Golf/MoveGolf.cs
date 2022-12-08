@@ -6,6 +6,7 @@ using UnityEngine;
 public class MoveGolf : MonoBehaviour
 {
     //BIG IDEA: if not inMotion, set up and take your next shot. if in motion, allow the ball to move / jump / etc.
+    [SerializeField]
     bool inMotion = true;
     float timeSlowed = 0;
 
@@ -184,6 +185,8 @@ public class MoveGolf : MonoBehaviour
     //so we add little love taps to the ball to keep it moving in the direction of rotation.
     void moveLabyrinth()
     {
+        inMotion = true;
+
         if (Input.GetKey(KeyCode.A))
         {
             rbody.AddForce(Vector3.left * 0.01f);
@@ -209,6 +212,10 @@ public class MoveGolf : MonoBehaviour
             labyrinthMode = false;
             movingLabyrinth = false;
             rotatableObjectScript.enabled = false;
+
+            timeSlowed = 0;
+            reportLabyrinthChangeInState();
+            reportChangeInState(true, observer.ability);
         }
     }
 
@@ -226,6 +233,8 @@ public class MoveGolf : MonoBehaviour
         movingLabyrinth = false;
 
         inMotion = true;
+        reportLabyrinthChangeInState();
+        reportChangeInState(false, observer.ability);
         rbody.AddForce(Vector3.down, ForceMode.Impulse);
     }
 
@@ -260,11 +269,13 @@ public class MoveGolf : MonoBehaviour
     //take a "labyrinth shot" by using your ability and rotating the map.
     void LabyrinthSetup()
     {
-        //toggles Labyrinth mode if you have the labyrinth ability
+        //toggles Labyrinth mode if you have the labyrinth ability (to turning it ON)
         if (Input.GetKeyDown(KeyCode.F) && observer.ability.GetAbilityName() == "Labyrinth")
         {
-            labyrinthMode = !labyrinthMode;
-            shotArrow.SetActive(!labyrinthMode);
+            labyrinthMode = false;
+            shotArrow.SetActive(true);
+            reportLabyrinthChangeInState();
+            reportChangeInState(false, observer.ability);
             Debug.Log("Labyrinth mode now " + labyrinthMode);
         }
 
@@ -281,7 +292,9 @@ public class MoveGolf : MonoBehaviour
 
             rotatableObjectScript.enabled = true;
             movingLabyrinth = true;
-            moveLabyrinth();
+            //moveLabyrinth();
+            reportLabyrinthChangeInState();
+            reportChangeInState(true, observer.ability);
         }
     }
 
@@ -391,11 +404,13 @@ public class MoveGolf : MonoBehaviour
             }
         }
 
-        //toggles Labyrinth mode if you have the labyrinth ability
+        //toggles Labyrinth mode if you have the labyrinth ability (to turning it ON)
         if (Input.GetKeyDown(KeyCode.F) && observer.ability.GetAbilityName() == "Labyrinth")
         {
-            labyrinthMode = !labyrinthMode;
-            shotArrow.SetActive(!labyrinthMode);
+            labyrinthMode = true;
+            shotArrow.SetActive(false);
+            reportLabyrinthChangeInState();
+            reportChangeInState(false, observer.ability);
             Debug.Log("Labyrinth mode now " + labyrinthMode);
         }
 
@@ -437,6 +452,11 @@ public class MoveGolf : MonoBehaviour
     public void reportChangeInState(bool inMotion, Ability2 ability)
     {
         controlUI.resetControlGUI(inMotion, ability);
+    }
+
+    public void reportLabyrinthChangeInState()
+    {
+        controlUI.reportLabyrinthMode(labyrinthMode, movingLabyrinth);
     }
 
     //normal movement with no gimmicks. you can usually jump with Space, or slow the ball down with R
@@ -537,11 +557,6 @@ public class MoveGolf : MonoBehaviour
     public Vector3 getShotDirection()
     {
         return direction;
-    }
-
-    public Quaternion getShotRotation()
-    {
-        return shotArrow.transform.rotation;
     }
 
     //now, detect when a ball is on the ground, so we know when some actions can be taken.

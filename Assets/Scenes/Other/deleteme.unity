@@ -962,6 +962,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: OutOfBounds
       objectReference: {fileID: 0}
+    - target: {fileID: 5551336194325612051, guid: 0af6d1ced667b50449fe70e8ed534b90, type: 3}
+      propertyPath: m_Name
+      value: MGUI
+      objectReference: {fileID: 0}
     - target: {fileID: 5551336194524283617, guid: 0af6d1ced667b50449fe70e8ed534b90, type: 3}
       propertyPath: m_TagString
       value: OutOfBounds

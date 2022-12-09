@@ -1630,6 +1630,10 @@ PrefabInstance:
       propertyPath: lightUpAbility
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1617302789943759458, guid: 9fc25a7d0322a9848b4ea27a225772b5, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 1712649425554700964, guid: 9fc25a7d0322a9848b4ea27a225772b5, type: 3}
       propertyPath: m_Name
       value: Lightup coin

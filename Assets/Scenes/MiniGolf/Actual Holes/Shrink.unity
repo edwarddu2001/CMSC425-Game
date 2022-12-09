@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2255,12 +2255,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1087680333264613732, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: par
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1087680333264613732, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: data
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1827919324}
     - target: {fileID: 1087680333264613732, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: sounds.Array.data[0]
       value: 
@@ -2684,6 +2684,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1827919324 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3840816863083069111, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+  m_PrefabInstance: {fileID: 1827919320}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b36a1eef44c1e4df9954094d0d0283ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1827919328 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1087680333264613732, guid: 873d27183cc8e45b19bd637924446228, type: 3}

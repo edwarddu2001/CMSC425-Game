@@ -56,6 +56,11 @@ public class InvisibleAbility : Ability2
         target.GetComponent<AbObserver2>().ActivateNewAbility();
     }
 
+    public string getTimeRemaining()
+    {
+        return ((int)timeRemaining).ToString();
+    }
+
     public override void OnDeactivate(GameObject target)
     {
         invisible = false;

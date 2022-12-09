@@ -40,9 +40,17 @@ public class GolfUIManager : MonoBehaviour
         string abName = abObserver.ability.GetAbilityName();
 
         //style choice
-        if(abName.Equals("Nothing")) { abName = "No Ability...";  } 
+        if(abName.Equals("Nothing")) { abName = "No Ability...";  }
+
+        //invisibility also displays the timer
+        if (abName.Equals("Invisible")) {
+            abName = abName + " (" + 
+            ((InvisibleAbility)(abObserver.ability)).getTimeRemaining() + ")";
+        }
 
         currentAbilityDisplay.GetComponent<TextMeshProUGUI>().SetText(abName);
+
+
 
 
         // ability icon / picture

@@ -37,7 +37,9 @@ public class ScorecardUI : MonoBehaviour
         string disp;
 
         string txt = holeSummary.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text;
+        string tot = holeSummary.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text;
         holeSummary.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = txt + scorecard.getHoleScore() + ".";
+        holeSummary.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = tot + scorecard.getCourseScore() + ".";
 
         for (var i = 0; i < 9; i++) {
             if(holeScoreValues[i].Equals("-1"))

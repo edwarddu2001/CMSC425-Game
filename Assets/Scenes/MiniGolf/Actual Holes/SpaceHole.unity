@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.04434012, g: 0.039317153, b: 0.047051556, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8190,7 +8190,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1087680333264613733, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14.3
+      value: 2.21
       objectReference: {fileID: 0}
     - target: {fileID: 5551336193488058792, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: sounds.Array.size
@@ -8327,10 +8327,6 @@ PrefabInstance:
     - target: {fileID: 7137003386628081010, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9053225944319083968, guid: 873d27183cc8e45b19bd637924446228, type: 3}
-      propertyPath: nextLevelName
-      value: EnemyLevel
       objectReference: {fileID: 0}
     - target: {fileID: 9056790810069450543, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: m_AnchorMax.y

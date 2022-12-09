@@ -149,9 +149,11 @@ public class MazeCreation : MonoBehaviour
             if(sr != SpecialRoom.Not && sr != SpecialRoom.Tee){
                 for (int i = UnityEngine.Random.Range(1,rooms.Count); true; i = UnityEngine.Random.Range(1,rooms.Count)){
                     if(((Node)rooms[i]).roomType == SpecialRoom.Not) {
-                        ((Node) rooms[i]).roomType = sr;
-                        Debug.Log("Room " + i + " has the " + sr);
-                        break;
+                        if(i > 4 || sr != SpecialRoom.Goal){
+                            ((Node) rooms[i]).roomType = sr;
+                            Debug.Log("Room " + i + " has the " + sr);
+                            break;
+                        }
                     }
                 }
             }

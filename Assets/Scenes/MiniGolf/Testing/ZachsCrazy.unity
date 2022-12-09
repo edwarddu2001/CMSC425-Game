@@ -351,7 +351,7 @@ MonoBehaviour:
   scorecardGUI: {fileID: 1642141536}
   roomPrefab: {fileID: 5432567263857057400, guid: 18e045e4624193e408d69d8e072edaac, type: 3}
   deadEndPrefab: {fileID: 5432567263857057400, guid: e280769faa915eb47b33f9c892c73986, type: 3}
-  seed: 46
+  seed: 65484186
   player: {fileID: 1064674200}
   roomIn: 0
 --- !u!4 &1521621077

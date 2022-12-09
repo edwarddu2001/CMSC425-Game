@@ -17,10 +17,20 @@ public class ZachRoomScript : MonoBehaviour
 
     void Start(){
         Spawner = (MazeCreation)FindObjectOfType(typeof(MazeCreation));
+        SpawnSigns();
     }
     
     public void PrintId(){
         Debug.Log("Room " + id + " created!");
+    }
+
+    //TODO:
+    //find the dirto for each sign and put it above the correct door
+    private void SpawnSigns(){
+        for(int sign = 0; sign < 4; sign ++){
+            Debug.Log("id: " + id + " sign: " + sign);
+            transform.GetChild(Spawner.dirTo((MazeCreation.SpecialRoom) (sign + 1), id)+1).GetComponent<ZachWall>().PlaceSign((MazeCreation.SpecialRoom) sign + 1);
+        }
     }
 
     /*
@@ -32,7 +42,6 @@ public class ZachRoomScript : MonoBehaviour
             |
             O
     */
-
     public void SpawnNeighbors(int wallNum){
         //unload neighbor's neighbors
         for(int myNeighbors = 0; myNeighbors < 4; myNeighbors++){

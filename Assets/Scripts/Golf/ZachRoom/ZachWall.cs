@@ -6,19 +6,16 @@ public class ZachWall : MonoBehaviour
 {
     [SerializeField] private ZachDoorway doorway;
     [SerializeField] private Vector3 SignPos;
-    [SerializeField] private float signHeight = .3f;
-    [SerializeField] private float signSpace = 0f;
+    [SerializeField] private float signBuffer = 0f;
     [SerializeField] private GameObject[] SignPrefabs;
     [SerializeField] private int wallNum;
 
-    public enum Sign {Goal, Bulldozer, Lightup, Back};
-
-    public Sign pathTo {
-        get; set;
-    }
-
-    void PlaceSign(Sign sign){
-        Instantiate(SignPrefabs[(int) pathTo], SignPos + new Vector3(0, (int) pathTo * (signHeight + signSpace)), Quaternion.identity);
+    public void PlaceSign(MazeCreation.SpecialRoom sign){
+        Debug.Log("Placing " + (sign - 1) + " on wall " + wallNum);
+        GameObject newSign = Instantiate(SignPrefabs[(int) (sign - 1)], transform.GetChild((int)sign + 4));
+        newSign.transform.localScale = new Vector3(.2f,.2f,.2f);
+        newSign.transform.rotation *= Quaternion.Euler(0,0,90);
+        
     }
 
     public void SpawnNeighbors(){

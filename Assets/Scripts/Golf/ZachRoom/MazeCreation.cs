@@ -42,6 +42,7 @@ public class MazeCreation : MonoBehaviour
         rootRoom.GetComponent<ZachRoomScript>().PrintId();
         rootRoom.GetComponent<ZachRoomScript>().player = player.gameObject;
         rootRoom.name = "Room 0";
+        //rootRoom.GetComponent<ZachRoomScript>().SpawnSigns();
         for(int i = 0; i<4; i++){
             GameObject newRoom = Instantiate(
                         roomPrefab, new Vector3(7*Mathf.Cos(Mathf.PI/2*(i-1)),0,7*Mathf.Sin(Mathf.PI/2*(i-1))) + player.position, Quaternion.Euler(0,90*(-i+1),0));
@@ -51,6 +52,7 @@ public class MazeCreation : MonoBehaviour
             newRoom.GetComponent<ZachRoomScript>().PrintId();
             newRoom.name = "Room " + newRoom.GetComponent<ZachRoomScript>().id;
             newRoom.GetComponent<ZachRoomScript>().player = player.gameObject;
+            //newRoom.GetComponent<ZachRoomScript>().SpawnSigns();
         }
 
         Print();
@@ -238,6 +240,7 @@ public class MazeCreation : MonoBehaviour
                             newRoom.GetComponent<ZachRoomScript>().id = roomNum(roomEntering.id).neighbors[i].id;
                             newRoom.GetComponent<ZachRoomScript>().player = player.gameObject;
                             newRoom.name = "DeadEnd " + newRoom.GetComponent<ZachRoomScript>().id;
+                            //newRoom.GetComponent<ZachRoomScript>().SpawnSigns();
                             if(((Node) rooms[newRoom.GetComponent<ZachRoomScript>().id]).roomType == SpecialRoom.Goal){
                                 newRoom.GetComponent<ZachRoomScript>().SpawnHole(ballCam, holeGUI, scorecardGUI);
                             }
@@ -252,6 +255,7 @@ public class MazeCreation : MonoBehaviour
                         newRoom.GetComponent<ZachRoomScript>().PrintId();
                         newRoom.GetComponent<ZachRoomScript>().player = player.gameObject;
                         newRoom.name = "Room " + newRoom.GetComponent<ZachRoomScript>().id;
+                        //newRoom.GetComponent<ZachRoomScript>().SpawnSigns();
                         if(((Node) rooms[newRoom.GetComponent<ZachRoomScript>().id]).roomType == SpecialRoom.Goal){
                             newRoom.GetComponent<ZachRoomScript>().SpawnHole(ballCam, holeGUI, scorecardGUI);
                         }

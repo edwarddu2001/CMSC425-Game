@@ -114,7 +114,7 @@ public class MazeCreation : MonoBehaviour
                             int dir = UnityEngine.Random.Range(0,numNeighbors-1);
                             int goTo = -1; 
                             for(int m = 0; m < numNeighbors; m++ ){
-                                if(node.neighbors[i].neighbors[n].id != -1){
+                                if(node.neighbors[i].neighbors[m].id != -1){
                                     m++;
                                 } else if(dir >= 0) {
                                     goTo++;

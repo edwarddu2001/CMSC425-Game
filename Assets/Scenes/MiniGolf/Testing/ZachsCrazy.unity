@@ -238,6 +238,10 @@ PrefabInstance:
       value: MGKit2 w Materials
       objectReference: {fileID: 0}
     - target: {fileID: 5551336193968815857, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -203.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5551336193968815857, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: m_LocalPosition.z
       value: -18.96
       objectReference: {fileID: 0}
@@ -347,7 +351,7 @@ MonoBehaviour:
   scorecardGUI: {fileID: 1642141536}
   roomPrefab: {fileID: 5432567263857057400, guid: 18e045e4624193e408d69d8e072edaac, type: 3}
   deadEndPrefab: {fileID: 5432567263857057400, guid: e280769faa915eb47b33f9c892c73986, type: 3}
-  seed: 420
+  seed: 46
   player: {fileID: 1064674200}
   roomIn: 0
 --- !u!4 &1521621077

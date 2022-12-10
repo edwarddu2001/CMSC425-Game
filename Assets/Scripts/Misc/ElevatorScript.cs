@@ -13,8 +13,10 @@ public class ElevatorScript : MonoBehaviour
     private float timeLeftElevator;
     private float standardHeight;
     float change;
-    [SerializeField]
     private bool changing, rising;
+
+    private GameObject passenger;
+    private Vector3 passengerTrans;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,7 @@ public class ElevatorScript : MonoBehaviour
         standardHeight = fullElevator.transform.position.y;
         rising = true;
         changing = false;
+        passenger = null;
     }
 
     // Update is called once per frame
@@ -56,6 +59,8 @@ public class ElevatorScript : MonoBehaviour
             timeLeftElevator = 0;
             changing = true;
             rising = true;
+            passenger = collision.gameObject;
+            passengerTrans = passenger.transform.position;
         }
     }
 
@@ -66,6 +71,7 @@ public class ElevatorScript : MonoBehaviour
             timeLeftElevator = 0;
             changing = true;
             rising = false;
+            passenger = null;
         }
     }
 
@@ -79,6 +85,11 @@ public class ElevatorScript : MonoBehaviour
         }
 
         fullElevator.transform.position = trans;
+        if(passenger != null)
+        {
+            passengerTrans = passenger.transform.position;
+            passenger.transform.position = new Vector3(passengerTrans.x, passengerTrans.y + delta, passengerTrans.z);
+        }
     }
 
     private void lowerElevator(float delta)
@@ -91,6 +102,11 @@ public class ElevatorScript : MonoBehaviour
         }
 
         fullElevator.transform.position = trans;
+        if (passenger != null)
+        {
+            passengerTrans = passenger.transform.position;
+            passenger.transform.position = new Vector3(passengerTrans.x, passengerTrans.y - delta, passengerTrans.z);
+        }
     }
 
 }

@@ -169,7 +169,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 28024055}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -866,7 +866,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 88201937}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1346,6 +1346,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvisCube (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3866411814534640656, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4087729883261837022, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1522,7 +1526,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 254269469}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1619,7 +1623,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 275032835}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1738,6 +1742,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvisCube (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 3866411814534640656, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4087729883261837022, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1789,7 +1797,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 278284511}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -2036,7 +2044,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 344121582}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -2148,7 +2156,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 364236155}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -2330,7 +2338,7 @@ Transform:
   - {fileID: 1484501583}
   - {fileID: 1986016539}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &409780283
 GameObject:
@@ -2498,6 +2506,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvisCube (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 3866411814534640656, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
+      propertyPath: m_TagString
+      value: Curb
+      objectReference: {fileID: 0}
     - target: {fileID: 4087729883261837022, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2506,6 +2518,10 @@ PrefabInstance:
       propertyPath: lightUpAbility
       value: 
       objectReference: {fileID: 1194555132}
+    - target: {fileID: 8321402707969312447, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
 --- !u!1 &450836462
@@ -2549,7 +2565,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 450836462}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -2668,6 +2684,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvisCube (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 3866411814534640656, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
+      propertyPath: m_TagString
+      value: Curb
+      objectReference: {fileID: 0}
     - target: {fileID: 4087729883261837022, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2676,6 +2696,10 @@ PrefabInstance:
       propertyPath: lightUpAbility
       value: 
       objectReference: {fileID: 1194555132}
+    - target: {fileID: 8321402707969312447, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
 --- !u!4 &455106462 stripped
@@ -2807,7 +2831,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 595811269}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -3218,7 +3242,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 696587116}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -3315,7 +3339,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 703755095}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -3656,6 +3680,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 406781380}
     m_Modifications:
+    - target: {fileID: 1617302789943759458, guid: 9fc25a7d0322a9848b4ea27a225772b5, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 1973449602682026156, guid: 9fc25a7d0322a9848b4ea27a225772b5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -3758,6 +3786,88 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fc25a7d0322a9848b4ea27a225772b5, type: 3}
+--- !u!1001 &807565738
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3374917474248398755, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.825
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374917474248398755, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.347
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374917474248398755, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374917474449655842, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_Name
+      value: CheckpointRegion (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374917474449655843, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374917474449655843, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 7.3658333
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374917474449655843, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 7.8754997
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374917474449655843, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374917474449655843, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374917474449655843, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 32.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374917474449655843, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374917474449655843, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374917474449655843, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374917474449655843, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374917474449655843, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374917474449655843, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374917474449655843, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+--- !u!1 &807565739 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3374917474449655842, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+  m_PrefabInstance: {fileID: 807565738}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &819869614
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3969,7 +4079,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 842120930}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -4223,6 +4333,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvisCube (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3866411814534640656, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4087729883261837022, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -4325,7 +4439,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 889978061}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -4437,7 +4551,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 898295918}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -4538,7 +4652,7 @@ Transform:
   - {fileID: 383755731}
   - {fileID: 284802395}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &986551684
 GameObject:
@@ -4675,7 +4789,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 995335689}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -4777,7 +4891,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1017009249}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -4990,6 +5104,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvisCube (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 3866411814534640656, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4087729883261837022, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -5107,7 +5225,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1096011092}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -5327,6 +5445,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvisCube (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 3866411814534640656, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
+      propertyPath: m_TagString
+      value: Curb
+      objectReference: {fileID: 0}
     - target: {fileID: 4087729883261837022, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -5335,6 +5457,10 @@ PrefabInstance:
       propertyPath: lightUpAbility
       value: 
       objectReference: {fileID: 1194555132}
+    - target: {fileID: 8321402707969312447, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
 --- !u!1001 &1125424426
@@ -5459,6 +5585,88 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 9b8a78dbb8e688e468daf2da07cf93b6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27310aebf2c8245efa0a9093e521a1bc, type: 3}
+--- !u!1001 &1144792480
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3374917474248398755, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374917474248398755, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.381
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374917474248398755, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.097
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374917474449655842, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_Name
+      value: CheckpointRegion
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374917474449655843, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374917474449655843, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10.9905
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374917474449655843, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 7.8754997
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374917474449655843, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 34.569
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374917474449655843, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374917474449655843, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 12.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374917474449655843, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374917474449655843, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374917474449655843, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374917474449655843, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374917474449655843, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374917474449655843, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374917474449655843, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+--- !u!1 &1144792481 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3374917474449655842, guid: b633bc64d8845fd47b7e5c167f1ff5d6, type: 3}
+  m_PrefabInstance: {fileID: 1144792480}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1145720211
 GameObject:
   m_ObjectHideFlags: 0
@@ -5872,6 +6080,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvisCube (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3866411814534640656, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4087729883261837022, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -5923,7 +6135,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1198884496}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -6729,7 +6941,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1471419492}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -6826,7 +7038,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1481679530}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -7055,7 +7267,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501020583}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -7152,7 +7364,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1523987642}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -7310,7 +7522,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1583692784}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -7429,6 +7641,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvisCube (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 3866411814534640656, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
+      propertyPath: m_TagString
+      value: Curb
+      objectReference: {fileID: 0}
     - target: {fileID: 4087729883261837022, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -7437,6 +7653,10 @@ PrefabInstance:
       propertyPath: lightUpAbility
       value: 
       objectReference: {fileID: 1194555132}
+    - target: {fileID: 8321402707969312447, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
 --- !u!1001 &1589514394
@@ -7541,7 +7761,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1595940250}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -7633,7 +7853,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1634336193}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -7750,7 +7970,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681251674}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -7821,6 +8041,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9b8a78dbb8e688e468daf2da07cf93b6, type: 2}
+    - target: {fileID: 4518731623668798432, guid: b4d2a084b6d3b4137b3d950882bff490, type: 3}
+      propertyPath: m_TagString
+      value: Curb
+      objectReference: {fileID: 0}
     - target: {fileID: 4518731623668798434, guid: b4d2a084b6d3b4137b3d950882bff490, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -8171,6 +8395,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvisCube (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 3866411814534640656, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
+      propertyPath: m_TagString
+      value: Curb
+      objectReference: {fileID: 0}
     - target: {fileID: 4087729883261837022, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -8179,6 +8407,10 @@ PrefabInstance:
       propertyPath: lightUpAbility
       value: 
       objectReference: {fileID: 1194555132}
+    - target: {fileID: 8321402707969312447, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
 --- !u!1001 &1799661360
@@ -8208,6 +8440,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 1.65
       objectReference: {fileID: 0}
+    - target: {fileID: 1483056279618154152, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+      propertyPath: checkpoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1483056279618154152, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+      propertyPath: checkpoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1144792481}
+    - target: {fileID: 1483056279618154152, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+      propertyPath: checkpoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 807565739}
     - target: {fileID: 4857923752144417557, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: nextLevelName
       value: EnemyLevel
@@ -8477,6 +8721,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvisCube (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 3866411814534640656, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
+      propertyPath: m_TagString
+      value: Curb
+      objectReference: {fileID: 0}
     - target: {fileID: 4087729883261837022, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -8485,6 +8733,10 @@ PrefabInstance:
       propertyPath: lightUpAbility
       value: 
       objectReference: {fileID: 1194555132}
+    - target: {fileID: 8321402707969312447, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
 --- !u!1 &1819052487
@@ -8570,7 +8822,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1853758945}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -8687,7 +8939,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1864959071}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -9239,7 +9491,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1990943336}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -9402,7 +9654,7 @@ Transform:
   - {fileID: 1618818233}
   - {fileID: 1801169558}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2012163202 stripped
 Transform:
@@ -9450,7 +9702,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2014110173}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -9574,6 +9826,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvisCube (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3866411814534640656, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
+      propertyPath: m_TagString
+      value: Curb
+      objectReference: {fileID: 0}
     - target: {fileID: 4087729883261837022, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -9582,6 +9838,10 @@ PrefabInstance:
       propertyPath: lightUpAbility
       value: 
       objectReference: {fileID: 1194555132}
+    - target: {fileID: 8321402707969312447, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
 --- !u!4 &2029375417 stripped
@@ -9726,6 +9986,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 2246188026112897404, guid: 539df2317c61dbf4ba508af49f5a4601, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 539df2317c61dbf4ba508af49f5a4601, type: 3}
 --- !u!1 &2081445136
@@ -9769,7 +10033,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2081445136}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -9892,6 +10156,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvisCube (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 3866411814534640656, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
+      propertyPath: m_TagString
+      value: Curb
+      objectReference: {fileID: 0}
     - target: {fileID: 4087729883261837022, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -9900,6 +10168,10 @@ PrefabInstance:
       propertyPath: lightUpAbility
       value: 
       objectReference: {fileID: 1194555132}
+    - target: {fileID: 8321402707969312447, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
 --- !u!1001 &2095572040
@@ -10034,6 +10306,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvisCube (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3866411814534640656, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
+      propertyPath: m_TagString
+      value: Curb
+      objectReference: {fileID: 0}
     - target: {fileID: 4087729883261837022, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -10042,6 +10318,10 @@ PrefabInstance:
       propertyPath: lightUpAbility
       value: 
       objectReference: {fileID: 1194555132}
+    - target: {fileID: 8321402707969312447, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9406516f8255fcf4cbbedb3074a197cf, type: 3}
 --- !u!23 &199901633852443700

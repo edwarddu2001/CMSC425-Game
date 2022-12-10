@@ -217,6 +217,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &653725339 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4857923753954302612, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+  m_PrefabInstance: {fileID: 690215664}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &670326342 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5551336194949407829, guid: 873d27183cc8e45b19bd637924446228, type: 3}
@@ -356,6 +361,11 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 7092763465234066235, guid: 873d27183cc8e45b19bd637924446228, type: 3}
   m_PrefabInstance: {fileID: 690215664}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &900465743 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4857923753224062759, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+  m_PrefabInstance: {fileID: 690215664}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1064674200 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4877770090759249762, guid: 873d27183cc8e45b19bd637924446228, type: 3}
@@ -391,8 +401,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballCam: {fileID: 670326342}
-  holeGUI: {fileID: 0}
-  scorecardGUI: {fileID: 0}
+  holeGUI: {fileID: 900465743}
+  scorecardGUI: {fileID: 653725339}
   roomPrefab: {fileID: 5432567263857057400, guid: 18e045e4624193e408d69d8e072edaac, type: 3}
   deadEndPrefab: {fileID: 5432567263857057400, guid: e280769faa915eb47b33f9c892c73986, type: 3}
   seed: 65484186

@@ -138,8 +138,9 @@ public class ControlsUI : MonoBehaviour
             dynamicControls = Object.Instantiate(dynamicControlsTemplate);
             dynamicControls.SetActive(true);
             dynamicControls.transform.SetParent(dynamicControlsTemplate.transform.parent);
-            dynamicControls.GetComponent<RectTransform>().anchoredPosition3D = dynamicControlsTemplate.GetComponent<RectTransform>().anchoredPosition3D;
-
+            RectTransform rt = dynamicControls.GetComponent<RectTransform>();
+            rt.anchoredPosition3D = dynamicControlsTemplate.GetComponent<RectTransform>().anchoredPosition3D;
+            //rt.localScale = new Vector3(rt.localScale.x * 2.0f, rt.localScale.y * 2.0f, rt.localScale.z * 2.0f);
             
             //for all ability cases when the ball IS MOVING
             if (inMotion)

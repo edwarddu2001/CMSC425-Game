@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -241,6 +241,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.16
       objectReference: {fileID: 0}
+    - target: {fileID: 4857923752144417557, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+      propertyPath: nextLevelName
+      value: EndScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 4857923752144417557, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+      propertyPath: nextLevelTransition
+      value: 
+      objectReference: {fileID: 690215665}
+    - target: {fileID: 4930469449209008562, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5551336193848583319, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: m_Name
       value: MGKit2 w Materials
@@ -317,10 +329,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6588827768943779726, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7110219971584422163, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7259375282061018154, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+      propertyPath: nextLevelTransition
+      value: 
+      objectReference: {fileID: 690215665}
     - target: {fileID: 9053225944319083968, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: nextLevelName
       value: EndScene
@@ -331,9 +351,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 873d27183cc8e45b19bd637924446228, type: 3}
---- !u!1 &1058167889 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6294469985591673512, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+--- !u!95 &690215665 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7092763465234066235, guid: 873d27183cc8e45b19bd637924446228, type: 3}
   m_PrefabInstance: {fileID: 690215664}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1064674200 stripped
@@ -371,8 +391,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballCam: {fileID: 670326342}
-  holeGUI: {fileID: 1058167889}
-  scorecardGUI: {fileID: 1642141536}
+  holeGUI: {fileID: 0}
+  scorecardGUI: {fileID: 0}
   roomPrefab: {fileID: 5432567263857057400, guid: 18e045e4624193e408d69d8e072edaac, type: 3}
   deadEndPrefab: {fileID: 5432567263857057400, guid: e280769faa915eb47b33f9c892c73986, type: 3}
   seed: 65484186
@@ -393,8 +413,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1642141536 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8010134505276234230, guid: 873d27183cc8e45b19bd637924446228, type: 3}
-  m_PrefabInstance: {fileID: 690215664}
-  m_PrefabAsset: {fileID: 0}

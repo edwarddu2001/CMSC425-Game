@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0008510157, g: 0.0018434842, b: 0.054547586, a: 1}
+  m_IndirectSpecularColor: {r: 0.0007200191, g: 0.0018433576, b: 0.05432608, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1958,6 +1958,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.908
       objectReference: {fileID: 0}
+    - target: {fileID: 4857923752144417557, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+      propertyPath: nextLevelName
+      value: ZachsCrazy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4857923752144417557, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+      propertyPath: nextLevelTransition
+      value: 
+      objectReference: {fileID: 504100827}
+    - target: {fileID: 4930469449209008562, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5551336193488058792, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: sounds.Array.size
       value: 3
@@ -2102,10 +2114,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6588827768943779726, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7110219971584422163, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7259375282061018154, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+      propertyPath: nextLevelTransition
+      value: 
+      objectReference: {fileID: 504100827}
     - target: {fileID: 9053225944319083968, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: nextLevelName
       value: ZachsCrazy
@@ -2116,6 +2136,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+--- !u!95 &504100827 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7092763465234066235, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+  m_PrefabInstance: {fileID: 504100826}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &512273418
 GameObject:
   m_ObjectHideFlags: 0

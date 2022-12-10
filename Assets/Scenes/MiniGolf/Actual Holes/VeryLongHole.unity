@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.42978093, g: 0.5002796, b: 0.568721, a: 1}
+  m_IndirectSpecularColor: {r: 0.42979622, g: 0.5002178, b: 0.5687746, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1534,17 +1534,6 @@ Transform:
   m_Father: {fileID: 641839492}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &479933657 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4198580345684566027, guid: 873d27183cc8e45b19bd637924446228, type: 3}
-  m_PrefabInstance: {fileID: 2013945764}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &494212074
 GameObject:
   m_ObjectHideFlags: 0
@@ -6223,17 +6212,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4846560431791321150, guid: 122a37c544d274726bd750f3e2a6671a, type: 3}
   m_PrefabInstance: {fileID: 2096933057}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1675598874 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5851963648313588104, guid: 873d27183cc8e45b19bd637924446228, type: 3}
-  m_PrefabInstance: {fileID: 2013945764}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1684011665
 GameObject:
   m_ObjectHideFlags: 0
@@ -7567,6 +7545,18 @@ PrefabInstance:
       propertyPath: checkpoints.Array.data[1]
       value: 
       objectReference: {fileID: 539983764}
+    - target: {fileID: 4857923752144417557, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+      propertyPath: nextLevelName
+      value: Islands
+      objectReference: {fileID: 0}
+    - target: {fileID: 4857923752144417557, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+      propertyPath: nextLevelTransition
+      value: 
+      objectReference: {fileID: 2013945765}
+    - target: {fileID: 4930469449209008562, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5551336193848583319, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: m_Name
       value: MGKit2 w Materials
@@ -7662,11 +7652,11 @@ PrefabInstance:
     - target: {fileID: 5734600336739426372, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: shotLoft
       value: 
-      objectReference: {fileID: 1675598874}
+      objectReference: {fileID: 0}
     - target: {fileID: 5734600336739426372, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: shotDirection
       value: 
-      objectReference: {fileID: 479933657}
+      objectReference: {fileID: 0}
     - target: {fileID: 6362220975051716549, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -7675,10 +7665,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6588827768943779726, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7110219971584422163, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7259375282061018154, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+      propertyPath: nextLevelTransition
+      value: 
+      objectReference: {fileID: 2013945765}
     - target: {fileID: 9053225944319083968, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: nextLevelName
       value: Islands
@@ -7689,6 +7687,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+--- !u!95 &2013945765 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7092763465234066235, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+  m_PrefabInstance: {fileID: 2013945764}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2028379079
 GameObject:
   m_ObjectHideFlags: 0

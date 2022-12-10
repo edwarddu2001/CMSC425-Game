@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.42979622, g: 0.5002178, b: 0.5687746, a: 1}
+  m_IndirectSpecularColor: {r: 0.42978093, g: 0.5002796, b: 0.568721, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2966,7 +2966,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 943654457}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3dec353cbccc5ba459306b62d451bf93, type: 3}
   m_Name: 
@@ -5738,6 +5738,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelLoader
       objectReference: {fileID: 0}
+    - target: {fileID: 3341086965564886113, guid: bf40448c4a4dbbf4eb656783cbb499c0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3341086965564886142, guid: bf40448c4a4dbbf4eb656783cbb499c0, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -5780,6 +5784,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3341086965564886142, guid: bf40448c4a4dbbf4eb656783cbb499c0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3341086965564886143, guid: bf40448c4a4dbbf4eb656783cbb499c0, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3341086966458057380, guid: bf40448c4a4dbbf4eb656783cbb499c0, type: 3}

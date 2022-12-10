@@ -2647,6 +2647,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelLoader
       objectReference: {fileID: 0}
+    - target: {fileID: 3341086965564886113, guid: bf40448c4a4dbbf4eb656783cbb499c0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3341086965564886142, guid: bf40448c4a4dbbf4eb656783cbb499c0, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -2689,6 +2693,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3341086965564886142, guid: bf40448c4a4dbbf4eb656783cbb499c0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3341086965564886143, guid: bf40448c4a4dbbf4eb656783cbb499c0, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3341086965564886143, guid: bf40448c4a4dbbf4eb656783cbb499c0, type: 3}

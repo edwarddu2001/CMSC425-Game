@@ -43,13 +43,19 @@ public class LevelLoader : MonoBehaviour
 
     IEnumerator LoadLevel(string levelIndex){
         string sceneNameOld;
+        
         //play animation
         nextLevelTransition.SetTrigger("Start");
         //wait
         yield return new WaitForSeconds(transitionTime);
         //load scene
         sceneNameOld = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(levelIndex);
+        
+        SceneManager.LoadScene(levelIndex, LoadSceneMode.Additive);
+
+        yield return null;
+       
+        //SceneManager.SetActiveScene(SceneManager.GetSceneByName(levelIndex));
         SceneManager.UnloadSceneAsync(sceneNameOld);
     }
 
@@ -59,4 +65,8 @@ public class LevelLoader : MonoBehaviour
             active = true;
         }
     }
+
+   
+
+  
 }

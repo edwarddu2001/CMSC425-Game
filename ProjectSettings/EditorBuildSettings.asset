@@ -39,7 +39,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MiniGolf/Actual Holes/SpaceHole.unity
     guid: 30b046ad9abfc4300b8a9cc489444d07
   - enabled: 1
-    path: Assets/Scenes/MiniGolf/EndScene.unity
+    path: Assets/Scenes/MiniGolf/Actual Holes/EndScene.unity
     guid: 778e2da7ffd084584be7069b11e9a0e0
   - enabled: 1
     path: Assets/Scenes/MiniGolf/Actual Holes/EnemyLevel.unity

@@ -189,19 +189,19 @@ public class MoveGolf : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            //rbody.AddForce(Vector3.right * 0.01f);
+            rbody.AddForce(Vector3.right * 0.01f);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            //rbody.AddForce(Vector3.left * 0.01f);
+            rbody.AddForce(Vector3.left * 0.01f);
         }
         if (Input.GetKey(KeyCode.W))
         {
-            //rbody.AddForce(Vector3.up * 0.01f);
+            rbody.AddForce(Vector3.up * 0.01f);
         }
         if (Input.GetKey(KeyCode.S))
         {
-            //rbody.AddForce(Vector3.back * 0.01f);
+            rbody.AddForce(Vector3.back * 0.01f);
         }
 
         //end your "labyrinth rotation", go back to normal.

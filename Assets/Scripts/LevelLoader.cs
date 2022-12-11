@@ -50,13 +50,15 @@ public class LevelLoader : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
         //load scene
         sceneNameOld = SceneManager.GetActiveScene().name;
+        Debug.Log(sceneNameOld);
         
         SceneManager.LoadScene(levelIndex, LoadSceneMode.Additive);
 
+        
         yield return null;
-       
         //SceneManager.SetActiveScene(SceneManager.GetSceneByName(levelIndex));
         SceneManager.UnloadSceneAsync(sceneNameOld);
+        
     }
 
     public void activate(){

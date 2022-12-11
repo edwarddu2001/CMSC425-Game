@@ -48,7 +48,7 @@ public class ZachRoomScript : MonoBehaviour
             if (myNeighbors != wallNum){
                 for(int theirNeighbors = 0; theirNeighbors < 4; theirNeighbors++){
                     if(neighbors[myNeighbors] != null && neighbors[myNeighbors].GetComponent<ZachRoomScript>().neighbors[theirNeighbors] != null && neighbors[myNeighbors].GetComponent<ZachRoomScript>().neighbors[theirNeighbors].GetComponent<ZachRoomScript>().id != id){
-                        //Debug.Log("Destroying" + myNeighbors + "," + theirNeighbors );
+                        Debug.Log("Destroying" + myNeighbors + "," + theirNeighbors );
                         Destroy(neighbors[myNeighbors].GetComponent<ZachRoomScript>().neighbors[theirNeighbors]);
                     }
                 }
@@ -62,7 +62,7 @@ public class ZachRoomScript : MonoBehaviour
     void OnDestroy(){
         Debug.Log("Room " + id + " Destroyed!");
     }
-    
+
     public void SpawnHole(GameObject ballCam, GameObject holeGUI, GameObject scorecardGUI){
         GameObject holeObject = Instantiate(holePrefab, transform);
         ZachHole hole = holeObject.transform.GetComponentInChildren<ZachHole>();

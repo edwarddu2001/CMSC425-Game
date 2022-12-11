@@ -69,13 +69,13 @@ public class MazeCreation : MonoBehaviour
     }
 
     public void Generate(int levels){
+        Node.idCount = 0;
         root = new Node(false, 0);
         root.roomType = SpecialRoom.Tee;
         ArrayList unfilled = new ArrayList();
         ArrayList nextUnfilled = new ArrayList();
         ArrayList waiting = new ArrayList();
         rooms = new ArrayList();
-        Node.idCount = 0;
         unfilled.Add(root);
         rooms.Add(root);
         do{

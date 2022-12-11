@@ -6,7 +6,7 @@ public class ZachWall : MonoBehaviour
 {
     [SerializeField] private ZachDoorway doorway;
     [SerializeField] private Vector3 SignPos;
-    [SerializeField] private float signBuffer = 0f;
+    //[SerializeField] private float signBuffer = 0f;
     [SerializeField] private GameObject[] SignPrefabs;
     [SerializeField] private int wallNum;
 

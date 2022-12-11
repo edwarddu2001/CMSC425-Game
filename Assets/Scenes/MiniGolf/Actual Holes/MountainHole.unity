@@ -15447,6 +15447,34 @@ PrefabInstance:
       propertyPath: playerContainer
       value: 
       objectReference: {fileID: 1034592232}
+    - target: {fileID: 6089865819231402331, guid: dec2710d168430f4f9c0054af556db21, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6089865819231402331, guid: dec2710d168430f4f9c0054af556db21, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6089865819231402331, guid: dec2710d168430f4f9c0054af556db21, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 708543634204321312}
+    - target: {fileID: 6089865819231402331, guid: dec2710d168430f4f9c0054af556db21, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6089865819231402331, guid: dec2710d168430f4f9c0054af556db21, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: doIt
+      objectReference: {fileID: 0}
+    - target: {fileID: 6089865819231402331, guid: dec2710d168430f4f9c0054af556db21, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ScorecardScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6089865819231402331, guid: dec2710d168430f4f9c0054af556db21, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7736496048214049743, guid: dec2710d168430f4f9c0054af556db21, type: 3}
       propertyPath: ball
       value: 

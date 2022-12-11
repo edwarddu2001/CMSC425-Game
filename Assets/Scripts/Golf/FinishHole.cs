@@ -52,6 +52,9 @@ public class FinishHole : MonoBehaviour
             Debug.Log("Finished");
             cup.SetActive(true);
 
+            //disable controls UI, nothing to control anymore.
+            FindObjectOfType<ControlsUI>().gameObject.SetActive(false);
+
             //remove the ground below the hole's collider, so the ball appears to sink into the hole
             holeGround.GetComponent<BoxCollider>().enabled = false;
 

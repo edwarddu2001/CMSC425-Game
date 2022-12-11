@@ -1492,11 +1492,6 @@ PrefabInstance:
       objectReference: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 400dc738bb8a9994aaf5c32d41d751ef, type: 3}
---- !u!1 &826596982 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4857923753954302612, guid: 873d27183cc8e45b19bd637924446228, type: 3}
-  m_PrefabInstance: {fileID: 1827919320}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1031263413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2657,6 +2652,11 @@ PrefabInstance:
       objectReference: {fileID: 13400000, guid: a48c199ed9f93ff498285d054b103ad5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 400dc738bb8a9994aaf5c32d41d751ef, type: 3}
+--- !u!1 &1612139333 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6947805306802339790, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+  m_PrefabInstance: {fileID: 1827919320}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1638619031
 GameObject:
   m_ObjectHideFlags: 0
@@ -2944,6 +2944,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 450188585081089622, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 450188585081089622, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 450188585081089622, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1827919328}
+    - target: {fileID: 450188585081089622, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 450188585081089622, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: doIt
+      objectReference: {fileID: 0}
+    - target: {fileID: 450188585081089622, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ScorecardScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 450188585081089622, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 458332476491580046, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: m_UiScaleMode
       value: 1
@@ -3247,7 +3275,11 @@ PrefabInstance:
     - target: {fileID: 7709406317144268721, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: scorecardGUI
       value: 
-      objectReference: {fileID: 826596982}
+      objectReference: {fileID: 1612139333}
+    - target: {fileID: 8278077904838812664, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+      propertyPath: nextLevelName
+      value: LightUpAndDestroyLevel
+      objectReference: {fileID: 0}
     - target: {fileID: 9053225944319083968, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: nextLevelName
       value: LightUpAndDestroyLevel

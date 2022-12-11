@@ -4495,6 +4495,10 @@ PrefabInstance:
       propertyPath: scorecardGUI
       value: 
       objectReference: {fileID: 1615029734}
+    - target: {fileID: 8278077904838812664, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+      propertyPath: nextLevelName
+      value: VeryLongHole
+      objectReference: {fileID: 0}
     - target: {fileID: 9053225944319083968, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: nextLevelName
       value: VeryLongHole
@@ -4518,7 +4522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!1 &1615029734 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 4857923753954302612, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6947805306802339790, guid: 873d27183cc8e45b19bd637924446228, type: 3}
   m_PrefabInstance: {fileID: 1615029732}
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &1615029735 stripped

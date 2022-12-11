@@ -51,7 +51,7 @@ public class ScorecardScript : MonoBehaviour
 
     public int getCourseScore()
     {
-        return holeScore;
+        return courseScore;
     }
 
     public void finishThisHole()

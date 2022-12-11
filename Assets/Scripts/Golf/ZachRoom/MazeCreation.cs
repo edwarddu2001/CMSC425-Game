@@ -29,6 +29,10 @@ public class MazeCreation : MonoBehaviour
     
     void Start()
     {
+        
+    }
+
+    public void OnlyRunOnceInCorrectScene(){
         transform.position = player.position;
         rooms = new ArrayList();
         spawnedRooms = new ArrayList();

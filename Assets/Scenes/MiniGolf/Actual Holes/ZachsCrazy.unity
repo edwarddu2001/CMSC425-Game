@@ -229,6 +229,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 32666566803828785, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 458332476491580046, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: m_UiScaleMode
       value: 1
@@ -435,3 +439,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4170727681573815976, guid: 873d27183cc8e45b19bd637924446228, type: 3}
   m_PrefabInstance: {fileID: 690215664}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2048999373 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1087680333264613734, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+  m_PrefabInstance: {fileID: 690215664}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2048999379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048999373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fc3702d1495adf47997c66608da0cbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Spawner: {fileID: 1521621076}
+  crazyName: ZachsCrazy

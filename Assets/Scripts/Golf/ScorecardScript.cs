@@ -29,6 +29,15 @@ public class ScorecardScript : MonoBehaviour
         Debug.Log("currHole:" + currHole);
         Debug.Log("holes:" + holes);
 
+        /*since we can't send arrays in playerPrefs, we have to use some string manipulation
+        the score of each hole is separated by a comma- like a CSV
+        this string is passed between holes, effectively making it an array of ints.
+
+        an effect of this is that starting from any hole other than hole #1 in the level selector will
+        report your score as the score from hole 1.
+        
+        we aren't too concerned about this. The level selector was effectively only made for demonstrating certain
+        levels, and for our own testing purposes. it's not how the game is meant to be played.*/
         temp = holes.Split(",");
         
         for (int i = 0 ; i < 9 ; i++) {
@@ -84,6 +93,7 @@ public class ScorecardScript : MonoBehaviour
         return holeByHole;
     }
 
+    //sets the course score, current hole #, and holeByHole array for future holes.
     public void doIt() {
         PlayerPrefs.SetInt("courseScore", courseScore);
         PlayerPrefs.SetInt("currHole", currHole);

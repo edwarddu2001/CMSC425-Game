@@ -996,3 +996,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holeNumber: 0
+  holeNickname: Unnamed

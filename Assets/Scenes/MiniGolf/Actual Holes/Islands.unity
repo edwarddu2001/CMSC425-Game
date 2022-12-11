@@ -1112,6 +1112,10 @@ PrefabInstance:
       propertyPath: holeNumber
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5551336194396415835, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+      propertyPath: holeNickname
+      value: Islands
+      objectReference: {fileID: 0}
     - target: {fileID: 5551336194423270491, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.9889765

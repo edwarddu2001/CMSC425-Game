@@ -20,10 +20,13 @@ public class GolfUIManager : MonoBehaviour
     private AbObserver2 abObserver;
     private int holeNum;
     private int shotNum;
+    private string holeNickname;
 
     void Start()
     {
-        holeNum = hole.GetComponent<HoleProperties>().holeNumber;
+        HoleProperties hp = hole.GetComponent<HoleProperties>();
+        holeNum = hp.holeNumber;
+        holeNickname = hp.holeNickname;
         shotNum = 0;
 
         abObserver = ball.GetComponent<AbObserver2>();
@@ -33,7 +36,7 @@ public class GolfUIManager : MonoBehaviour
     void Update()
     {
         shotNum = ball.transform.parent.GetComponent<ScorecardScript>().getHoleScore();
-        holeNumDisplay.GetComponent<TextMeshProUGUI>().SetText("Hole #" + holeNum);
+        holeNumDisplay.GetComponent<TextMeshProUGUI>().SetText("Hole #" + holeNum + " - " + holeNickname);
         shotNumDisplay.GetComponent<TextMeshProUGUI>().SetText("Shot #" + shotNum);
 
         //display ability name
@@ -71,6 +74,7 @@ public class GolfUIManager : MonoBehaviour
             case "Chipshot": index = 5; break;
             case "Movement+": index = 6; break;
             case "ZeroGrav": index = 7; break;
+            case "Invisible": index = 8; break;
             default: index = 0; break;
         }
 

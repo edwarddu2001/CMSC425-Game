@@ -2022,6 +2022,10 @@ PrefabInstance:
       propertyPath: holeNumber
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 5551336194396415835, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+      propertyPath: holeNickname
+      value: Tunnels
+      objectReference: {fileID: 0}
     - target: {fileID: 5551336194423270493, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2173,8 +2177,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 0.5
+  m_Color: {r: 0.63403344, g: 0.89302856, b: 0.9811321, a: 1}
+  m_Intensity: 1.5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208

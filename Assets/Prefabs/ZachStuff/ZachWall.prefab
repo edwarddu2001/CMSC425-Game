@@ -311,7 +311,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorway: {fileID: 4905505841952341683}
   SignPos: {x: 0, y: 0, z: 0}
-  signBuffer: 0
   SignPrefabs:
   - {fileID: 1086459481471470068, guid: 168ed589c795b084da1e56bbf7bd8a88, type: 3}
   - {fileID: 1086459481471470068, guid: 235855866465fbf40aab12fe2de5832d, type: 3}

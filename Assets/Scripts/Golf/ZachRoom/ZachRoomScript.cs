@@ -65,6 +65,7 @@ public class ZachRoomScript : MonoBehaviour
 
     public void SpawnHole(GameObject ballCam, GameObject holeGUI, GameObject scorecardGUI){
         GameObject holeObject = Instantiate(holePrefab, transform);
+        holeObject.transform.position += new Vector3(0f,-.1999f,0f);
         ZachHole hole = holeObject.transform.GetComponentInChildren<ZachHole>();
             Debug.Log(hole.ballCam);
             hole.ballCam = ballCam;

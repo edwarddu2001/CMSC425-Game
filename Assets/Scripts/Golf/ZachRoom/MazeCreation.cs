@@ -74,6 +74,8 @@ public class MazeCreation : MonoBehaviour
         ArrayList unfilled = new ArrayList();
         ArrayList nextUnfilled = new ArrayList();
         ArrayList waiting = new ArrayList();
+        rooms = new ArrayList();
+        Node.idCount = 0;
         unfilled.Add(root);
         rooms.Add(root);
         do{

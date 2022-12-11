@@ -7689,6 +7689,10 @@ PrefabInstance:
       propertyPath: checkpoints.Array.data[1]
       value: 
       objectReference: {fileID: 539983764}
+    - target: {fileID: 3081955765187698426, guid: 873d27183cc8e45b19bd637924446228, type: 3}
+      propertyPath: m_Volume
+      value: 0.784
+      objectReference: {fileID: 0}
     - target: {fileID: 4857923752144417557, guid: 873d27183cc8e45b19bd637924446228, type: 3}
       propertyPath: nextLevelName
       value: Islands

@@ -315,7 +315,7 @@ public class MoveGolf : MonoBehaviour
 
 
         //modify shot arrow based on user input
-        float rotSpeed = 0.2f; float moveSpeed = 0.01f;
+        float rotSpeed = 0.4f; float moveSpeed = 0.03f;
         if (Input.GetKey(KeyCode.LeftShift))
         {
             rotSpeed *= 3.0f; moveSpeed *= 3.0f;

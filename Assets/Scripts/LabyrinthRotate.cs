@@ -57,7 +57,7 @@ public class LabyrinthRotate : MonoBehaviour
             if (rotZ > 360 - maxAngle - 10 || rotZ < maxAngle)
                 {
                 //Debug.Log(rotZ);
-                transform.rotation = transform.rotation * Quaternion.Euler(Vector3.forward * 0.02f);
+                transform.rotation = transform.rotation * Quaternion.Euler(Vector3.forward * 0.06f);
                 //collie.transform.rotation = transform.rotation * Quaternion.Euler(Vector3.back * 0.02f);
             }
         }
@@ -66,7 +66,7 @@ public class LabyrinthRotate : MonoBehaviour
             if (rotZ > 360 - maxAngle || rotZ < maxAngle + 10)
             {
                 //Debug.Log(rotZ);
-                transform.rotation = transform.rotation * Quaternion.Euler(Vector3.back * 0.02f);
+                transform.rotation = transform.rotation * Quaternion.Euler(Vector3.back * 0.06f);
                 //collie.transform.rotation = transform.rotation * Quaternion.Euler(Vector3.forward * 0.02f);
             }
         }
@@ -76,7 +76,7 @@ public class LabyrinthRotate : MonoBehaviour
             if (rotX > 360 - maxAngle || rotX < maxAngle + 10)
             {
                 //Debug.Log(rotX);
-                transform.rotation = transform.rotation * Quaternion.Euler(Vector3.left * 0.02f);
+                transform.rotation = transform.rotation * Quaternion.Euler(Vector3.left * 0.06f);
                 //collie.transform.rotation = transform.rotation * Quaternion.Euler(Vector3.right * 0.02f);
             }
         }
@@ -85,7 +85,7 @@ public class LabyrinthRotate : MonoBehaviour
             if (rotX > 360 - maxAngle - 10 || rotX < maxAngle)
             {
                 //Debug.Log(rotX);
-                transform.rotation = transform.rotation * Quaternion.Euler(Vector3.right * 0.02f);
+                transform.rotation = transform.rotation * Quaternion.Euler(Vector3.right * 0.06f);
                 //collie.transform.rotation = transform.rotation * Quaternion.Euler(Vector3.left * 0.02f);
             }
         }

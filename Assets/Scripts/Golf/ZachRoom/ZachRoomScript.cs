@@ -59,6 +59,10 @@ public class ZachRoomScript : MonoBehaviour
         Spawner.SpawnNeighbors(transform.position, transform.rotation, this, wallNum);
     }
 
+    void OnDestroy(){
+        Debug.Log("Room " + id + " Destroyed!");
+    }
+    
     public void SpawnHole(GameObject ballCam, GameObject holeGUI, GameObject scorecardGUI){
         GameObject holeObject = Instantiate(holePrefab, transform);
         ZachHole hole = holeObject.transform.GetComponentInChildren<ZachHole>();

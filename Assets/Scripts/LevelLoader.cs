@@ -54,7 +54,7 @@ public class LevelLoader : MonoBehaviour
         
         SceneManager.LoadScene(levelIndex, LoadSceneMode.Additive);
 
-        
+        Debug.Log("loaded");
         yield return null;
         //SceneManager.SetActiveScene(SceneManager.GetSceneByName(levelIndex));
         SceneManager.UnloadSceneAsync(sceneNameOld);

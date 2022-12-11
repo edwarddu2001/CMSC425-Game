@@ -57,6 +57,7 @@ public class MazeCreation : MonoBehaviour
 
         Print();
         Debug.Log(rooms.Count + " total rooms");
+        Debug.Log(spawnedRooms.Count + " spawned rooms");
     }
 
     public void Print(){

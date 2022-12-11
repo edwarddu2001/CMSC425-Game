@@ -12,11 +12,13 @@ public class MazeCreation : MonoBehaviour
     public GameObject deadEndPrefab; 
     private Node root; 
     [SerializeField]
-    public int seed = 0;
+    private int seed = 0;
+    [SerializeField]
+    private bool randSeed = true;
     [SerializeField]
     public const int numNeighbors = 4;
     [SerializeField]
-    public const int maxIter = 2;
+    public const int maxIter = 4;
     [SerializeField]
     private Transform player;
     [SerializeField]
@@ -37,7 +39,7 @@ public class MazeCreation : MonoBehaviour
         rooms = new ArrayList();
         spawnedRooms = new ArrayList();
 
-        UnityEngine.Random.InitState(seed);
+        if(!randSeed){UnityEngine.Random.InitState(seed);} else {UnityEngine.Random.InitState((int)DateTime.Now.Ticks);}
         Generate(maxIter);
 
         GameObject rootRoom = Instantiate(
